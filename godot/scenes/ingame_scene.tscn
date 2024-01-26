@@ -1,17 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=7 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="2_h1yxu"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
-[ext_resource type="Script" path="res://scenes/node_example.gd" id="3_a5686"]
+[ext_resource type="Texture2D" uid="uid://cbch7ldsgk277" path="res://Art/Background.png" id="4_l3pu1"]
+[ext_resource type="PackedScene" uid="uid://csfkucl57dige" path="res://scenes/card_ui/card_ui.tscn" id="4_xpsww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
+size = Vector2(1922, 742)
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
-
-[node name="NodeExample" type="Sprite2D" parent="." groups=["Persist"]]
-texture = ExtResource("2_h1yxu")
-script = ExtResource("3_a5686")
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -23,3 +23,38 @@ visible = false
 unique_name_in_owner = true
 process_mode = 2
 visible = false
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("4_l3pu1")
+centered = false
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CardRelease" type="Area2D" parent="."]
+collision_layer = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardRelease"]
+position = Vector2(961, 371)
+shape = SubResource("RectangleShape2D_um5rq")
+metadata/_edit_lock_ = true
+
+[node name="InteractionLayer" type="CanvasGroup" parent="." groups=["ui_layer"]]
+metadata/_edit_lock_ = true
+
+[node name="Hand" type="HBoxContainer" parent="InteractionLayer"]
+offset_left = 314.0
+offset_top = 744.0
+offset_right = 1594.0
+offset_bottom = 1068.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="CardUI" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
+layout_mode = 2
+
+[node name="CardUI2" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
+layout_mode = 2
+
+[node name="CardUI3" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
+layout_mode = 2

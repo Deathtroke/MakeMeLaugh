@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://csfkucl57dige"]
+
+[ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="1_ymarf"]
+[ext_resource type="Script" path="res://scenes/card_ui/CardUI.cs" id="2_0qs6i"]
+[ext_resource type="Script" path="res://scenes/card_ui/CardStateMachine.cs" id="3_vpjaa"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/CardIdleState.cs" id="4_ecrhc"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/CardClickedState.cs" id="5_py7a4"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/CardDragState.cs" id="6_rovis"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/CardReleaseState.cs" id="7_7u0bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3o3w"]
+size = Vector2(241, 300)
+
+[node name="CardUI" type="Control"]
+custom_minimum_size = Vector2(240, 300)
+layout_mode = 3
+anchor_right = 0.125
+anchor_bottom = 0.278
+offset_bottom = -0.240021
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ymarf")
+script = ExtResource("2_0qs6i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.34902, 1, 0.427451, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "state"
+vertical_alignment = 3
+
+[node name="DropPoint" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPoint"]
+position = Vector2(119.5, 150)
+shape = SubResource("RectangleShape2D_x3o3w")
+
+[node name="CardState" type="Node" parent="."]
+script = ExtResource("3_vpjaa")
+
+[node name="CardIdleState" type="Node" parent="CardState"]
+script = ExtResource("4_ecrhc")
+
+[node name="CardClickedState" type="Node" parent="CardState"]
+script = ExtResource("5_py7a4")
+state = 1
+
+[node name="CardDragState" type="Node" parent="CardState"]
+script = ExtResource("6_rovis")
+state = 2
+
+[node name="CardReleaseState" type="Node" parent="CardState"]
+script = ExtResource("7_7u0bn")
+state = 4
