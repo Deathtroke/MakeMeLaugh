@@ -25,7 +25,7 @@ public partial class CardUI : Control
 	
 	[Export] public Card card;
 
-	[Export] private CharacterStats char_stats;
+	[Export] public CharacterStats Char_stats;
 
 	public override void _Ready()
 	{
@@ -83,7 +83,7 @@ public partial class CardUI : Control
 
 	public void play()
 	{
-		card.play(targets, char_stats);
+		card.play(targets, Char_stats);
 		QueueFree();
 	}
 }
