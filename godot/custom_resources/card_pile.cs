@@ -1,9 +1,11 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class card_pile : Resource
+[GlobalClass]
+public partial class Card_Pile : Resource
 {
     // Define a delegate that describes the signature of the methods that can respond to the event
     public delegate void CardPileSizeChangedHandler(int cardsamount);
@@ -16,52 +18,51 @@ public partial class card_pile : Resource
         // Check if there are any Subscribers
         if (CardPileSizeChanged != null)
         {
-            // Call the Event
+            // Call the Event 
             CardPileSizeChanged(cardsamount);
         }
     }
 
-    private List<Card> cards = new List<Card>();
+    [Export] public Godot.Collections.Array<Card> Cards;
     
     private bool Empty()
     {
-        return cards.Count == 0;
+        return Cards.Count == 0;
     }
 
     private Card DrawCard()
     {
-        if (cards.Count == 0)
+        if (Cards.Count == 0)
         {
             throw new InvalidOperationException("Cannot pop from an empty list.");
         }
 
-        var top = cards[0];
-        cards.RemoveAt(0);
-        CardPileSizeChanged?.Invoke(cards.Count);
+        var top = Cards[0];
+        Cards.RemoveAt(0);
+        CardPileSizeChanged?.Invoke(Cards.Count);
         return top;
     }
     
     private void AddCard(Card card)
     {
-        cards.Insert(0, card);
-        CardPileSizeChanged?.Invoke(cards.Count);
+        Cards.Insert(0, card);
+        CardPileSizeChanged?.Invoke(Cards.Count);
     }
     
     private void Shuffle()
     {
-        var random = new Random();
-        cards = cards.OrderBy(x => random.Next()).ToList();
+        Cards.Shuffle();
     }
     
     private void Clear()
     {
-        cards.Clear();
-        CardPileSizeChanged?.Invoke(cards.Count);
+        Cards.Clear();
+        CardPileSizeChanged?.Invoke(Cards.Count);
     }
 
     private String _to_string()
     {
-        var _card_strings = cards.Select((t, i) => $"{i + 1}: {t.id}").ToList();
+        var _card_strings = Cards.Select((t, i) => $"{i + 1}: {t.id}").ToList();
         return String.Join("\n", _card_strings);
     }
 }

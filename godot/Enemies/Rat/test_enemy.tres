@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://cqb6l5ryvk5xg"]
+
+[ext_resource type="Texture2D" uid="uid://b6bopjqthblsx" path="res://Art/Enemy.png" id="1_18gvi"]
+[ext_resource type="Script" path="res://custom_resources/Stats.cs" id="1_dykt3"]
+
+[resource]
+script = ExtResource("1_dykt3")
+MaxHp = 10
+Art = ExtResource("1_18gvi")
