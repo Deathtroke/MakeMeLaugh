@@ -36,7 +36,7 @@ public partial class CharacterStats : Stats
         return Ap >= card.Ap_cost;
     }
     
-    private Resource create_instance()
+    public CharacterStats create_instance()
     {
         var instance = new CharacterStats();
         instance.MaxHp = MaxHp;

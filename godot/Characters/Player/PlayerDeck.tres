@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CardPile" load_steps=4 format=3 uid="uid://v4w4hsj1mkn5"]
 
-[ext_resource type="Script" path="res://Characters/Player/cards/Basic_Atk_1.cs" id="1_rhv8f"]
+[ext_resource type="Resource" path="res://Characters/Player/cards/Basic_Atk_1.tres" id="1_0e8ry"]
 [ext_resource type="Script" path="res://custom_resources/CardPile.cs" id="1_sqwwt"]
-[ext_resource type="Script" path="res://Characters/Player/cards/Basic_Def_1.cs" id="2_aibs3"]
+[ext_resource type="Resource" path="res://Characters/Player/cards/Basic_Def_1.tres" id="2_athst"]
 
 [resource]
 script = ExtResource("1_sqwwt")
-Cards = Array[Resource]([ExtResource("1_rhv8f"), ExtResource("1_rhv8f"), ExtResource("1_rhv8f"), ExtResource("1_rhv8f"), ExtResource("1_rhv8f"), ExtResource("2_aibs3"), ExtResource("2_aibs3"), ExtResource("2_aibs3"), ExtResource("2_aibs3"), ExtResource("2_aibs3")])
+Cards = Array[Resource]([ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("2_athst")])

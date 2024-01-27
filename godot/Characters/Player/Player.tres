@@ -9,5 +9,5 @@ script = ExtResource("1_oygb0")
 Starting_deck = ExtResource("2_8lie8")
 Draw_per_turn = 5
 Max_ap = 2
-MaxHp = 20
+MaxHp = 90
 Art = ExtResource("1_1qyrv")

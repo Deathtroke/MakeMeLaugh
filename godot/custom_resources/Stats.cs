@@ -20,7 +20,7 @@ public partial class Stats : Resource
     }
     
     [Export] public int MaxHp = 1;
-    [Export] public Texture Art;
+    [Export] public Texture2D Art;
 
     private int _health;
     private int _block;
@@ -51,7 +51,7 @@ public partial class Stats : Resource
         On_stats_changed();
     }
     
-    private void take_damage(int amount)
+    public void take_damage(int amount)
     {
         if (amount <= 0) return;
 
