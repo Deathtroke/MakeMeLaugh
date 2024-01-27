@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://3npr0ba7upc4"]
+[gd_scene load_steps=6 format=3 uid="uid://3npr0ba7upc4"]
 
 [ext_resource type="Texture2D" uid="uid://b6bopjqthblsx" path="res://Art/Enemy.png" id="1_cy4cs"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_lswvk"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="2_4uqbb"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="3_tekfi"]
 
@@ -9,6 +10,7 @@ size = Vector2(285, 280)
 
 [node name="Enemy" type="Area2D" groups=["enemy", "enemys"]]
 collision_layer = 4
+script = ExtResource("1_lswvk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(52.5, 49.25)

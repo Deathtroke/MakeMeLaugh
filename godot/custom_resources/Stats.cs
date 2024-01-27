@@ -67,7 +67,7 @@ public partial class Stats : Resource
         setHealth(_health + amount);
     }
 
-    private Resource create_instance()
+    public Stats create_instance()
     {
         var instance = new Stats();
         instance.MaxHp = MaxHp;

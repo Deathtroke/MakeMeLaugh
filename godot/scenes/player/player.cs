@@ -32,8 +32,6 @@ public partial class player : Node2D
 		{
 			_stats.StatsChanged -= update_stats;
 		}
-
-		_stats = value.create_instance();
 		// Subscribe update_stats to the StatsChanged event
 		_stats.StatsChanged += update_stats;
 
