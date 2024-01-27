@@ -9,9 +9,15 @@ public partial class CardPile : Resource
 {
     // Define a delegate that describes the signature of the methods that can respond to the event
     public delegate void CardPileSizeChangedHandler(int cardsamount);
+
+    [Export] public Godot.Collections.Array<Card> Cards;
     
     // Define an event based on that delegate
     public event CardPileSizeChangedHandler CardPileSizeChanged;
+    public CardPile()
+    {
+        Cards = new Godot.Collections.Array<Card>();
+    }
     
     private void notify(int cardsamount)
     {
@@ -22,10 +28,8 @@ public partial class CardPile : Resource
             CardPileSizeChanged(cardsamount);
         }
     }
-
-    [Export] public Godot.Collections.Array<Card> Cards;
     
-    private bool empty()
+    public bool empty()
     {
         return Cards.Count == 0;
     }
@@ -42,8 +46,8 @@ public partial class CardPile : Resource
         CardPileSizeChanged?.Invoke(Cards.Count);
         return top;
     }
-    
-    private void addcard(Card card)
+
+    public void addcard(Card card)
     {
         Cards.Insert(0, card);
         CardPileSizeChanged?.Invoke(Cards.Count);
@@ -70,7 +74,6 @@ public partial class CardPile : Resource
     {
         var instance = new CardPile();
         instance.Cards = new Godot.Collections.Array<Card>();
-
         foreach (var card in Cards)
         {
             instance.Cards.Add(card.Duplicate());

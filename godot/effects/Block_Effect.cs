@@ -16,7 +16,7 @@ public partial class Block_Effect : Effects
             }
             else if (target is enemy e)
             {
-                e.Stats.Block += amount;
+                e.stats.Block += amount;
             }
         }
     }

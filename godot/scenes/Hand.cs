@@ -20,8 +20,8 @@ public partial class Hand : HBoxContainer
 		_new_card_UI.drag_style = drag_style;
 		AddChild(_new_card_UI);
 	}
-	
-	private void discard_card(CardUI card)
+
+	public void discard_card(CardUI card)
 	{
 		RemoveChild(card);
 		card.QueueFree();
