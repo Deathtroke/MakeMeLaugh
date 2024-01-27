@@ -5,20 +5,26 @@ using System.Collections.Generic;
 public partial class CardAimingState : CardState
 {
 	private const int mouse_y_cancel = 700;
-
+	const float drag_min_threshold = 0.05f;
+	private bool drag_time_passed = false;
+	
 	public override void Enter()
 	{
-		c_ui.color.Color = Godot.Color.Color8(0, 0, 155);
-		c_ui.state.Text = "aiming";
+		var ui_layer = GetTree().GetFirstNodeInGroup("ui_layer");
+		if (ui_layer != null)
+		{
+			c_ui.GetParent().RemoveChild(c_ui);
+			ui_layer.AddChild(c_ui);
+		}
+		
 
-		c_ui.targets = new List<Node>();
+		c_ui.color.Color = Godot.Color.Color8(0, 0, 255);
+		c_ui.state.Text = "drag";
+		
+		drag_time_passed = false;
 
-		var offset = new Vector2(c_ui.parent.Size.X / 2, -c_ui.Size.Y / 2);
-
-		offset.X -= c_ui.Size.X / 2;
-		c_ui.animate_to_position(c_ui.parent.Position + offset, 0.2f);
-
-		//EmitSignal(Events.AimStart, c_ui);
+		var timer = GetTree().CreateTimer(drag_min_threshold, false);
+		timer.Timeout += () => drag_time_passed = true;
 	}
 
 	public override void Exit()
@@ -28,10 +34,15 @@ public partial class CardAimingState : CardState
 
 	public override void on_gui_input(InputEvent e)
 	{
-		bool mouse_motion = e is InputEventMouseMotion;
-		var mous_to_low = c_ui.GetGlobalMousePosition().Y > mouse_y_cancel;
+		var mouse_motion = e is InputEventMouseMotion;
+		var cancel = e.IsActionPressed("right_mouse");
+		var confirm = e.IsActionPressed("left_mouse") || e.IsActionReleased("left_mouse");
 		
-		if ((mouse_motion && mous_to_low) || e.IsActionPressed("right_mouse"))
+	
+		if (mouse_motion)
+			c_ui.GlobalPosition = c_ui.GetGlobalMousePosition() - c_ui.PivotOffset;
+
+		if (cancel)
 		{
 			var hand = GetTree().GetFirstNodeInGroup("hand");
 			if (hand is BoxContainer box)
@@ -42,11 +53,48 @@ public partial class CardAimingState : CardState
 			}
 			EmitSignal(SignalName.Transition, this, (int)State.Idle);
 		}
-		else
+		else if (confirm && drag_time_passed)
 		{
-			GetViewport().SetInputAsHandled();
-			c_ui.hovered = false;
-			EmitSignal(SignalName.Transition, this, (int)State.Released);
+			if (c_ui.GetGlobalMousePosition().Y < 700)
+			{
+				float min_distance = 10000;
+				Area2D closest_enemy;
+				foreach (Area2D enemy in GetTree().GetNodesInGroup("enemy"))
+				{
+					var dist = c_ui.GetGlobalMousePosition().DistanceTo(enemy.Position);
+					if (dist < min_distance)
+					{
+						closest_enemy = enemy;
+						min_distance = dist;
+					}
+				}
+
+				if (min_distance > 250)
+				{
+					var hand = GetTree().GetFirstNodeInGroup("hand");
+					if (hand is BoxContainer box)
+					{
+						c_ui.GetParent().RemoveChild(c_ui);
+						box.AddChild(c_ui);
+						c_ui.PivotOffset = Vector2.Zero;
+					}
+					EmitSignal(SignalName.Transition, this, (int)State.Idle);
+				}
+				GetViewport().SetInputAsHandled();
+				c_ui.hovered = false;
+				EmitSignal(SignalName.Transition, this, (int)State.Released);
+			}
+			else
+			{
+				var hand = GetTree().GetFirstNodeInGroup("hand");
+				if (hand is BoxContainer box)
+				{
+					c_ui.GetParent().RemoveChild(c_ui);
+					box.AddChild(c_ui);
+					c_ui.PivotOffset = Vector2.Zero;
+				}
+				EmitSignal(SignalName.Transition, this, (int)State.Idle);
+			}
 		}
 	}
 }

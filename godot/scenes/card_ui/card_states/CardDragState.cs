@@ -32,7 +32,7 @@ public partial class CardDragState : CardState
 		var cancel = e.IsActionPressed("right_mouse");
 		var confirm = e.IsActionPressed("left_mouse") || e.IsActionReleased("left_mouse");
 		
-		Debug.Print("" + (int)c_ui.card.Target);
+		Debug.Print("x" + (int)c_ui.card.Target);
 
 		
 		if (c_ui.card.is_single_target() && mouse_motion )//&& c_ui.targets.Count > 0)

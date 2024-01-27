@@ -46,7 +46,7 @@ position = Vector2(961, 371)
 shape = SubResource("RectangleShape2D_um5rq")
 metadata/_edit_lock_ = true
 
-[node name="Enemy" type="Area2D" parent="."]
+[node name="Enemy" type="Area2D" parent="." groups=["enemy"]]
 position = Vector2(1547, 337)
 collision_layer = 4
 
