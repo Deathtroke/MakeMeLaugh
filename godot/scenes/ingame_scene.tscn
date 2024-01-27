@@ -7,16 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://cbch7ldsgk277" path="res://Art/Background.png" id="4_l3pu1"]
 [ext_resource type="PackedScene" uid="uid://3npr0ba7upc4" path="res://scenes/enemy/enemy.tscn" id="5_ye3yi"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
-[ext_resource type="Resource" path="res://Enemies/Rat/rat_enemy.tres" id="6_yx6bt"]
 [ext_resource type="Script" path="res://scenes/player/PlayerHandler.cs" id="8_n6jxw"]
 [ext_resource type="Script" path="res://scenes/battle_ui.cs" id="10_js3df"]
-[ext_resource type="PackedScene" uid="uid://bitldi2oyyiir" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
-[ext_resource type="StyleBox" path="res://scenes/card_ui/card_default.tres" id="11_1yrtb"]
+[ext_resource type="PackedScene" uid="uid://dofh2fo2j0ugs" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
+[ext_resource type="StyleBox" uid="uid://b1i37v1i014qh" path="res://scenes/card_ui/card_default.tres" id="11_1yrtb"]
 [ext_resource type="Script" path="res://scenes/Hand.cs" id="11_5qo5d"]
 [ext_resource type="PackedScene" uid="uid://cfdc0pla45nw" path="res://scenes/player/player.tscn" id="11_qr5ib"]
-[ext_resource type="StyleBox" path="res://scenes/card_ui/card_hover.tres" id="12_75hk3"]
+[ext_resource type="StyleBox" uid="uid://debnulso2gr7b" path="res://scenes/card_ui/card_hover.tres" id="12_75hk3"]
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
-[ext_resource type="StyleBox" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
+[ext_resource type="StyleBox" uid="uid://b4m5uw051k1rs" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="15_83gvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
@@ -47,7 +46,6 @@ script = ExtResource("4_bi5y1")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("5_ye3yi")]
 position = Vector2(1465, 397)
-Stats = ExtResource("6_yx6bt")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("6_h6lxg")]
 
