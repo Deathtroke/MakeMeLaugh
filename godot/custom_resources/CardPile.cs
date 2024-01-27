@@ -30,7 +30,7 @@ public partial class CardPile : Resource
         return Cards.Count == 0;
     }
 
-    private Card drawcard()
+    public Card drawcard()
     {
         if (Cards.Count == 0)
         {
@@ -48,8 +48,8 @@ public partial class CardPile : Resource
         Cards.Insert(0, card);
         CardPileSizeChanged?.Invoke(Cards.Count);
     }
-    
-    private void shuffle()
+
+    public void shuffle()
     {
         Cards.Shuffle();
     }
@@ -69,7 +69,12 @@ public partial class CardPile : Resource
     public CardPile Duplicate()
     {
         var instance = new CardPile();
-        instance.Cards = Cards;
+        instance.Cards = new Godot.Collections.Array<Card>();
+
+        foreach (var card in Cards)
+        {
+            instance.Cards.Add(card.Duplicate());
+        }
         return instance;
     }
 }

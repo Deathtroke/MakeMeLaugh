@@ -6,6 +6,7 @@ public partial class ingame_scene : Node2D
 	private ColorRect fade_overlay;
 	private CenterContainer pause_overlay;
 	private battle_ui _battle_ui;
+	private PlayerHandler _player_handler;
 
 	[Export] public CharacterStats Char_stats;
 	private void _ready()
@@ -13,13 +14,14 @@ public partial class ingame_scene : Node2D
 		fade_overlay = GetNode<ColorRect>("UI/FadeOverlay");
 		pause_overlay = GetNode<CenterContainer>("UI/PauseOverlay");
 		_battle_ui = GetNode<battle_ui>("BattleUI");
+		_player_handler = GetNode<PlayerHandler>("PlayerHandler");
 
 		fade_overlay.Visible = true;
 		
 		CharacterStats _new_stats = Char_stats.create_instance();
-		_battle_ui._character_stats = _new_stats;
+		_battle_ui.Character_stats = _new_stats;
 		
-		start_battle();
+		start_battle(_new_stats);
 	}
 	
 	private void _input(InputEvent @event)
@@ -33,8 +35,9 @@ public partial class ingame_scene : Node2D
 		}
 	}
 	
-	private void start_battle()
+	private void start_battle(CharacterStats stats)
 	{
-		GD.Print("[ingame_scene.cs] Battle started");
+		
+		_player_handler.start_battle(stats);
 	}
 }

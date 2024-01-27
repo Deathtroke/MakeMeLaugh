@@ -60,7 +60,6 @@ public partial class enemy : Area2D
         if (_stats.Health <= 0) return;
 		
         _stats.take_damage(amount);
-        
         if (_stats.Health <= 0) QueueFree();
     }
     
