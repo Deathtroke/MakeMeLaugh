@@ -21,12 +21,10 @@ public partial class ap_ui : Panel
 	void set_char_stats(CharacterStats value)
 	{
 		char_stats = value;
-		char_stats.Changed += on_char_stats;
-		
-		on_char_stats();
+		char_stats.StatsChanged += on_char_stats;
 	}
 
-	void on_char_stats()
+	void on_char_stats(object sender, EventArgs e)
 	{
 		ap_Label.Text = char_stats.Ap + "/" + char_stats.Max_ap;
 	}
