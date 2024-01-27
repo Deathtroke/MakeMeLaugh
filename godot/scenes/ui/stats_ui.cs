@@ -12,8 +12,8 @@ public partial class stats_ui : HBoxContainer
     {
         block = GetNode<HBoxContainer>("Block");
         health = GetNode<HBoxContainer>("Health");
-        block_label = block.GetNode<Label>("Label");
-        health_label = health.GetNode<Label>("Label");
+        block_label = block.GetNode<Label>("BlockLabel");
+        health_label = health.GetNode<Label>("HealthLabel");
     }
 
    public void update_stats(Stats stats)

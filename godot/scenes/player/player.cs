@@ -1,16 +1,20 @@
 using Godot;
 using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 public partial class player : Node2D
 {
 
-	private Sprite2D _sprite2D;
+	private Sprite2D _sprite2D = new Sprite2D();
 	private stats_ui stats_ui;
 	
 	
 	public override void _Ready()
 	{
 		stats_ui = GetNode<stats_ui>("StatsUI");
+		_sprite2D = GetNode<Sprite2D>("Sprite2D");
+		GD.Print("Is this a race condition?");
 	}
 	
 	private CharacterStats _stats;
@@ -23,7 +27,6 @@ public partial class player : Node2D
 	private void setStats(CharacterStats value)
 	{
 		_stats = value.create_instance();
-		
 			// If _stats is not null, unsubscribe update_stats from the StatsChanged event
 		if (_stats != null)
 		{
@@ -31,7 +34,6 @@ public partial class player : Node2D
 		}
 
 		_stats = value.create_instance();
-
 		// Subscribe update_stats to the StatsChanged event
 		_stats.StatsChanged += update_stats;
 
@@ -43,8 +45,9 @@ public partial class player : Node2D
 		if (!(_stats is CharacterStats)) return;
 		if (!this.IsInsideTree())
 		{
-			await ToSignal(this, "ready");
+			 await Task.Delay(200);
 		}
+		GD.Print(_sprite2D);
 		_sprite2D.Texture = _stats.Art;
 		update_stats(null, null);
 	}

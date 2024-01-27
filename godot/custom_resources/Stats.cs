@@ -40,7 +40,7 @@ public partial class Stats : Resource
     
     public int Block
     {
-        get { return _health; }
+        get { return _block; }
         set { setBlock(value); }
     }
 

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardPile" load_steps=4 format=3 uid="uid://v4w4hsj1mkn5"]
 
-[ext_resource type="Resource" path="res://Characters/Player/cards/Basic_Atk_1.tres" id="1_0e8ry"]
+[ext_resource type="Resource" uid="uid://byoyl1yf80noq" path="res://Characters/Player/cards/Basic_Atk_1.tres" id="1_0e8ry"]
 [ext_resource type="Script" path="res://custom_resources/CardPile.cs" id="1_sqwwt"]
-[ext_resource type="Resource" path="res://Characters/Player/cards/Basic_Def_1.tres" id="2_athst"]
+[ext_resource type="Resource" uid="uid://bnceivhunnwr4" path="res://Characters/Player/cards/Basic_Def_1.tres" id="2_athst"]
 
 [resource]
 script = ExtResource("1_sqwwt")
