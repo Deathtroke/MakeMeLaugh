@@ -18,7 +18,7 @@ public partial class Damage_Effect : Effects
             else if (target is enemy e)
             {
                 Debug.Print("" + amount);
-                e.Stats.take_damage(amount);
+                e.stats.take_damage(amount);
             }
         }
     }

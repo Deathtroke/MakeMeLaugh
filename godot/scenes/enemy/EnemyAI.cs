@@ -47,7 +47,7 @@ public partial class EnemyAI : Node
 		setup_chance();
 	}
 
-	Enemy_Action get_action()
+	public Enemy_Action get_action()
 	{
 		var action = get_first_con_action();
 

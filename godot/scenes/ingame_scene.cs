@@ -7,6 +7,7 @@ public partial class ingame_scene : Node2D
 	private CenterContainer pause_overlay;
 	private battle_ui _battle_ui;
 	private PlayerHandler _player_handler;
+	private EnemyHandler enemyHandler;
 
 	[Export] public CharacterStats Char_stats;
 	private void _ready()
@@ -15,6 +16,7 @@ public partial class ingame_scene : Node2D
 		pause_overlay = GetNode<CenterContainer>("UI/PauseOverlay");
 		_battle_ui = GetNode<battle_ui>("BattleUI");
 		_player_handler = GetNode<PlayerHandler>("PlayerHandler");
+		enemyHandler = GetNode<EnemyHandler>("EnemyHandler");
 
 		fade_overlay.Visible = true;
 		

@@ -24,7 +24,7 @@ public partial class Stats : Resource
     [Export] public Texture2D Art;
 
     private int _health;
-    private int _block;
+    public int _block;
 
     public int Health
     {

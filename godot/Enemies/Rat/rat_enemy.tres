@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://c6cm3nto2pu6s"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://c6cm3nto2pu6s"]
 
 [ext_resource type="Script" path="res://custom_resources/EnemyStats.cs" id="1_nn7c1"]
 [ext_resource type="Texture2D" uid="uid://b6bopjqthblsx" path="res://Art/Enemy.png" id="1_u1mgh"]
+[ext_resource type="PackedScene" uid="uid://d1st1mmlkc6b0" path="res://Enemies/Rat/rat_ai.tscn" id="2_q8338"]
 
 [resource]
 script = ExtResource("1_nn7c1")
+ai = ExtResource("2_q8338")
 MaxHp = 10
 Art = ExtResource("1_u1mgh")

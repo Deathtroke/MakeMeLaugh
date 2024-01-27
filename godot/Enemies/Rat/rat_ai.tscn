@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1st1mmlkc6b0"]
+
+[ext_resource type="Script" path="res://scenes/enemy/EnemyAI.cs" id="1_b8gva"]
+[ext_resource type="Script" path="res://Enemies/Rat/Rat_Attack1.cs" id="2_rshn6"]
+[ext_resource type="Script" path="res://Enemies/Rat/Rat_Attack2.cs" id="3_sb3d3"]
+[ext_resource type="Script" path="res://Enemies/Rat/Rat_Block.cs" id="4_t3gj7"]
+
+[node name="RatEnemyAI" type="Node"]
+script = ExtResource("1_b8gva")
+
+[node name="Attack" type="Node" parent="."]
+script = ExtResource("2_rshn6")
+damage = 4
+type = 1
+chance_weigth = 20.0
+
+[node name="Attack2" type="Node" parent="."]
+script = ExtResource("3_sb3d3")
+damage = 2
+type = 1
+chance_weigth = 60.0
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("4_t3gj7")
+block = 2
+type = 1
+chance_weigth = 40.0

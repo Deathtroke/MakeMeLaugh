@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=19 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.cs" id="1_nm24d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
+[ext_resource type="Script" path="res://scenes/EnemyHandler.cs" id="4_bi5y1"]
 [ext_resource type="Texture2D" uid="uid://cbch7ldsgk277" path="res://Art/Background.png" id="4_l3pu1"]
 [ext_resource type="PackedScene" uid="uid://3npr0ba7upc4" path="res://scenes/enemy/enemy.tscn" id="5_ye3yi"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
@@ -40,7 +41,10 @@ position = Vector2(961, 371)
 shape = SubResource("RectangleShape2D_um5rq")
 metadata/_edit_lock_ = true
 
-[node name="Enemy" parent="." instance=ExtResource("5_ye3yi")]
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_bi5y1")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("5_ye3yi")]
 position = Vector2(1465, 397)
 Stats = ExtResource("6_yx6bt")
 
