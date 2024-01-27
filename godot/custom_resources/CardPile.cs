@@ -17,7 +17,7 @@ public partial class CardPile : Resource
     public CardPile()
     {
         Cards = new Godot.Collections.Array<Card>();
-    }
+    } 
     
     private void notify(int cardsamount)
     {
