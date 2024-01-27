@@ -19,6 +19,10 @@ public partial class ingame_scene : Node2D
 		_player_handler = GetNode<PlayerHandler>("PlayerHandler");
 		enemyHandler = GetNode<EnemyHandler>("EnemyHandler");
 		_player = GetNode<player>("Player");
+		_battle_ui = GetNode<battle_ui>("BattleUI");
+ 		
+		_player_handler.DiscardFinished += OnDiscardFinished;
+		_battle_ui.EndTurn += OnEndTurn;
 
 		fade_overlay.Visible = true;
 
@@ -31,8 +35,11 @@ public partial class ingame_scene : Node2D
 
 	private void OnEndTurn()
 	{
+		GD.Print("Turn ending");
 		_player_handler._end_turn();
 		GD.Print("Turn ended.");
+		enemyHandler.stat_turn();
+		
 		_player_handler.start_turn();
 	}
 

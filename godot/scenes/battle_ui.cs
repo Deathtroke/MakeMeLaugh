@@ -19,7 +19,6 @@ public partial class battle_ui : CanvasLayer
 
 	private void OnEndTurnButtonPressed()
 	{
-		
 		EndTurn?.Invoke();
 	}
 

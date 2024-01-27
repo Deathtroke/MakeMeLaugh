@@ -25,7 +25,7 @@ public partial class EnemyHandler : Node2D
 		}
 	}
 
-	async void stat_turn()
+	public async void stat_turn()
 	{
 		if (GetChildCount() == 0)
 		{
