@@ -42,7 +42,7 @@ metadata/_edit_lock_ = true
 [node name="InteractionLayer" type="CanvasGroup" parent="." groups=["ui_layer"]]
 metadata/_edit_lock_ = true
 
-[node name="Hand" type="HBoxContainer" parent="InteractionLayer"]
+[node name="Hand" type="HBoxContainer" parent="InteractionLayer" groups=["hand"]]
 offset_left = 314.0
 offset_top = 744.0
 offset_right = 1594.0

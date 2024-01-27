@@ -12,6 +12,8 @@ public partial class CardUI : Control
 	private CardStateMachine stateMachine;
 	public Area2D drop_point;
 	public bool hovered;
+
+	[Export] private Card card;
 	
 	public override void _Ready()
 	{
@@ -33,9 +35,7 @@ public partial class CardUI : Control
 
 	public override void _Input(InputEvent e)
 	{
-
 		stateMachine.on_input(e);
-		
 	}
 	
 	void on_gui_input(InputEvent e)
