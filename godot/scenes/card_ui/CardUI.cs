@@ -25,7 +25,7 @@ public partial class CardUI : Control
 	
 	[Export] public Card card;
 
-	[Export] public CharacterStats char_stats;
+	[Export] public CharacterStats Char_stats;
 
 	public override void _Ready()
 	{
@@ -49,7 +49,7 @@ public partial class CardUI : Control
 
 		parent = GetParent<BoxContainer>();
 
-		char_stats.Ap = 2;
+		Char_stats.Ap = 2;
 	}
 
 	public override void _Input(InputEvent e)
@@ -70,7 +70,7 @@ public partial class CardUI : Control
 
 	void on_mouse_enter()
 	{
-		if (card.Ap_cost > char_stats.Ap)
+		if (card.Ap_cost > Char_stats.Ap)
 		{
 			return;
 		}
@@ -91,7 +91,7 @@ public partial class CardUI : Control
 	{
 		var hand = GetTree().GetFirstNodeInGroup("hand");
 		targets.Add(hand);
-		card.play(targets, char_stats);
+		card.play(targets, Char_stats);
 		QueueFree();
 	}
 }

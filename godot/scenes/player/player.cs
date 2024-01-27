@@ -14,7 +14,6 @@ public partial class player : Node2D
 	{
 		stats_ui = GetNode<stats_ui>("StatsUI");
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
-		GD.Print("Is this a race condition?");
 	}
 	
 	private CharacterStats _stats;
@@ -45,7 +44,6 @@ public partial class player : Node2D
 		{
 			 await Task.Delay(200);
 		}
-		GD.Print(_sprite2D);
 		_sprite2D.Texture = _stats.Art;
 		update_stats(null, null);
 	}

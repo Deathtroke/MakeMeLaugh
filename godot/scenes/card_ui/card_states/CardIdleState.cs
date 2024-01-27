@@ -14,7 +14,7 @@ public partial class CardIdleState : CardState
 
 	public override void on_gui_input(InputEvent e)
 	{
-		if (c_ui.card.Ap_cost > c_ui.char_stats.Ap)
+		if (c_ui.card.Ap_cost > c_ui.Char_stats.Ap)
 		{
 			return;
 		}
