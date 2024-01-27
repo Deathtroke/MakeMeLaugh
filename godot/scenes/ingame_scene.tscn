@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=12 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Texture2D" uid="uid://cbch7ldsgk277" path="res://Art/Background.png" id="4_l3pu1"]
 [ext_resource type="PackedScene" uid="uid://csfkucl57dige" path="res://scenes/card_ui/card_ui.tscn" id="4_xpsww"]
+[ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Basic_Atk_1.cs" id="6_n1u7u"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Basic_Def_1.cs" id="7_2ga7d"]
 [ext_resource type="Texture2D" uid="uid://b6bopjqthblsx" path="res://Art/Enemy.png" id="8_3b3ej"]
@@ -57,6 +58,8 @@ texture = ExtResource("8_3b3ej")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(52.5, 47)
 shape = SubResource("RectangleShape2D_xgj4j")
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("6_h6lxg")]
 
 [node name="InteractionLayer" type="CanvasGroup" parent="." groups=["ui_layer"]]
 metadata/_edit_lock_ = true

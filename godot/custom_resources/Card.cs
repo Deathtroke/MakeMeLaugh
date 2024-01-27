@@ -19,7 +19,7 @@ public partial class Card : Resource
 	}
 
 	
-	bool is_single_target()
+	public bool is_single_target()
 	{
 		return targetType == TargetType.Single;
 	}
