@@ -27,6 +27,9 @@ public partial class CardStateMachine : Node
 		var release = GetNode<CardState>("CardReleaseState");
 		hande_init_state(release, card);
 		
+		var aiming = GetNode<CardState>("CardAimingState");
+		hande_init_state(aiming, card);
+		
 
 
 		if (initial_state != null)
