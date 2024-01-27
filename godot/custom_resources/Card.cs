@@ -25,8 +25,6 @@ public partial class Card : Resource
 
 	public Godot.Collections.Array<Godot.Node> get_tagets(Godot.Collections.Array<Godot.Node> targets)
 	{
-		Debug.Print("cards.cs - " + targets.Count);
-		
 		var tree = targets[0].GetTree();
 
 		switch (Target)
@@ -62,7 +60,7 @@ public partial class Card : Resource
 	{
 		
 	}
-	public Card Duplicate()
+	public virtual Card Duplicate()
 	{
 		var instance = new Card();
 		
@@ -74,5 +72,6 @@ public partial class Card : Resource
 		
 		
 		return instance;
+	
 	}
 }
