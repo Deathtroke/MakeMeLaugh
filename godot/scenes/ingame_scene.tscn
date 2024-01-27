@@ -13,6 +13,7 @@
 size = Vector2(1922, 742)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
+size = Vector2(285, 280)
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
@@ -44,6 +45,19 @@ position = Vector2(961, 371)
 shape = SubResource("RectangleShape2D_um5rq")
 metadata/_edit_lock_ = true
 
+[node name="Enemy" type="Area2D" parent="."]
+position = Vector2(1547, 337)
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(52.5, 49.25)
+scale = Vector2(0.727979, 0.738727)
+texture = ExtResource("8_3b3ej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(52.5, 47)
+shape = SubResource("RectangleShape2D_xgj4j")
+
 [node name="InteractionLayer" type="CanvasGroup" parent="." groups=["ui_layer"]]
 metadata/_edit_lock_ = true
 
@@ -66,14 +80,3 @@ card = ExtResource("6_n1u7u")
 [node name="CardUI3" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
 layout_mode = 2
 card = ExtResource("7_2ga7d")
-
-[node name="Enemy" type="Area2D" parent="."]
-collision_layer = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-position = Vector2(52.5, 49.25)
-scale = Vector2(0.727979, 0.738727)
-texture = ExtResource("8_3b3ej")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("RectangleShape2D_xgj4j")

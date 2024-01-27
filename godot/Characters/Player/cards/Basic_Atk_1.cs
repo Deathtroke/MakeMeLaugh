@@ -3,7 +3,6 @@ using System;
 
 public partial class Basic_Atk_1 : Card
 {
-	public String id = "Atk 1";
-	public EffectType effectType = EffectType.Atk;
-	public TargetType targetType = TargetType.Single;
+	public Basic_Atk_1()
+		: base("Atk 1", EffectType.Atk, TargetType.Single){}
 }
