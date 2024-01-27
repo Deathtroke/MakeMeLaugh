@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b6iryaio7nh84"]
-
-[ext_resource type="Script" path="res://custom_resources/Card.gd" id="1_fa6em"]
-
-[resource]
-script = ExtResource("1_fa6em")
-id = "atk 1"
-effectType = 0
-targetType = 1
