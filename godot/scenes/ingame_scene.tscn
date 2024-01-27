@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbch7ldsgk277" path="res://Art/Background.png" id="4_l3pu1"]
 [ext_resource type="PackedScene" uid="uid://3npr0ba7upc4" path="res://scenes/enemy/enemy.tscn" id="5_ye3yi"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
-[ext_resource type="Resource" uid="uid://cqb6l5ryvk5xg" path="res://Enemies/Rat/test_enemy.tres" id="6_yx6bt"]
+[ext_resource type="Resource" uid="uid://c6cm3nto2pu6s" path="res://Enemies/Rat/rat_enemy.tres" id="7_7wvln"]
 [ext_resource type="Script" path="res://scenes/battle_ui.cs" id="10_js3df"]
 [ext_resource type="PackedScene" uid="uid://dofh2fo2j0ugs" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
 [ext_resource type="Script" path="res://scenes/Hand.cs" id="11_5qo5d"]
@@ -49,7 +49,7 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("5_ye3yi")]
 position = Vector2(1465, 397)
-Stats = ExtResource("6_yx6bt")
+Stats = ExtResource("7_7wvln")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("6_h6lxg")]
 
