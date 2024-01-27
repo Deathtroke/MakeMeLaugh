@@ -7,12 +7,6 @@ public partial class CardIdleState : CardState
 {
 	public override void Enter()
 	{
-		//if (!c_ui.IsNodeReady())
-		//{
-		//	c_ui._Ready();
-		//}
-
-		//EmitSignal(CardUI.SignalName.Reparent, c_ui);
 		c_ui.color.Color = Godot.Color.Color8(0, 255, 0);
 		c_ui.state.Text = "idle";
 		c_ui.PivotOffset = Vector2.Zero;

@@ -9,7 +9,8 @@ public partial class CardDragState : CardState
         var ui_layer = GetTree().GetFirstNodeInGroup("ui_layer");
         if (ui_layer != null)
         {
-            Reparent(ui_layer);
+            c_ui.GetParent().RemoveChild(c_ui);
+            ui_layer.AddChild(c_ui);
         }
         
 
@@ -28,6 +29,14 @@ public partial class CardDragState : CardState
 
         if (cancel)
         {
+            var hand = GetTree().GetFirstNodeInGroup("hand");
+            if (hand is BoxContainer box)
+            {
+                c_ui.GetParent().RemoveChild(c_ui);
+                box.AddChild(c_ui);
+                c_ui.PivotOffset = Vector2.Zero;
+                box.Alignment = BoxContainer.AlignmentMode.Center;
+            }
             EmitSignal(SignalName.Transition, this, (int)State.Idle);
         }
 

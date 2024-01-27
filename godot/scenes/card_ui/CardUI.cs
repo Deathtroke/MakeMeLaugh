@@ -24,7 +24,6 @@ public partial class CardUI : Control
 		GuiInput += on_gui_input;
 		MouseEntered += on_mouse_enter;
 		MouseExited += on_mouse_exit;
-		Reparent += on_reparent;
 
 		drop_point.MouseEntered += on_mouse_enter;
 		drop_point.MouseExited += on_mouse_exit;
@@ -55,10 +54,4 @@ public partial class CardUI : Control
 		hovered = false;
 		stateMachine.on_mouse_exit();
 	}
-
-	void on_reparent(CardUI ui)
-	{
-		
-	}
-
 }
