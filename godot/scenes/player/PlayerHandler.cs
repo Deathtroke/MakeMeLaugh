@@ -64,10 +64,24 @@ public partial class PlayerHandler : Node
 	{
 		foreach (var card_ui in hand.GetChildren())
 		{
-			GD.Print("[PlayerHandler] discard_cards: "+((CardUI)card_ui).card + " to " + _characterStats._discard);
+			GD.Print("Type:" + card_ui.GetType().Name);
+		}
+
+		foreach (var card_ui in hand.GetChildren())
+		{
 			
-			_characterStats._discard.addcard(((CardUI)card_ui).card);
-			hand.discard_card((CardUI)card_ui);
+			if (card_ui.GetType().Name == "CardUI")
+			{
+				GD.Print("[PlayerHandler] discard_cards: "+((CardUI)card_ui).card + " to " + _characterStats._discard);
+
+				_characterStats._discard.addcard(((CardUI)card_ui).card);
+				hand.discard_card((CardUI)card_ui);
+			}
+			else
+			{
+				GD.Print(card_ui + " is an Imposter!");
+				card_ui.QueueFree();
+			}
 		}
 		
 	}
