@@ -15,15 +15,30 @@ public partial class ingame_scene : Node2D
 		pause_overlay = GetNode<CenterContainer>("UI/PauseOverlay");
 		_battle_ui = GetNode<battle_ui>("BattleUI");
 		_player_handler = GetNode<PlayerHandler>("PlayerHandler");
+		_battle_ui = GetNode<battle_ui>("BattleUI");
 
 		fade_overlay.Visible = true;
 		
 		CharacterStats _new_stats = Char_stats.create_instance();
 		_battle_ui.Character_stats = _new_stats;
 		
+		_player_handler.DiscardFinished += OnDiscardFinished;
+		_battle_ui.EndTurn += OnEndTurn;
+
 		start_battle(_new_stats);
 	}
-	
+
+	private void OnEndTurn()
+	{
+		_player_handler._end_turn();
+		GD.Print("Turn ended.");
+	}
+
+	private void OnDiscardFinished()
+	{
+		GD.Print("Discard finished.");
+	}
+
 	private void _input(InputEvent @event)
 	{
 		if (@event.IsActionPressed("pause") && !pause_overlay.Visible)

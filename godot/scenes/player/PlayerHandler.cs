@@ -3,7 +3,6 @@ using System;
 
 public partial class PlayerHandler : Node
 {
-	const float HAND_DRAW_INTERVAL = 0.25f;
 
 	[Export] public Hand hand;
 	private CharacterStats _characterStats;
@@ -37,7 +36,38 @@ public partial class PlayerHandler : Node
 
 	private void draw_card()
 	{
+		reshuffle_deck_from_discard();
 		hand.add_card(_characterStats._draw_pile.drawcard());
+		reshuffle_deck_from_discard();
+		
+	}
+
+	private void reshuffle_deck_from_discard()
+	{
+		if (!_characterStats._draw_pile.empty()) return;
+		while (!_characterStats._discard.empty())
+		{
+			_characterStats._draw_pile.addcard(_characterStats._discard.drawcard());
+		}
+		_characterStats._draw_pile.shuffle();
+	}
+	public delegate void DiscardFinishedHandler();
+	public event DiscardFinishedHandler DiscardFinished;
+	public void _end_turn()
+	{
+		GD.Print("[PlayerHandler] end_turn");
+		discard_cards();
+		DiscardFinished?.Invoke();
+	}
+
+	private void discard_cards()
+	{
+		foreach (var card_ui in hand.GetChildren())
+		{
+			GD.Print("[PlayerHandler] discard_cards: "+((CardUI)card_ui).card);
+			_characterStats._discard.addcard(((CardUI)card_ui).card);
+			hand.discard_card((CardUI)card_ui);
+		}
 		
 	}
 }

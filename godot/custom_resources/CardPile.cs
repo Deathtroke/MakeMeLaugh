@@ -25,7 +25,7 @@ public partial class CardPile : Resource
 
     [Export] public Godot.Collections.Array<Card> Cards;
     
-    private bool empty()
+    public bool empty()
     {
         return Cards.Count == 0;
     }
@@ -42,9 +42,12 @@ public partial class CardPile : Resource
         CardPileSizeChanged?.Invoke(Cards.Count);
         return top;
     }
-    
-    private void addcard(Card card)
+
+    public void addcard(Card card)
     {
+        
+        GD.Print("Adding" + card.id + " to" + Cards );
+        
         Cards.Insert(0, card);
         CardPileSizeChanged?.Invoke(Cards.Count);
     }
