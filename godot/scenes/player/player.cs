@@ -25,7 +25,7 @@ public partial class player : Node2D
 
 	private void setStats(CharacterStats value)
 	{
-		_stats = value.create_instance();
+		_stats = value;
 			// If _stats is not null, unsubscribe update_stats from the StatsChanged event
 		if (_stats != null)
 		{

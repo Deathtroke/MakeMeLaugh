@@ -25,7 +25,19 @@ public partial class ingame_scene : Node2D
 		
 		start_battle(_new_stats);
 	}
-	
+
+	private void OnEndTurn()
+	{
+		_player_handler._end_turn();
+		GD.Print("Turn ended.");
+		_player_handler.start_turn();
+	}
+
+	private void OnDiscardFinished()
+	{
+		GD.Print("Discard finished.");
+	}
+
 	private void _input(InputEvent @event)
 	{
 		if (@event.IsActionPressed("pause") && !pause_overlay.Visible)
@@ -42,4 +54,5 @@ public partial class ingame_scene : Node2D
 		
 		_player_handler.start_battle(stats);
 	}
+	
 }

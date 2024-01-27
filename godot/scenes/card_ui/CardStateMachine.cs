@@ -10,6 +10,7 @@ public partial class CardStateMachine : Node
 
 	private CardState current_state;
 	private Dictionary<CardState.State, CardState> states;
+	private Card _last_card;
 
 	public void init(CardUI card)
 	{
@@ -50,6 +51,7 @@ public partial class CardStateMachine : Node
 		{
 			Console.WriteLine("An element with Key = \"txt\" already exists.");
 		}
+		_last_card = card.card;
 		c_state.Transition += on_transition_req;
 		c_state.c_ui = card;
 	}
@@ -83,6 +85,12 @@ public partial class CardStateMachine : Node
 			return;
 		}
 
+		if (to == CardState.State.Released)
+		{
+			PlayerHandler playerHandler = GetTree().GetFirstNodeInGroup("playerhandler") as PlayerHandler;
+			playerHandler.OnCardReleased(_last_card);
+		}
+		
 		CardState new_state = states[to];
 		
 		current_state?.Exit();

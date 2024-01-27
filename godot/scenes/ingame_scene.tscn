@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://3npr0ba7upc4" path="res://scenes/enemy/enemy.tscn" id="5_ye3yi"]
 [ext_resource type="Resource" uid="uid://c6cm3nto2pu6s" path="res://Enemies/Rat/rat_enemy.tres" id="6_50a3p"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
+[ext_resource type="Resource" uid="uid://c6cm3nto2pu6s" path="res://Enemies/Rat/rat_enemy.tres" id="6_yx6bt"]
 [ext_resource type="Script" path="res://scenes/player/PlayerHandler.cs" id="8_n6jxw"]
 [ext_resource type="Script" path="res://scenes/battle_ui.cs" id="10_js3df"]
 [ext_resource type="PackedScene" uid="uid://dofh2fo2j0ugs" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
@@ -55,7 +56,7 @@ Stats = ExtResource("6_50a3p")
 position = Vector2(392, 511)
 Stats = ExtResource("12_vigc1")
 
-[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand") groups=["playerhandler"]]
 script = ExtResource("8_n6jxw")
 hand = NodePath("../BattleUI/Hand")
 

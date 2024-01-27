@@ -6,7 +6,19 @@ public partial class PlayerHandler : Node
 
 	[Export] public Hand hand;
 	private CharacterStats _characterStats;
+	private CardStateMachine _card_state_machine;
+	
+	private void _ready()
+	{
+		//_card_state_machine = GetNode<CardStateMachine>("res://scenes/card_ui/CardStateMachine.cs");
+		//_card_state_machine.CardReleased += OnCardReleased;
+	}
 
+	public void OnCardReleased(Card lastCard)
+	{
+		GD.Print("A card has been released");
+		_characterStats._discard.addcard(lastCard);
+	}
 	public void start_battle(CharacterStats character)
 	{
 		GD.Print(character._deck.Cards);
@@ -18,7 +30,7 @@ public partial class PlayerHandler : Node
 
 	}
 
-	private void start_turn()
+	public void start_turn()
 	{
 		_characterStats.Block = 0;
 		_characterStats.reset_ap();
@@ -36,6 +48,8 @@ public partial class PlayerHandler : Node
 
 	private void draw_card()
 	{
+		GD.Print("[DRAW] Cards in Discardpile:" + _characterStats._discard.Cards.Count);
+		GD.Print("[DRAW] Cards in Drawpile:" + _characterStats._draw_pile.Cards.Count);
 		reshuffle_deck_from_discard();
 		hand.add_card(_characterStats._draw_pile.drawcard());
 		reshuffle_deck_from_discard();
@@ -47,15 +61,16 @@ public partial class PlayerHandler : Node
 		if (!_characterStats._draw_pile.empty()) return;
 		while (!_characterStats._discard.empty())
 		{
+			GD.Print("[RESHUFFLE] Cards in Discardpile:" + _characterStats._discard.Cards.Count);
 			_characterStats._draw_pile.addcard(_characterStats._discard.drawcard());
 		}
 		_characterStats._draw_pile.shuffle();
+		GD.Print("[RESHUFFLE] Cards in Drawpile:" + _characterStats._draw_pile.Cards.Count);
 	}
 	public delegate void DiscardFinishedHandler();
 	public event DiscardFinishedHandler DiscardFinished;
 	public void _end_turn()
 	{
-		GD.Print("[PlayerHandler] end_turn");
 		discard_cards();
 		DiscardFinished?.Invoke();
 	}
@@ -64,22 +79,17 @@ public partial class PlayerHandler : Node
 	{
 		foreach (var card_ui in hand.GetChildren())
 		{
-			GD.Print("Type:" + card_ui.GetType().Name);
-		}
-
-		foreach (var card_ui in hand.GetChildren())
-		{
 			
 			if (card_ui.GetType().Name == "CardUI")
 			{
-				GD.Print("[PlayerHandler] discard_cards: "+((CardUI)card_ui).card + " to " + _characterStats._discard);
+				GD.Print("[PlayerHandler] discard_cards: "+((CardUI)card_ui).card.GetType().Name + " to " + _characterStats._discard.GetType().Name);
 
 				_characterStats._discard.addcard(((CardUI)card_ui).card);
 				hand.discard_card((CardUI)card_ui);
 			}
 			else
 			{
-				GD.Print(card_ui + " is an Imposter!");
+				GD.Print("PlayerHandler" + card_ui + " is an Imposter!");
 				card_ui.QueueFree();
 			}
 		}
