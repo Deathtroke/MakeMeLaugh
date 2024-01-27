@@ -8,11 +8,6 @@ public partial class PlayerHandler : Node
 	private CharacterStats _characterStats;
 	private CardStateMachine _card_state_machine;
 	
-	private void _ready()
-	{
-		//_card_state_machine = GetNode<CardStateMachine>("res://scenes/card_ui/CardStateMachine.cs");
-		//_card_state_machine.CardReleased += OnCardReleased;
-	}
 
 	public void OnCardReleased(Card lastCard)
 	{

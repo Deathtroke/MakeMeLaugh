@@ -15,8 +15,8 @@ public partial class player : Node2D
 		stats_ui = GetNode<stats_ui>("StatsUI");
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
 	}
-	
-	private CharacterStats _stats;
+
+	public CharacterStats _stats;
 	[Export] public CharacterStats Stats
 	{
 		get { return _stats; }
