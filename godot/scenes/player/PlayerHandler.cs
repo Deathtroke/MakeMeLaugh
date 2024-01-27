@@ -64,7 +64,8 @@ public partial class PlayerHandler : Node
 	{
 		foreach (var card_ui in hand.GetChildren())
 		{
-			GD.Print("[PlayerHandler] discard_cards: "+((CardUI)card_ui).card);
+			GD.Print("[PlayerHandler] discard_cards: "+((CardUI)card_ui).card + " to " + _characterStats._discard);
+			
 			_characterStats._discard.addcard(((CardUI)card_ui).card);
 			hand.discard_card((CardUI)card_ui);
 		}
