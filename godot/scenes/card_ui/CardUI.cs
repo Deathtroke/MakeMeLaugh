@@ -83,6 +83,8 @@ public partial class CardUI : Control
 
 	public void play()
 	{
+		var hand = GetTree().GetFirstNodeInGroup("hand");
+		targets.Add(hand);
 		card.play(targets, char_stats);
 		QueueFree();
 	}
