@@ -4,10 +4,13 @@ using System;
 public partial class ap_ui : Panel
 {
 	Label ap_Label;
+
+	[Export] private CharacterStats char_stats;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		ap_Label = GetNode<Label>("APLabel");
+		set_char_stats(char_stats);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,8 +18,16 @@ public partial class ap_ui : Panel
 	{
 	}
 
+	void set_char_stats(CharacterStats value)
+	{
+		char_stats = value;
+		char_stats.Changed += on_char_stats;
+		
+		on_char_stats();
+	}
+
 	void on_char_stats()
 	{
-		ap_Label.Text = "2/2";
+		ap_Label.Text = char_stats.Ap + "/" + char_stats.Max_ap;
 	}
 }

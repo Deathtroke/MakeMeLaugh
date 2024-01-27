@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://cqb6l5ryvk5xg" path="res://Enemies/Rat/test_enemy.tres" id="6_yx6bt"]
 [ext_resource type="Resource" uid="uid://byoyl1yf80noq" path="res://Characters/Player/cards/Basic_Atk_1.tres" id="8_0xuhx"]
 [ext_resource type="Resource" uid="uid://bnceivhunnwr4" path="res://Characters/Player/cards/Basic_Def_1.tres" id="9_pru8x"]
-[ext_resource type="PackedScene" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
+[ext_resource type="PackedScene" uid="uid://dofh2fo2j0ugs" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
 [ext_resource type="PackedScene" uid="uid://cfdc0pla45nw" path="res://scenes/player/player.tscn" id="11_qr5ib"]
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
 
@@ -81,6 +81,7 @@ offset_left = 35.0
 offset_top = 917.0
 offset_right = 155.0
 offset_bottom = 1037.0
+char_stats = ExtResource("12_vigc1")
 
 [node name="Player" parent="." instance=ExtResource("11_qr5ib")]
 position = Vector2(392, 511)

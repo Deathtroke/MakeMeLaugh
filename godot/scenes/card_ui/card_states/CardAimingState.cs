@@ -37,6 +37,32 @@ public partial class CardAimingState : CardState
 		var cancel = e.IsActionPressed("right_mouse");
 		var confirm = e.IsActionPressed("left_mouse") || e.IsActionReleased("left_mouse");
 		
+		float min_distance = 10000;
+		Area2D closest_enemy = new Area2D();
+		foreach (Area2D enemy in GetTree().GetNodesInGroup("enemy"))
+		{
+			var dist = c_ui.GetGlobalMousePosition().DistanceTo(enemy.Position);
+			if (dist < min_distance)
+			{
+				closest_enemy = enemy;
+				min_distance = dist;
+			}
+		}
+
+		if (min_distance < 250)
+		{
+			if (closest_enemy is enemy en)
+			{
+				en._arrow.Show();
+			}
+		}
+		else
+		{
+			if (closest_enemy is enemy en)
+			{
+				en._arrow.Hide();
+			}
+		}
 	
 		if (mouse_motion)
 			c_ui.GlobalPosition = c_ui.GetGlobalMousePosition() - c_ui.PivotOffset;
@@ -54,31 +80,8 @@ public partial class CardAimingState : CardState
 		}
 		else if (confirm && drag_time_passed)
 		{
-			if (c_ui.GetGlobalMousePosition().Y < 700)
+			if (c_ui.GetGlobalMousePosition().Y < 700 && min_distance < 250)
 			{
-				float min_distance = 10000;
-				Area2D closest_enemy;
-				foreach (Area2D enemy in GetTree().GetNodesInGroup("enemy"))
-				{
-					var dist = c_ui.GetGlobalMousePosition().DistanceTo(enemy.Position);
-					if (dist < min_distance)
-					{
-						closest_enemy = enemy;
-						min_distance = dist;
-					}
-				}
-
-				if (min_distance > 250)
-				{
-					var hand = GetTree().GetFirstNodeInGroup("hand");
-					if (hand is BoxContainer box)
-					{
-						c_ui.GetParent().RemoveChild(c_ui);
-						box.AddChild(c_ui);
-						c_ui.PivotOffset = Vector2.Zero;
-					}
-					EmitSignal(SignalName.Transition, this, (int)State.Idle);
-				}
 				GetViewport().SetInputAsHandled();
 				c_ui.hovered = false;
 				EmitSignal(SignalName.Transition, this, (int)State.Released);

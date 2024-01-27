@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Godot.Collections;
 
 public partial class CardUI : Control
 {
@@ -14,7 +15,7 @@ public partial class CardUI : Control
 	private CardStateMachine stateMachine;
 	public Area2D drop_point;
 	public bool hovered;
-	public List<Node> targets = new List<Node>();
+	public Array<Node> targets = new Array<Node>();
 	private Tween tween;
 	public Control parent;
 
@@ -23,6 +24,8 @@ public partial class CardUI : Control
 	[Export] public StyleBox drag_style;
 	
 	[Export] public Card card;
+
+	[Export] private CharacterStats char_stats;
 
 	public override void _Ready()
 	{
@@ -76,5 +79,11 @@ public partial class CardUI : Control
 		hovered = false;
 		stateMachine.on_mouse_exit();
 		panel.Set("theme_override_styles/panel", default_style);
+	}
+
+	public void play()
+	{
+		card.play(targets, char_stats);
+		QueueFree();
 	}
 }

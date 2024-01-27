@@ -8,6 +8,7 @@ public partial class CardReleaseState : CardState
 	{
 		c_ui.state.Text = "released";
 		c_ui.PivotOffset = Vector2.Zero;
+		c_ui.play();
 	}
 
 

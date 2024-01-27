@@ -21,4 +21,47 @@ public partial class Card : Resource
 	{
 		return Target == TargetType.Single;
 	}
+
+	public Godot.Collections.Array<Godot.Node> get_tagets(Godot.Collections.Array<Godot.Node> targets)
+	{
+		if (targets.Count == 0)
+		{
+			return new Godot.Collections.Array<Godot.Node>();
+		}
+
+		var tree = targets[0].GetTree();
+
+		switch (Target)
+		{
+			case TargetType.Self:
+				return tree.GetNodesInGroup("player");
+				break;
+			case TargetType.AOE:
+				return tree.GetNodesInGroup("enemy");
+				break; 
+			default:
+				return new Godot.Collections.Array<Godot.Node>();
+			break;
+		}
+	}
+
+	public void play(Godot.Collections.Array<Godot.Node> targets, CharacterStats char_stats)
+	{
+		
+		char_stats.Ap -= Ap_cost;
+		
+		if (is_single_target())
+		{
+			apply_effects(targets);
+		}
+		else
+		{
+			apply_effects(get_tagets(targets));
+		}
+	}
+
+	public virtual void apply_effects(Godot.Collections.Array<Godot.Node> targets)
+	{
+		
+	}
 }

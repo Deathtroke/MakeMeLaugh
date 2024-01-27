@@ -8,7 +8,7 @@ public partial class enemy : Area2D
     
     private Sprite2D _sprite2D;
     private stats_ui _stats_ui;
-    private Sprite2D _arrow;
+    public Sprite2D _arrow;
     
     
     public override void _Ready()

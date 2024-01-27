@@ -7,7 +7,7 @@ public partial class CharacterStats : Stats
 {
     [Export] CardPile Starting_deck;
     [Export] int Draw_per_turn = 5;
-    [Export] int Max_ap = 2;
+    [Export] public int Max_ap = 2;
 
     private int _ap;
     private CardPile _deck;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://csfkucl57dige"]
+[gd_scene load_steps=14 format=3 uid="uid://csfkucl57dige"]
 
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="1_ymarf"]
 [ext_resource type="Script" path="res://scenes/card_ui/CardUI.cs" id="2_0qs6i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardIdleState.cs" id="4_ecrhc"]
 [ext_resource type="StyleBox" uid="uid://debnulso2gr7b" path="res://scenes/card_ui/card_hover.tres" id="4_jshua"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardClickedState.cs" id="5_py7a4"]
+[ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="6_fdvp5"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardDragState.cs" id="6_rovis"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardReleaseState.cs" id="7_7u0bn"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardAimingState.cs" id="7_yks7l"]
@@ -28,6 +29,7 @@ script = ExtResource("2_0qs6i")
 default_style = ExtResource("3_gf7nt")
 hover_style = ExtResource("4_jshua")
 drag_style = ExtResource("3_olhmk")
+char_stats = ExtResource("6_fdvp5")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
