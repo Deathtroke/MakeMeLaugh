@@ -8,15 +8,15 @@ public partial class Stats : Resource
     public event EventHandler StatsChanged;
     
     // Method to safely invoke the event
-    protected virtual void OnStatsChanged()
+    private void on_stats_changed()
     {
         // If there are any subscribers, invoke the event
         StatsChanged?.Invoke(this, EventArgs.Empty);
     }
     
-    public void Notify()
+    private void notify()
     {
-        OnStatsChanged();
+        on_stats_changed();
     }
     
     [Export] public int MaxHp = 1;
@@ -28,27 +28,27 @@ public partial class Stats : Resource
     public int Health
     {
         get { return _health; }
-        set { SetHealth(value); }
+        set { setHealth(value); }
     }
 
-    private void SetHealth(int value)
+    private void setHealth(int value)
     {
         // Your logic for setting health
         _health = Mathf.Clamp(value, 0, MaxHp);
-        OnStatsChanged();
+        on_stats_changed();
     }
     
     public int Block
     {
         get { return _health; }
-        set { SetBlock(value); }
+        set { setBlock(value); }
     }
 
-    private void SetBlock(int value)
+    private void setBlock(int value)
     {
         // Your logic for setting health
         _block = Mathf.Clamp(value, 0, 999);
-        OnStatsChanged();
+        on_stats_changed();
     }
     
     private void take_damage(int amount)
@@ -57,14 +57,14 @@ public partial class Stats : Resource
 
         int initialDamage = amount;
         amount = Mathf.Clamp(_block - initialDamage, 0, amount);
-        SetBlock(Mathf.Clamp(_block - initialDamage, 0, _block));
-        SetHealth(_health - amount);
+        setBlock(Mathf.Clamp(_block - initialDamage, 0, _block));
+        setHealth(_health - amount);
     }
     
     private void heal(int amount)
     {
         if (amount <= 0) return;
-        SetHealth(_health + amount);
+        setHealth(_health + amount);
     }
 
     private Resource create_instance()

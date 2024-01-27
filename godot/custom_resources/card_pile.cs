@@ -13,7 +13,7 @@ public partial class Card_Pile : Resource
     // Define an event based on that delegate
     public event CardPileSizeChangedHandler CardPileSizeChanged;
     
-    public void Notify(int cardsamount)
+    private void notify(int cardsamount)
     {
         // Check if there are any Subscribers
         if (CardPileSizeChanged != null)
@@ -25,12 +25,12 @@ public partial class Card_Pile : Resource
 
     [Export] public Godot.Collections.Array<Card> Cards;
     
-    private bool Empty()
+    private bool empty()
     {
         return Cards.Count == 0;
     }
 
-    private Card DrawCard()
+    private Card drawcard()
     {
         if (Cards.Count == 0)
         {
@@ -43,18 +43,18 @@ public partial class Card_Pile : Resource
         return top;
     }
     
-    private void AddCard(Card card)
+    private void addcard(Card card)
     {
         Cards.Insert(0, card);
         CardPileSizeChanged?.Invoke(Cards.Count);
     }
     
-    private void Shuffle()
+    private void shuffle()
     {
         Cards.Shuffle();
     }
     
-    private void Clear()
+    private void clear()
     {
         Cards.Clear();
         CardPileSizeChanged?.Invoke(Cards.Count);
