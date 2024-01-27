@@ -14,6 +14,10 @@ public partial class CardIdleState : CardState
 
 	public override void on_gui_input(InputEvent e)
 	{
+		if (c_ui.card.Ap_cost > c_ui.char_stats.Ap)
+		{
+			return;
+		}
 		if (e.IsActionPressed("left_mouse") && (c_ui.hovered))
 		{
 			c_ui.PivotOffset = c_ui.GetGlobalMousePosition() - c_ui.GlobalPosition;

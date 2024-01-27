@@ -25,7 +25,7 @@ public partial class CardUI : Control
 	
 	[Export] public Card card;
 
-	[Export] private CharacterStats char_stats;
+	[Export] public CharacterStats char_stats;
 
 	public override void _Ready()
 	{
@@ -48,6 +48,8 @@ public partial class CardUI : Control
 		hovered = false;
 
 		parent = GetParent<BoxContainer>();
+
+		char_stats.Ap = 2;
 	}
 
 	public override void _Input(InputEvent e)
@@ -68,6 +70,10 @@ public partial class CardUI : Control
 
 	void on_mouse_enter()
 	{
+		if (card.Ap_cost > char_stats.Ap)
+		{
+			return;
+		}
 		hovered = true;
 		stateMachine.on_mouse_enter();
 		panel.Set("theme_override_styles/panel", hover_style);
