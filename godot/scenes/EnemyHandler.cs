@@ -21,7 +21,7 @@ public partial class EnemyHandler : Node2D
 		{
 			e = child as enemy;
 			e.curren_action = null;
-			e.stats.On_stats_changed();
+			e.Stats.On_stats_changed();
 		}
 	}
 

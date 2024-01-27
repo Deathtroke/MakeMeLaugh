@@ -31,13 +31,10 @@ public partial class Card : Resource
 		{
 			case TargetType.Self:
 				return tree.GetNodesInGroup("player");
-				break;
 			case TargetType.AOE:
 				return tree.GetNodesInGroup("enemy");
-				break; 
 			default:
 				return new Godot.Collections.Array<Godot.Node>();
-			break;
 		}
 	}
 
