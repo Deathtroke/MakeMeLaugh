@@ -34,6 +34,7 @@ public partial class CardUI : Control
 		icon = GetNode<TextureRect>("Icon");
 		panel = GetNode<Panel>("Panel");
 
+		GD.Print("[CardUI.cs] " + card);
 		icon.Texture = card.icon;
 		
 		stateMachine = GetNode<CardStateMachine>("CardState");

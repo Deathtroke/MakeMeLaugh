@@ -6,4 +6,4 @@
 
 [resource]
 script = ExtResource("1_sqwwt")
-Cards = Array[Resource]([ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("2_athst")])
+Cards = Array[Resource]([ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("2_athst"), ExtResource("1_0e8ry"), ExtResource("2_athst"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry")])

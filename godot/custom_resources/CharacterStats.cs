@@ -6,13 +6,13 @@ using System;
 public partial class CharacterStats : Stats
 {
 	[Export] CardPile Starting_deck;
-	[Export] int Draw_per_turn = 5;
+	[Export] public int Draw_per_turn = 5;
 	[Export] public int Max_ap = 2;
 
 	private int _ap;
-	private CardPile _deck;
-	private CardPile _discard;
-	private CardPile _draw_pile;
+	public CardPile _deck;
+	public CardPile _discard;
+	public CardPile _draw_pile;
 	
 	public int Ap
 	{
@@ -25,8 +25,8 @@ public partial class CharacterStats : Stats
 		_ap = value;
 		On_stats_changed();
 	}
-	
-	private void reset_ap()
+
+	public void reset_ap()
 	{
 		Ap = Max_ap;
 	}
