@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://byoyl1yf80noq"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://byoyl1yf80noq"]
 
+[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="1_gyb1a"]
 [ext_resource type="Script" path="res://custom_resources/Card.cs" id="1_xbru5"]
 
 [resource]
@@ -7,3 +8,5 @@ script = ExtResource("1_xbru5")
 id = "Atk 1"
 Effect = 0
 Target = 1
+Ap_cost = 1
+icon = ExtResource("1_gyb1a")

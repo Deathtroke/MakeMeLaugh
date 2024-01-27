@@ -17,9 +17,8 @@ public partial class CardDragState : CardState
 		}
 		
 
-		c_ui.color.Color = Godot.Color.Color8(0, 0, 255);
 		c_ui.state.Text = "drag";
-		
+		c_ui.panel.Set("theme_override_styles/panel", c_ui.drag_style);
 		drag_time_passed = false;
 
 		var timer = GetTree().CreateTimer(drag_min_threshold, false);

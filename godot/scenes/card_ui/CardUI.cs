@@ -8,23 +8,31 @@ public partial class CardUI : Control
 	[Signal]
 	public delegate void ReparentEventHandler(CardUI ui);
 
-	public ColorRect color;
 	public Label state;
+	public TextureRect icon;
+	public Panel panel;
 	private CardStateMachine stateMachine;
 	public Area2D drop_point;
 	public bool hovered;
 	public List<Node> targets = new List<Node>();
 	private Tween tween;
 	public Control parent;
+
+	[Export] public StyleBox default_style;
+	[Export] public StyleBox hover_style;
+	[Export] public StyleBox drag_style;
 	
 	[Export] public Card card;
 
 	public override void _Ready()
 	{
-		color = GetNode<ColorRect>("ColorRect");
 		state = GetNode<Label>("Label");
 		drop_point = GetNode<Area2D>("DropPoint");
+		icon = GetNode<TextureRect>("Icon");
+		panel = GetNode<Panel>("Panel");
 
+		icon.Texture = card.icon;
+		
 		stateMachine = GetNode<CardStateMachine>("CardState");
 		stateMachine.init(this);
 		GuiInput += on_gui_input;
@@ -59,11 +67,14 @@ public partial class CardUI : Control
 	{
 		hovered = true;
 		stateMachine.on_mouse_enter();
+		panel.Set("theme_override_styles/panel", hover_style);
+
 	}
 
 	void on_mouse_exit()
 	{
 		hovered = false;
 		stateMachine.on_mouse_exit();
+		panel.Set("theme_override_styles/panel", default_style);
 	}
 }

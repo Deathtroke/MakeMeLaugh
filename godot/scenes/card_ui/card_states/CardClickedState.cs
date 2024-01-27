@@ -10,7 +10,6 @@ public partial class CardClickedState : CardState
 		{
 			Reparent(hand);
 		}
-		c_ui.color.Color = Godot.Color.Color8(150, 150, 0);
 		c_ui.state.Text = "clicked";
 		
 	}
