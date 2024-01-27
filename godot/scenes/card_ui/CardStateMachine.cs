@@ -13,52 +13,48 @@ public partial class CardStateMachine : Node
 
 	public void init(CardUI card)
 	{
-		Debug.Print(GetPath());
+		states = new Dictionary<CardState.State, CardState>();
 		
-		var idle = GetNode<CardIdleState>("CardIdleState");
-		Debug.Print("a" + (int)idle.state);
+		var idle = GetNode<CardState>("CardIdleState");
 		hande_init_state(idle, card);
 		
 		var clicked = GetNode<CardState>("CardClickedState");
-		Debug.Print("b" + (int)clicked.state);
 		hande_init_state(clicked, card);
 		
 		var drag = GetNode<CardState>("CardDragState");
-		Debug.Print("c" + (int)drag.state);
 		hande_init_state(drag, card);
 		
 		var release = GetNode<CardState>("CardReleaseState");
-		Debug.Print("d" + (int)release.state);
 		hande_init_state(release, card);
 		
 
 
 		if (initial_state != null)
 		{
-			initial_state.enter();
+			initial_state.Enter();
 			current_state = initial_state;
 		}
 
 	}
 
-	private void hande_init_state(CardState state, CardUI card)
+	private void hande_init_state(CardState c_state, CardUI card)
 	{
 		try
 		{
-			states.Add(state.state, state);
+			states.Add(c_state.state, c_state);
 		}
 		catch (ArgumentException)
 		{
 			Console.WriteLine("An element with Key = \"txt\" already exists.");
 		}
-		state.Transition += on_transition_req;
-		state.c_ui = card;
+		c_state.Transition += on_transition_req;
+		c_state.c_ui = card;
 	}
 	
 	public void on_input(InputEvent e)
 	{
 
-		current_state?.on_input(e);
+		current_state?.on_gui_input(e);
 	}
 	
 	public void on_gui_input(InputEvent e)
@@ -80,12 +76,14 @@ public partial class CardStateMachine : Node
 	{
 		if (from != current_state)
 		{
+			Debug.Print("This is not supposed to happen");
 			return;
 		}
 
 		CardState new_state = states[to];
 		
-		current_state?.exit();
+		current_state?.Exit();
 		current_state = new_state;
+		current_state.Enter();
 	}
 }

@@ -19,32 +19,32 @@ public partial class CardState : Node
 	
 	public CardUI c_ui;
 
-	public void enter()
+	public virtual void Enter()
 	{
 		
 	}
 
-	public void exit()
+	public virtual void Exit()
 	{
 		
 	}
 
-	public void on_input(InputEvent e)
+	public virtual void on_input(InputEvent e)
 	{
 		
 	}
 	
-	public void on_gui_input(InputEvent e)
+	public virtual void on_gui_input(InputEvent e)
 	{
 		
 	}
 
-	public void on_mouse_enter()
+	public virtual void on_mouse_enter()
 	{
 		
 	}
 
-	public void on_mouse_exit()
+	public virtual void on_mouse_exit()
 	{
 		
 	}
