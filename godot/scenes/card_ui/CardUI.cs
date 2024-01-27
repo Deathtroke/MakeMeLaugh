@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 public partial class CardUI : Control
@@ -12,6 +13,7 @@ public partial class CardUI : Control
 	private CardStateMachine stateMachine;
 	public Area2D drop_point;
 	public bool hovered;
+	public List<Node> targets = new List<Node>();
 
 	[Export] private Card card;
 	

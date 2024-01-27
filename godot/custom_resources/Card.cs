@@ -10,7 +10,15 @@ public partial class Card : Resource
 	public String id;
 	public EffectType effectType;
 	public TargetType targetType;
-			
+
+	public Card(String new_id, EffectType new_effectType, TargetType new_targetType)
+	{
+		id = new_id;
+		effectType = new_effectType;
+		targetType = new_targetType;
+	}
+
+	
 	bool is_single_target()
 	{
 		return targetType == TargetType.Single;

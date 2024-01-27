@@ -11,6 +11,7 @@ public partial class CardState : Node
 		Idle,
 		Clicked,
 		Drag,
+		Aiming,
 		Released
 	}
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqk4tq4a34t24"]
+
+[sub_resource type="Curve" id="Curve_l2k1v"]
+min_value = 2.0
+max_value = 20.0
+_data = [Vector2(0.0210526, 2), 0.0, 0.0, 0, 0, Vector2(0.747368, 17.6264), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="arch" type="Line2D"]
+width = 5.0
+width_curve = SubResource("Curve_l2k1v")
