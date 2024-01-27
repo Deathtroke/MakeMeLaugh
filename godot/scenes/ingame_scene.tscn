@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=13 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://byoyl1yf80noq" path="res://Characters/Player/cards/Basic_Atk_1.tres" id="8_0xuhx"]
 [ext_resource type="Texture2D" uid="uid://b6bopjqthblsx" path="res://Art/Enemy.png" id="8_3b3ej"]
 [ext_resource type="Resource" uid="uid://bnceivhunnwr4" path="res://Characters/Player/cards/Basic_Def_1.tres" id="9_pru8x"]
+[ext_resource type="PackedScene" uid="uid://dofh2fo2j0ugs" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)
@@ -83,3 +84,9 @@ card = ExtResource("8_0xuhx")
 [node name="CardUI3" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
 layout_mode = 2
 card = ExtResource("9_pru8x")
+
+[node name="APUI" parent="InteractionLayer" instance=ExtResource("10_va0fd")]
+offset_left = 35.0
+offset_top = 917.0
+offset_right = 155.0
+offset_bottom = 1037.0
