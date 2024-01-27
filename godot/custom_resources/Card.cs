@@ -10,6 +10,9 @@ public partial class Card : Resource
 	public String id;
 	public EffectType effectType;
 	public TargetType targetType;
+	
+	//TEMPORARY!
+	public int Ap_cost = 1;
 
 	public Card(String new_id, EffectType new_effectType, TargetType new_targetType)
 	{

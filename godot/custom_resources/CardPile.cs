@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 [GlobalClass]
-public partial class Card_Pile : Resource
+public partial class CardPile : Resource
 {
     // Define a delegate that describes the signature of the methods that can respond to the event
     public delegate void CardPileSizeChangedHandler(int cardsamount);
@@ -64,5 +64,12 @@ public partial class Card_Pile : Resource
     {
         var _card_strings = Cards.Select((t, i) => $"{i + 1}: {t.id}").ToList();
         return String.Join("\n", _card_strings);
+    }
+    
+    public CardPile Duplicate()
+    {
+        var instance = new CardPile();
+        instance.Cards = Cards;
+        return instance;
     }
 }

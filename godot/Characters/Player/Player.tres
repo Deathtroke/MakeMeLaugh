@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://btbsbwjb01k1e"]
+
+[ext_resource type="Texture2D" uid="uid://crx1olbfbx2uk" path="res://Art/Enemy - Kopie.png" id="1_1qyrv"]
+[ext_resource type="Script" path="res://custom_resources/CharacterStats.cs" id="1_oygb0"]
+[ext_resource type="Resource" uid="uid://v4w4hsj1mkn5" path="res://Characters/Player/PlayerDeck.tres" id="2_8lie8"]
+
+[resource]
+script = ExtResource("1_oygb0")
+Starting_deck = ExtResource("2_8lie8")
+Draw_per_turn = 5
+Max_ap = 2
+MaxHp = 20
+Art = ExtResource("1_1qyrv")

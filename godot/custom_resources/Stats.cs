@@ -8,7 +8,7 @@ public partial class Stats : Resource
     public event EventHandler StatsChanged;
     
     // Method to safely invoke the event
-    private void on_stats_changed()
+    public void On_stats_changed()
     {
         // If there are any subscribers, invoke the event
         StatsChanged?.Invoke(this, EventArgs.Empty);
@@ -16,7 +16,7 @@ public partial class Stats : Resource
     
     private void notify()
     {
-        on_stats_changed();
+        On_stats_changed();
     }
     
     [Export] public int MaxHp = 1;
@@ -35,7 +35,7 @@ public partial class Stats : Resource
     {
         // Your logic for setting health
         _health = Mathf.Clamp(value, 0, MaxHp);
-        on_stats_changed();
+        On_stats_changed();
     }
     
     public int Block
@@ -48,7 +48,7 @@ public partial class Stats : Resource
     {
         // Your logic for setting health
         _block = Mathf.Clamp(value, 0, 999);
-        on_stats_changed();
+        On_stats_changed();
     }
     
     private void take_damage(int amount)
