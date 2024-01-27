@@ -53,6 +53,7 @@ public partial class CardAimingState : CardState
 		{
 			if (closest_enemy is enemy en)
 			{
+				c_ui.targets.Add(en);
 				en._arrow.Show();
 			}
 		}
@@ -60,6 +61,13 @@ public partial class CardAimingState : CardState
 		{
 			if (closest_enemy is enemy en)
 			{
+				foreach (Area2D p in c_ui.targets)
+				{
+					if (p.Position == en.Position)
+					{
+						c_ui.targets.Remove(p);
+					}
+				}
 				en._arrow.Hide();
 			}
 		}
@@ -84,6 +92,10 @@ public partial class CardAimingState : CardState
 			{
 				GetViewport().SetInputAsHandled();
 				c_ui.hovered = false;
+				if (closest_enemy is enemy en)
+				{
+					en._arrow.Hide();
+				}
 				EmitSignal(SignalName.Transition, this, (int)State.Released);
 			}
 			else

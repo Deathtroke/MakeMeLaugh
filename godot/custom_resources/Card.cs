@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 [GlobalClass]
 public partial class Card : Resource
@@ -24,11 +25,8 @@ public partial class Card : Resource
 
 	public Godot.Collections.Array<Godot.Node> get_tagets(Godot.Collections.Array<Godot.Node> targets)
 	{
-		if (targets.Count == 0)
-		{
-			return new Godot.Collections.Array<Godot.Node>();
-		}
-
+		Debug.Print("cards.cs - " + targets.Count);
+		
 		var tree = targets[0].GetTree();
 
 		switch (Target)
@@ -52,7 +50,7 @@ public partial class Card : Resource
 		
 		if (is_single_target())
 		{
-			apply_effects(targets);
+			apply_effects(targets[0..1]);
 		}
 		else
 		{

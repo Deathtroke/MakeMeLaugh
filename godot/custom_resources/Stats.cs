@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 [GlobalClass]
 public partial class Stats : Resource
@@ -56,8 +57,9 @@ public partial class Stats : Resource
         if (amount <= 0) return;
 
         int initialDamage = amount;
-        amount = Mathf.Clamp(_block - initialDamage, 0, amount);
+        amount = Mathf.Clamp(initialDamage - _block , 0, amount);
         setBlock(Mathf.Clamp(_block - initialDamage, 0, _block));
+        Debug.Print(_health + " - " + _block + " - " + amount);
         setHealth(_health - amount);
     }
     
