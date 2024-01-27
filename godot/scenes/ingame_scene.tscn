@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cbch7ldsgk277" path="res://Art/Background.png" id="4_l3pu1"]
 [ext_resource type="PackedScene" uid="uid://csfkucl57dige" path="res://scenes/card_ui/card_ui.tscn" id="4_xpsww"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
-[ext_resource type="Script" path="res://Characters/Player/cards/Basic_Atk_1.cs" id="6_n1u7u"]
-[ext_resource type="Script" path="res://Characters/Player/cards/Basic_Def_1.cs" id="7_2ga7d"]
+[ext_resource type="Resource" uid="uid://byoyl1yf80noq" path="res://Characters/Player/cards/Basic_Atk_1.tres" id="8_0xuhx"]
 [ext_resource type="Texture2D" uid="uid://b6bopjqthblsx" path="res://Art/Enemy.png" id="8_3b3ej"]
+[ext_resource type="Resource" uid="uid://bnceivhunnwr4" path="res://Characters/Player/cards/Basic_Def_1.tres" id="9_pru8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)
@@ -74,12 +74,12 @@ metadata/_edit_lock_ = true
 
 [node name="CardUI" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
 layout_mode = 2
-card = ExtResource("6_n1u7u")
+card = ExtResource("8_0xuhx")
 
 [node name="CardUI2" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
 layout_mode = 2
-card = ExtResource("6_n1u7u")
+card = ExtResource("8_0xuhx")
 
 [node name="CardUI3" parent="InteractionLayer/Hand" instance=ExtResource("4_xpsww")]
 layout_mode = 2
-card = ExtResource("7_2ga7d")
+card = ExtResource("9_pru8x")

@@ -31,11 +31,14 @@ public partial class CardDragState : CardState
 		var mouse_motion = e is InputEventMouseMotion;
 		var cancel = e.IsActionPressed("right_mouse");
 		var confirm = e.IsActionPressed("left_mouse") || e.IsActionReleased("left_mouse");
-
-		Debug.Print(c_ui.card.id);
 		
-		if (c_ui.card.is_single_target() && mouse_motion && c_ui.targets.Count > 0)
+		Debug.Print("" + (int)c_ui.card.Target);
+
+		
+		if (c_ui.card.is_single_target() && mouse_motion )//&& c_ui.targets.Count > 0)
 		{
+			Debug.Print("" + (int)c_ui.card.Target);
+			
 			EmitSignal(SignalName.Transition, this, (int)State.Aiming);
 			return;
 		}

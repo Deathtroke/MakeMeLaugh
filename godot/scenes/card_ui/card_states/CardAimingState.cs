@@ -33,6 +33,13 @@ public partial class CardAimingState : CardState
 		
 		if ((mouse_motion && mous_to_low) || e.IsActionPressed("right_mouse"))
 		{
+			var hand = GetTree().GetFirstNodeInGroup("hand");
+			if (hand is BoxContainer box)
+			{
+				c_ui.GetParent().RemoveChild(c_ui);
+				box.AddChild(c_ui);
+				c_ui.PivotOffset = Vector2.Zero;
+			}
 			EmitSignal(SignalName.Transition, this, (int)State.Idle);
 		}
 		else
