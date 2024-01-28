@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=23 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.cs" id="1_nm24d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
+[ext_resource type="Texture2D" uid="uid://c24lg1xop7er5" path="res://Art/Backgrounds/Keller_v01.png" id="3_526ob"]
 [ext_resource type="Script" path="res://scenes/EnemyHandler.cs" id="4_bi5y1"]
-[ext_resource type="Texture2D" uid="uid://cbch7ldsgk277" path="res://Art/Background.png" id="4_l3pu1"]
 [ext_resource type="PackedScene" uid="uid://3npr0ba7upc4" path="res://scenes/enemy/enemy.tscn" id="5_ye3yi"]
 [ext_resource type="Resource" uid="uid://c6cm3nto2pu6s" path="res://Enemies/Rat/rat_enemy.tres" id="6_50a3p"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
@@ -18,6 +18,9 @@
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
 [ext_resource type="StyleBox" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="15_83gvs"]
+[ext_resource type="StyleBox" uid="uid://dk5oh62hxjlvd" path="res://ui/newDefault_style_box_flat.tres" id="16_446w3"]
+[ext_resource type="StyleBox" uid="uid://bm6qtj55ymm2m" path="res://ui/newDefault_style_box_flat_hover.tres" id="18_f40ds"]
+[ext_resource type="StyleBox" uid="uid://cm067wmx8b14j" path="res://ui/newDefault_style_box_flat_hover_pressed.tres" id="19_am4au"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)
@@ -28,7 +31,7 @@ Char_stats = ExtResource("12_vigc1")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("4_l3pu1")
+texture = ExtResource("3_526ob")
 centered = false
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -68,10 +71,16 @@ script = ExtResource("10_js3df")
 Character_stats = ExtResource("12_vigc1")
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI" groups=["hand"]]
-offset_left = 314.0
-offset_top = 744.0
-offset_right = 1594.0
-offset_bottom = 1068.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -324.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
 script = ExtResource("11_5qo5d")
 Character_Stats = ExtResource("12_vigc1")
@@ -85,6 +94,7 @@ offset_top = -163.0
 offset_right = 155.0
 offset_bottom = -32.0
 scale = Vector2(1, 1)
+theme_override_styles/panel = ExtResource("16_446w3")
 char_stats = ExtResource("12_vigc1")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
@@ -94,13 +104,17 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -217.0
-offset_top = -107.0
-offset_right = -60.0
-offset_bottom = -54.0
+offset_left = -315.0
+offset_top = -166.0
+offset_right = -24.0
+offset_bottom = -41.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("15_83gvs")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = ExtResource("16_446w3")
+theme_override_styles/hover = ExtResource("18_f40ds")
+theme_override_styles/pressed = ExtResource("19_am4au")
 text = "End Turn"
 
 [node name="UI" type="CanvasLayer" parent="."]
