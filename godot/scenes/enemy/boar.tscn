@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgdqsaq4ho2id"]
+[gd_scene load_steps=10 format=3 uid="uid://cra5v8nxms6l7"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_3m3ya"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_a4wa7"]
 [ext_resource type="Texture2D" uid="uid://cfa82mswfy46i" path="res://Art/wipAssets/Wildschwein_Idle_01.png" id="3_uu3r7"]
+[ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_df1dk"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_q1xli"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="5_6wnsr"]
+[ext_resource type="Texture2D" uid="uid://b1degfakxgvfe" path="res://Art/wipAssets/Wildschwein_Aggro_01.png" id="5_e3cdg"]
+[ext_resource type="Texture2D" uid="uid://jugbmgdo7xe7" path="res://Art/wipAssets/Wildschwein_Dead_01.png" id="6_ea8kd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(430, 424)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" node_paths=PackedStringArray("Art")]
 collision_layer = 4
 script = ExtResource("1_3m3ya")
+Art = NodePath("Sprite2D")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(35, 493)
@@ -23,6 +27,10 @@ position = Vector2(-126, 50)
 scale = Vector2(0.392336, 0.398128)
 texture = ExtResource("3_uu3r7")
 flip_h = true
+script = ExtResource("4_df1dk")
+_idle = ExtResource("3_uu3r7")
+_attack = ExtResource("5_e3cdg")
+_dead = ExtResource("6_ea8kd")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(316, 22)

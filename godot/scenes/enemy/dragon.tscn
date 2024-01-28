@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://blqalc5dy2cpi"]
+[gd_scene load_steps=10 format=3 uid="uid://di44ld4eq3bhx"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_xubej"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_0yqcl"]
 [ext_resource type="Texture2D" uid="uid://dn3uj7ppk10bf" path="res://Art/wipAssets/Dragon_Idle_01.png" id="3_sfpd2"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_fkasm"]
+[ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_lc1id"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="5_1v15f"]
+[ext_resource type="Texture2D" uid="uid://ldojl6650abm" path="res://Art/wipAssets/Dragon_Aggro_01.png" id="5_3el4r"]
+[ext_resource type="Texture2D" uid="uid://dhi060qsw00uv" path="res://Art/wipAssets/Dragon_Dead_01.png" id="6_iqh0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(984, 566)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" node_paths=PackedStringArray("Art")]
 collision_layer = 4
 script = ExtResource("1_xubej")
+Art = NodePath("Sprite2D")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(35, 493)
@@ -22,6 +26,10 @@ texture = ExtResource("2_0yqcl")
 position = Vector2(58, -21)
 scale = Vector2(0.536514, 0.544434)
 texture = ExtResource("3_sfpd2")
+script = ExtResource("4_lc1id")
+_idle = ExtResource("3_sfpd2")
+_attack = ExtResource("5_3el4r")
+_dead = ExtResource("6_iqh0y")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(646, -4)

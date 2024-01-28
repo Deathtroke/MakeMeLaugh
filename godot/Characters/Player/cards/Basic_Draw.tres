@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bbfegphhbs3lj"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cv3jg2j6ynolk"]
 
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_1ix00"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Basic_Draw.cs" id="2_832er"]

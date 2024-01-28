@@ -13,13 +13,13 @@ public partial class SpriteChanger : Sprite2D
 	public async void show_attack()
 	{
 		Texture = _attack;
-		await Task.Delay(1000);
+		await Task.Delay(2000);
 		Texture = _idle;
 	}
 	public async void show_dead()
 	{
 		Texture = _dead;
-		await Task.Delay(1000);
+		await Task.Delay(2000);
 		Texture = _idle;
 	}
 }

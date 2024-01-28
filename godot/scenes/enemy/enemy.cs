@@ -12,6 +12,7 @@ public partial class enemy : Area2D
 	private EnemyAI enemy_ai;
 
 	public Enemy_Action curren_action;
+	[Export] public SpriteChanger Art;
 	
 	
 	public override void _Ready()
@@ -90,6 +91,7 @@ public partial class enemy : Area2D
 
 	public void do_turn()
 	{
+		Art.show_attack();
 		_stats._block = 0;
 
 		GD.Print("do: " + curren_action.Name);
@@ -104,6 +106,8 @@ public partial class enemy : Area2D
 	
 	public void take_damage(int amount)
 	{
+		
+		Art.show_dead();
 		if (_stats.Health <= 0) return;
 		
 		_stats.take_damage(amount);
