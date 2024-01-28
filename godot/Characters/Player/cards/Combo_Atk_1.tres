@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://diisl2cmindhq"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://chc7nu0qpsvvh"]
 
 [ext_resource type="Texture2D" uid="uid://dj4h47q6henle" path="res://Art/Icons/Icons_Attack_v01.png" id="1_sq2u6"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Combo_Atk_1.cs" id="2_7e72e"]
