@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://dhqjkvbmvlgw3"]
+
+[ext_resource type="Texture2D" uid="uid://cfa82mswfy46i" path="res://Art/wipAssets/Wildschwein_Idle_01.png" id="1_btc4e"]
+[ext_resource type="PackedScene" uid="uid://b8pm1yhllq7l0" path="res://Enemies/Boar/boar_ai.tscn" id="2_hqwvc"]
+[ext_resource type="Script" path="res://custom_resources/EnemyStats.cs" id="3_h427d"]
+
+[resource]
+script = ExtResource("3_h427d")
+ai = ExtResource("2_hqwvc")
+MaxHp = 35
+Art = ExtResource("1_btc4e")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://3b3v0yyh05v1"]
+
+[ext_resource type="Texture2D" uid="uid://ovu0e6cuujut" path="res://Art/wipAssets/Ferkel_Idle_01.png" id="1_unsrm"]
+[ext_resource type="PackedScene" uid="uid://bervfqr3u5thm" path="res://Enemies/Boar/boarling_ai.tscn" id="2_o0sny"]
+[ext_resource type="Script" path="res://custom_resources/EnemyStats.cs" id="3_0qioi"]
+
+[resource]
+script = ExtResource("3_0qioi")
+ai = ExtResource("2_o0sny")
+MaxHp = 95
+Art = ExtResource("1_unsrm")
