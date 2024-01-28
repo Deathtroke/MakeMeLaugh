@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp1xb1hjnbmbq"]
+[gd_scene load_steps=10 format=3 uid="uid://dp1xb1hjnbmbq"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_lswvk"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_3n4js"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="2_4uqbb"]
 [ext_resource type="Texture2D" uid="uid://kvd4qoq7o5j2" path="res://Art/wipAssets/Rat_Idle_01.png" id="3_seurp"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="3_tekfi"]
+[ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_cegq6"]
+[ext_resource type="Texture2D" uid="uid://dmkx2ths2m2t3" path="res://Art/wipAssets/Rat_Aggro_01.png" id="5_crr06"]
+[ext_resource type="Texture2D" uid="uid://bn4gp4cj0kg52" path="res://Art/wipAssets/Rat_Dead_01.png" id="6_r4jxd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(406, 186)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy2" type="Area2D" node_paths=PackedStringArray("Art")]
 collision_layer = 4
 script = ExtResource("1_lswvk")
+Art = NodePath("Sprite2D")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(35, 493)
@@ -22,6 +26,10 @@ texture = ExtResource("2_3n4js")
 position = Vector2(70, 97)
 scale = Vector2(0.321144, 0.325885)
 texture = ExtResource("3_seurp")
+script = ExtResource("4_cegq6")
+_idle = ExtResource("3_seurp")
+_attack = ExtResource("5_crr06")
+_dead = ExtResource("6_r4jxd")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(364, 83)

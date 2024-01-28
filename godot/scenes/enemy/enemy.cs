@@ -12,7 +12,7 @@ public partial class enemy : Area2D
 	private EnemyAI enemy_ai;
 
 	public Enemy_Action curren_action;
-	
+	[Export] public SpriteChanger Art;
 	
 	public override void _Ready()
 	{
@@ -82,7 +82,7 @@ public partial class enemy : Area2D
 			await Task.Delay(200);
 		}
 		
-		_sprite2D.Texture = _stats.Art;
+		//_sprite2D.Texture = _stats.Art;
 		_arrow.Position = Vector2.Right * (_sprite2D.GetRect().Size.X / 2 + ARROW_OFFSET);
 		setup_ai();
 		update_stats(null, null);
@@ -92,6 +92,7 @@ public partial class enemy : Area2D
 	{
 		GD.Print("start e turn do");
 
+		Art.show_attack();
 		//_stats._block = 0;
 
 		GD.Print("has action: " + (curren_action != null));
@@ -108,6 +109,7 @@ public partial class enemy : Area2D
 	
 	public void take_damage(int amount)
 	{
+		Art.show_dead();
 		if (_stats.Health <= 0) return;
 		
 		_stats.take_damage(amount);

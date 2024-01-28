@@ -9,6 +9,7 @@ public partial class player : Node2D
 	private Sprite2D _sprite2D = new Sprite2D();
 	private stats_ui stats_ui;
 	public PlayerHandler _playerHandler;
+	[Export] public SpriteChanger Art;
 	
 	
 	public override void _Ready()
@@ -58,7 +59,9 @@ public partial class player : Node2D
 		{
 			 await Task.Delay(200);
 		}
-		_sprite2D.Texture = _stats.Art;
+		GD.Print("stats" + _stats.Art);
+		GD.Print("sprite" + _sprite2D.Texture);
+		//s_sprite2D.Texture = _stats.Art;
 		update_stats(null, null);
 	}
 	
@@ -69,6 +72,7 @@ public partial class player : Node2D
 	
 	private void take_damage(int amount)
 	{
+		Art.show_dead();
 		if (_stats.Health <= 0) return;
 		
 		_stats.take_damage(amount);

@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpqlhgnorq17d"]
+[gd_scene load_steps=10 format=3 uid="uid://dpqlhgnorq17d"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_fel8u"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_eudkt"]
 [ext_resource type="Texture2D" uid="uid://dhftl4ehugu3y" path="res://Art/wipAssets/Unicorn_Idle_01.png" id="3_862cm"]
+[ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_ckals"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_qldo2"]
+[ext_resource type="Texture2D" uid="uid://blql7n3kfquco" path="res://Art/wipAssets/Unicorn_Aggro_01.png" id="5_fkpd5"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="5_xcega"]
+[ext_resource type="Texture2D" uid="uid://d17w2wna2yrgy" path="res://Art/wipAssets/Unicorn_Defeated_01.png" id="6_q42aw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(360, 566)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" node_paths=PackedStringArray("Art")]
 collision_layer = 4
 script = ExtResource("1_fel8u")
+Art = NodePath("Sprite2D")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(35, 493)
@@ -19,9 +23,13 @@ scale = Vector2(1, 1.4375)
 texture = ExtResource("2_eudkt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(304, 99)
+position = Vector2(-96, 112)
 scale = Vector2(0.536514, 0.544434)
 texture = ExtResource("3_862cm")
+script = ExtResource("4_ckals")
+_idle = ExtResource("3_862cm")
+_attack = ExtResource("5_fkpd5")
+_dead = ExtResource("6_q42aw")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(298, 88)

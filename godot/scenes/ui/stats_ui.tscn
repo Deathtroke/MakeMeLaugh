@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="1_xa80r"]
 [ext_resource type="Script" path="res://scenes/ui/stats_ui.cs" id="2_276av"]
-[ext_resource type="Texture2D" uid="uid://de51rocqvdaw2" path="res://Art/block.png" id="2_nlpof"]
-[ext_resource type="Texture2D" uid="uid://d4l7g128f6rx7" path="res://Art/hp.png" id="3_uw6dn"]
+[ext_resource type="Texture2D" uid="uid://ujwo1h1a6qkv" path="res://Art/Icons/Icons_Block_v01.png" id="3_4cg8a"]
+[ext_resource type="Texture2D" uid="uid://d2kh3235wyrgm" path="res://Art/Icons/Icons_Gehrin_v01.png" id="4_3cx4p"]
 
 [node name="StatsUI" type="HBoxContainer"]
 anchors_preset = 5
@@ -24,7 +24,7 @@ theme_override_constants/separation = 0
 
 [node name="BlockImage" type="TextureRect" parent="Block"]
 layout_mode = 2
-texture = ExtResource("2_nlpof")
+texture = ExtResource("3_4cg8a")
 expand_mode = 2
 stretch_mode = 5
 
@@ -43,7 +43,7 @@ theme_override_constants/separation = 0
 
 [node name="HealthImage" type="TextureRect" parent="Health"]
 layout_mode = 2
-texture = ExtResource("3_uw6dn")
+texture = ExtResource("4_3cx4p")
 expand_mode = 2
 stretch_mode = 5
 

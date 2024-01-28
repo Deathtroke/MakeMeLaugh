@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://4npaxhs7uv8g"]
+[gd_scene load_steps=10 format=3 uid="uid://4npaxhs7uv8g"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_abq2p"]
 [ext_resource type="Texture2D" uid="uid://dysxdlhwyg42u" path="res://Art/wipAssets/pngimg.com - rope_PNG18118.png" id="2_u8u54"]
 [ext_resource type="Texture2D" uid="uid://c68nxum3pu22o" path="res://Art/wipAssets/God_Idle_01.png" id="3_3tp6r"]
+[ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_riref"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_taban"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="5_5v73h"]
+[ext_resource type="Texture2D" uid="uid://ctcgtf0xbvyi7" path="res://Art/wipAssets/God_Aggro_01.png" id="5_ghi51"]
+[ext_resource type="Texture2D" uid="uid://drai6yg4kdaa5" path="res://Art/wipAssets/God_Dead_01.png" id="6_b00s6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(984, 566)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy2" type="Area2D" node_paths=PackedStringArray("Art")]
 collision_layer = 4
 script = ExtResource("1_abq2p")
+Art = NodePath("Sprite2D")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(-168, -527)
@@ -29,6 +33,10 @@ texture = ExtResource("2_u8u54")
 position = Vector2(58, -21)
 scale = Vector2(0.536514, 0.544434)
 texture = ExtResource("3_3tp6r")
+script = ExtResource("4_riref")
+_idle = ExtResource("3_3tp6r")
+_attack = ExtResource("5_ghi51")
+_dead = ExtResource("6_b00s6")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(646, -4)
