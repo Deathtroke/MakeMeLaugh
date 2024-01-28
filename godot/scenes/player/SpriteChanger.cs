@@ -14,14 +14,14 @@ public partial class SpriteChanger : Sprite2D
 	{
 		if (Texture == _dead || Texture == _attack)  return;
 		Texture = _attack;
-		await Task.Delay(2000);
+		await Task.Delay(700);
 		Texture = _idle;
 	}
 	public async void show_dead()
 	{
 		if (Texture == _dead || Texture == _attack)  return;
 		Texture = _dead;
-		await Task.Delay(2000);
+		await Task.Delay(700);
 		Texture = _idle;
 	}
 }

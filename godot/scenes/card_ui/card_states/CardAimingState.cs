@@ -40,7 +40,6 @@ public partial class CardAimingState : CardState
 		Area2D closest_enemy = new Area2D();
 		foreach (Area2D enemy in GetTree().GetNodesInGroup("enemy"))
 		{
-			var size = enemy.GetChild<CollisionShape2D>(3);
 			var dist = c_ui.GetGlobalMousePosition().DistanceTo(enemy.Position);
 			if (dist < min_distance)
 			{
