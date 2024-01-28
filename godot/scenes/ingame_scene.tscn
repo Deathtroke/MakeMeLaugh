@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=31 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.cs" id="1_nm24d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -23,13 +23,61 @@
 [ext_resource type="PackedScene" uid="uid://c3rjonj4smjpm" path="res://scenes/enemy/god.tscn" id="12_kwedc"]
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
 [ext_resource type="StyleBox" uid="uid://cfp220lhfyrht" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
-[ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="15_83gvs"]
-[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat.tres" id="16_446w3"]
-[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat_hover.tres" id="18_f40ds"]
-[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat_hover_pressed.tres" id="19_am4au"]
+[ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="22_knft7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqpet"]
+bg_color = Color(0.47451, 0.541176, 0.407843, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an87q"]
+bg_color = Color(0.47451, 0.541176, 0.407843, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.682353, 0.74902, 0.615686, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrnyx"]
+bg_color = Color(0.607843, 0.678431, 0.541176, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.686275, 0.752941, 0.619608, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_665to"]
+bg_color = Color(0.282353, 0.329412, 0.235294, 1)
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.2, 0.239216, 0.160784, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehua1"]
+bg_color = Color(0.47451, 0.541176, 0.407843, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.682353, 0.74902, 0.615686, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_nm24d")
@@ -114,7 +162,8 @@ offset_top = -163.0
 offset_right = 155.0
 offset_bottom = -32.0
 scale = Vector2(1, 1)
-theme_override_styles/panel = ExtResource("16_446w3")
+theme_type_variation = &"Ap"
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqpet")
 char_stats = ExtResource("12_vigc1")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
@@ -130,11 +179,13 @@ offset_right = -24.0
 offset_bottom = -41.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = ExtResource("15_83gvs")
-theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = ExtResource("16_446w3")
-theme_override_styles/hover = ExtResource("18_f40ds")
-theme_override_styles/pressed = ExtResource("19_am4au")
+theme = ExtResource("22_knft7")
+theme_type_variation = &"EndTurn"
+theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxFlat_an87q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrnyx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_665to")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ehua1")
 text = "End Turn"
 
 [node name="UI" type="CanvasLayer" parent="."]
