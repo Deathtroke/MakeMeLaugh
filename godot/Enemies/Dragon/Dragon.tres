@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("3_lsjey")
 ai = ExtResource("2_c23dn")
-MaxHp = 150
+MaxHp = 200
 Art = ExtResource("1_xpgjn")
