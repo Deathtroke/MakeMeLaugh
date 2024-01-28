@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=13 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
 [ext_resource type="Texture2D" uid="uid://xnf5fe87xxmq" path="res://Art/Backgrounds/Drachenhort_v01.png" id="4_7jtyc"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
+[ext_resource type="Texture2D" uid="uid://dgawu0p2q1xvj" path="res://Art/wipAssets/Riven_Victory_01.png" id="5_klwum"]
+[ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="6_c4x5k"]
 [ext_resource type="FontFile" uid="uid://cop0sgm2lc3g2" path="res://fonts/Diamond Girl.ttf" id="6_e5r8q"]
+[ext_resource type="Texture2D" uid="uid://cgj0mfntvmrd3" path="res://Art/wipAssets/Ferkel_Defeated_01.png" id="7_bpike"]
 [ext_resource type="AudioStream" uid="uid://cwdqytxigw8c4" path="res://music/Vicious.ogg" id="7_u2mu6"]
+[ext_resource type="Texture2D" uid="uid://h7lylmc75v2t" path="res://Art/Backgrounds/PaperBG_03.png" id="8_pmmvd"]
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
@@ -66,6 +70,39 @@ theme_override_font_sizes/font_size = 31
 text = "Hannes Börner, Madleen Heck & Mads-Henri Ungethüm"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="RivenVictory01" type="Sprite2D" parent="UI/CenterContainer/VBoxContainer"]
+z_index = 1
+position = Vector2(172, 767)
+rotation = 0.223637
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_klwum")
+
+[node name="Stick" type="Sprite2D" parent="UI/CenterContainer/VBoxContainer"]
+position = Vector2(-31.0001, 1003)
+rotation = 0.326078
+scale = Vector2(0.5, 1)
+texture = ExtResource("6_c4x5k")
+
+[node name="FerkelDefeated01" type="Sprite2D" parent="UI/CenterContainer/VBoxContainer"]
+z_index = 2
+position = Vector2(1166, 515)
+rotation = -0.174537
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("7_bpike")
+
+[node name="PaperBg03" type="Sprite2D" parent="UI/CenterContainer/VBoxContainer"]
+z_index = 1
+position = Vector2(1168, 587)
+rotation = -0.353493
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_pmmvd")
+
+[node name="Stick2" type="Sprite2D" parent="UI/CenterContainer/VBoxContainer"]
+position = Vector2(1449, 864)
+rotation = -0.316256
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("6_c4x5k")
 
 [node name="FadeOverlay" parent="UI" instance=ExtResource("3_kf1us")]
 unique_name_in_owner = true
