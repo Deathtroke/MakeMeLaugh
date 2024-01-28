@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=39 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.cs" id="1_nm24d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://4npaxhs7uv8g" path="res://scenes/enemy/god.tscn" id="12_kwedc"]
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
 [ext_resource type="StyleBox" uid="uid://b4m5uw051k1rs" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
+[ext_resource type="Resource" uid="uid://gehnr45m5ple" path="res://Enemies/Dragon/Dragon.tres" id="17_yifo5"]
 [ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="22_knft7"]
 [ext_resource type="Script" path="res://scenes/Speech.cs" id="25_2fcf4"]
 [ext_resource type="Texture2D" uid="uid://gop2npstcloq" path="res://Art/Icons/Icons_Sprechblase_v01.png" id="26_i6mgs"]
@@ -100,7 +101,7 @@ metadata/_edit_group_ = true
 [node name="Speech" type="Node2D" parent="." groups=["speechbubble"]]
 visible = false
 script = ExtResource("25_2fcf4")
-_text_array = Array[String](["Ich bin ein Witz!", "Ich nicht :(", "Mehr witz", "noch mehr", "lol!", "Deine mom"])
+_text_array = Array[String](["You're the reason baby gnomes cry!", "Ugh. What the hell is that all over your face? Oh...it's just your face!", "Do you have a pen? Well you'd better get back to it before the farmer knows you are missing!", "You look like you've blown a goat, I kid you not!", "Learn from your father's mistake, become a eunuch!", "Well, my time of not taking you seriously is coming to a middle!", "Very impressive, I think I'll hire you out for children's parties!", "You're like a gnome on stilts, real cute, but it's not working!", "I'd say you were a worthy opponent, but I once fought a flumph wielding a dandelion!", "If this fight gets any harder, I'll have to switch it up to folk music!", "I'm sorry, we were looking for an actual fight, have you seen one?", "If you are going to behave like a barbarian, you could at least learn to fight like one!", "There are more holes in your capabilities than in Dwarven cheese!Congratulations! You're a failure.", "At this rate, I will die from old age before you kill me.", "Trying to make the party laugh is supposed to be my job, not yours", "What smells worse than a goblin? Oh yeah, you!", "What's that smell? I thought breath weapons were supposed to come out of your mouth!", "Charisma was OBVIOUSLY your dump stat!", "You are a one dimensional character that lacks even a generic backstory!", "Whomever is willing to have sex with you, is just too lazy to jerk off!", "Somewhere out there is a tree, tirelessly producing oxygen so you can breathe. I think you owe it an apology!", "Believe in yourself because no one else does!"])
 
 [node name="Blase" type="Sprite2D" parent="Speech"]
 position = Vector2(653, 250)
@@ -164,7 +165,7 @@ script = ExtResource("4_bi5y1")
 
 [node name="Dragon" parent="EnemyHandler4" instance=ExtResource("10_2bqku")]
 position = Vector2(1242, 485)
-Stats = ExtResource("6_50a3p")
+Stats = ExtResource("17_yifo5")
 
 [node name="EnemyHandler5" type="Node2D" parent="."]
 visible = false
