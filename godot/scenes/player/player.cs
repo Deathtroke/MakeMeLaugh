@@ -8,12 +8,14 @@ public partial class player : Node2D
 
 	private Sprite2D _sprite2D = new Sprite2D();
 	private stats_ui stats_ui;
+	public PlayerHandler _playerHandler;
 	
 	
 	public override void _Ready()
 	{
 		stats_ui = GetNode<stats_ui>("StatsUI");
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
+		_playerHandler = GetTree().GetFirstNodeInGroup("playerhandler") as PlayerHandler;
 	}
 
 	public CharacterStats _stats;

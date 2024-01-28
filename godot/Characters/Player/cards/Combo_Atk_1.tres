@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://diisl2cmindhq"]
+
+[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="1_uh7et"]
+[ext_resource type="Script" path="res://Characters/Player/cards/Combo_Atk_1.cs" id="2_7e72e"]
+
+[resource]
+script = ExtResource("2_7e72e")
+id = "Combo 1"
+Effect = 0
+Target = 1
+Ap_cost = 0
+icon = ExtResource("1_uh7et")
