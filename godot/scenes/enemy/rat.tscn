@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp1xb1hjnbmbq"]
+[gd_scene load_steps=11 format=3 uid="uid://dp1xb1hjnbmbq"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_lswvk"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_3n4js"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="2_4uqbb"]
 [ext_resource type="Texture2D" uid="uid://kvd4qoq7o5j2" path="res://Art/wipAssets/Rat_Idle_01.png" id="3_seurp"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="3_tekfi"]
+[ext_resource type="Texture2D" uid="uid://xtb02bwbijc0" path="res://Art/Backgrounds/PaperBG_01.png" id="3_w02n0"]
 [ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_cegq6"]
 [ext_resource type="Texture2D" uid="uid://dmkx2ths2m2t3" path="res://Art/wipAssets/Rat_Aggro_01.png" id="5_crr06"]
 [ext_resource type="Texture2D" uid="uid://bn4gp4cj0kg52" path="res://Art/wipAssets/Rat_Dead_01.png" id="6_r4jxd"]
@@ -18,9 +19,14 @@ script = ExtResource("1_lswvk")
 Art = NodePath("Sprite2D")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(35, 493)
+position = Vector2(98, 527)
 scale = Vector2(1, 1.4375)
 texture = ExtResource("2_3n4js")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(68, 25)
+scale = Vector2(0.310677, 0.396528)
+texture = ExtResource("3_w02n0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(70, 97)
@@ -40,7 +46,7 @@ position = Vector2(98, 94)
 shape = SubResource("RectangleShape2D_xgj4j")
 
 [node name="StatsUI" parent="." instance=ExtResource("3_tekfi")]
-offset_left = -88.0
-offset_top = -91.0
-offset_right = 196.0
-offset_bottom = -15.0
+offset_left = -60.0
+offset_top = -108.0
+offset_right = 224.0
+offset_bottom = -32.0

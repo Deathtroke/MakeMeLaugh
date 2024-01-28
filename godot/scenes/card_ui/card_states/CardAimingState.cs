@@ -35,11 +35,12 @@ public partial class CardAimingState : CardState
 		var mouse_motion = e is InputEventMouseMotion;
 		var cancel = e.IsActionPressed("right_mouse");
 		var confirm = e.IsActionPressed("left_mouse") || e.IsActionReleased("left_mouse");
-		
+	
 		float min_distance = 10000;
 		Area2D closest_enemy = new Area2D();
 		foreach (Area2D enemy in GetTree().GetNodesInGroup("enemy"))
 		{
+			//var size = enemy.GetChild<CollisionShape2D>(3);
 			var dist = c_ui.GetGlobalMousePosition().DistanceTo(enemy.Position);
 			if (dist < min_distance)
 			{
@@ -57,7 +58,7 @@ public partial class CardAimingState : CardState
 			if (closest_enemy is enemy en)
 			{
 				c_ui.targets.Add(en);
-				en._arrow.Show();
+				en.hover();
 			}
 		}
 		else
@@ -71,7 +72,7 @@ public partial class CardAimingState : CardState
 						c_ui.targets.Remove(p);
 					}
 				}
-				en._arrow.Hide();
+				en.hoverEnd();
 			}
 		}
 	

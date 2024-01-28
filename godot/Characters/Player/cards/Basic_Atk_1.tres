@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://byoyl1yf80noq"]
 
-[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="1_gyb1a"]
+[ext_resource type="Texture2D" uid="uid://dj4h47q6henle" path="res://Art/Icons/Icons_Attack_v01.png" id="1_neuqu"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Basic_Atk_1.cs" id="2_6u6di"]
 
 [resource]
@@ -9,5 +9,5 @@ Effect = 0
 Target = 1
 Ap_cost = 1
 id = "Joke about their Optiks"
-icon = ExtResource("1_gyb1a")
+icon = ExtResource("1_neuqu")
 description = "Deal 5 damage"

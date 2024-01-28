@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(430, 424)
 
-[node name="Enemy2" type="Area2D" node_paths=PackedStringArray("Art")]
+[node name="Enemy3" type="Area2D" node_paths=PackedStringArray("Art")]
 collision_layer = 4
 script = ExtResource("1_3m3ya")
 Art = NodePath("Sprite2D")

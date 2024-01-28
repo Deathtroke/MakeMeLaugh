@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://wap2t8qcdgo3"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://da0n4h1u44dgf"]
 
-[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="1_2q6u6"]
+[ext_resource type="Texture2D" uid="uid://dj4h47q6henle" path="res://Art/Icons/Icons_Attack_v01.png" id="1_ie3bb"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Combo_Atk_Fin.cs" id="2_xdtfu"]
 
 [resource]
@@ -9,5 +9,5 @@ Effect = 0
 Target = 1
 Ap_cost = 1
 id = "Last but not least!"
-icon = ExtResource("1_2q6u6")
+icon = ExtResource("1_ie3bb")
 description = "Deal 4 Damage"
