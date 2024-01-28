@@ -39,7 +39,6 @@ public partial class EnemyAI : Node
 	{
 		var action = get_first_con_action();
 		
-		GD.Print(action);
 
 		if (action != null)
 		{

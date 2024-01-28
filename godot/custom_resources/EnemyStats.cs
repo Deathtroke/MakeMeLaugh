@@ -13,6 +13,7 @@ public partial class EnemyStats : Stats
         instance.Art = Art;
         instance.Health = MaxHp;
         instance.Block = 0;
+        instance.ai = ai;
         return instance;
     }
 }
