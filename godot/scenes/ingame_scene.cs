@@ -39,6 +39,7 @@ public partial class ingame_scene : Node2D
 		_player_handler._end_turn();
 		GD.Print("Turn ended.");
 		enemyHandler.stat_turn();
+		enemyHandler.reset_enemy_actions();
 		
 		_player_handler.start_turn();
 	}
@@ -63,6 +64,7 @@ public partial class ingame_scene : Node2D
 	{
 		
 		_player_handler.start_battle(stats);
+		enemyHandler.reset_enemy_actions();
 	}
 	
 }

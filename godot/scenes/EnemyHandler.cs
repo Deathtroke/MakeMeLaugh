@@ -9,12 +9,7 @@ public partial class EnemyHandler : Node2D
 	{
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
-	void reset_enemy_actions()
+	public void reset_enemy_actions()
 	{
 		enemy e;
 		foreach (var child in GetChildren())
@@ -35,6 +30,7 @@ public partial class EnemyHandler : Node2D
 
 		foreach (enemy e in GetChildren())
 		{
+			GD.Print("e turn" + e.Name);
 			e.do_turn();
 
 			await Task.Delay(200);

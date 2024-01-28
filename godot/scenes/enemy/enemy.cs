@@ -30,6 +30,7 @@ public partial class enemy : Area2D
 	private void setStats(EnemyStats value)
 	{
 		_stats = value.create_instance();
+
 		// If _stats is not null, unsubscribe update_stats from the StatsChanged event
 		if (_stats != null)
 		{
@@ -52,12 +53,13 @@ public partial class enemy : Area2D
 		EnemyAI ai = _stats.ai.Instantiate() as EnemyAI;
 		AddChild(ai);
 		enemy_ai = ai;
-		enemy_ai._enemy = this;
+		enemy_ai.set_enemy(this);
 	}
 	
 	private void update_stats(object sender, EventArgs e)
 	{
 		_stats_ui.update_stats(_stats);
+		update_action();
 	}
 	private async void update_enemy()
 	{
@@ -76,6 +78,8 @@ public partial class enemy : Area2D
 	{
 		_stats._block = 0;
 
+		GD.Print("do: " + curren_action);
+		
 		if (curren_action == null)
 		{
 			return;
@@ -92,7 +96,7 @@ public partial class enemy : Area2D
 		if (_stats.Health <= 0) QueueFree();
 	}
 
-	public void update_action(object sender, EventArgs e)
+	public void update_action()
 	{
 		if (enemy_ai == null)
 		{
@@ -102,6 +106,7 @@ public partial class enemy : Area2D
 		if (curren_action == null)
 		{
 			curren_action = enemy_ai.get_action();
+			GD.Print(curren_action);
 			return;
 		}
 	}

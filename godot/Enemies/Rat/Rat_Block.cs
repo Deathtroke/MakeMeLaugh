@@ -8,7 +8,9 @@ public partial class Rat_Block : Enemy_Action
 
 	public override void perform_action()
 	{
-		if (_enemy == null || target == null)
+		GD.Print(_enemy);
+
+		if (_enemy == null)
 		{
 			return;
 		}

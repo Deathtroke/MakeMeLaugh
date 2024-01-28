@@ -20,15 +20,15 @@ public partial class player : Node2D
 	}
 
 	private DateTime t;
+
 	public override void _Process(double delta)
 	{
 		if (DateTime.Now >= t)
 		{
-			GD.Print("s");
 			t = DateTime.Now.Add(TimeSpan.FromSeconds(0.5));
-			GD.Print(t);
 			update_player();
 		}
+	}
 
 	public CharacterStats _stats;
 	[Export] public CharacterStats Stats

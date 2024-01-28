@@ -3,70 +3,57 @@ using System;
 
 public partial class EnemyAI : Node
 {
-	[Export]
-	public enemy _enemy
-	{
-		set
-		{
-			_enemy = value;
+	[Export] public enemy _enemy;
 
-			foreach (Enemy_Action action in GetChildren())
-			{
-				action._enemy = _enemy;
-			}
-		}
-		get
-		{
-			return _enemy;
-		}
-	}
-
-	[Export]
-	public Node target
-	{
-		set
-		{
-			target = value;
-			
-			foreach (Enemy_Action action in GetChildren())
-			{
-				action.target = target;
-			}
-		}
-		get
-		{
-			return target;
-		}
-	}
+	[Export] public Node target;
 
 	private float total_weight = 0.0f;
 
 	public override void _Ready()
 	{
-		target = GetTree().GetFirstNodeInGroup("player");
+		set_target(GetTree().GetFirstNodeInGroup("player"));
 		setup_chance();
 	}
 
+	public void set_enemy(enemy e)
+	{
+		_enemy = e;
+
+		foreach (Enemy_Action action in GetChildren())
+		{
+			action._enemy = _enemy;
+		}
+	}
+
+	public void set_target(Node t)
+	{
+		target = t;
+
+		foreach (Enemy_Action action in GetChildren())
+		{
+			action.target = target;
+		}
+	}
+	
 	public Enemy_Action get_action()
 	{
 		var action = get_first_con_action();
+		
+		GD.Print(action);
 
 		if (action != null)
 		{
 			return action;
 		}
 		
-		return null;
+		return get_chance_action();
 	}
 
 	Enemy_Action get_first_con_action()
 	{
-		Enemy_Action action;
-
-		foreach (var child in GetChildren())
+		foreach (Enemy_Action action in GetChildren())
 		{
-			action = child as Enemy_Action;
-			if (action == null || action.type != Enemy_Action.Type.conditional)
+			if (action.type != Enemy_Action.Type.conditional)
 			{
 				continue;
 			}
@@ -82,14 +69,12 @@ public partial class EnemyAI : Node
 
 	Enemy_Action get_chance_action()
 	{
-		Enemy_Action action;
 		Random rng = new Random();
 		float roll = rng.NextSingle() * total_weight;
 		
-		foreach (var child in GetChildren())
+		foreach (Enemy_Action action in GetChildren())
 		{
-			action = child as Enemy_Action;
-			if (action == null || action.type != Enemy_Action.Type.chance)
+			if (action.type != Enemy_Action.Type.chance)
 			{
 				continue;
 			}
@@ -104,12 +89,9 @@ public partial class EnemyAI : Node
 	
 	void setup_chance()
 	{
-		Enemy_Action action;
-
-		foreach (var child in GetChildren())
+		foreach (Enemy_Action action in GetChildren())
 		{
-			action = child as Enemy_Action;
-			if (action == null || action.type != Enemy_Action.Type.chance)
+			if (action.type != Enemy_Action.Type.chance)
 			{
 				continue;
 			}
