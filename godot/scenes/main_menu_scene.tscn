@@ -6,11 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
 [ext_resource type="Texture2D" uid="uid://xnf5fe87xxmq" path="res://Art/Backgrounds/Drachenhort_v01.png" id="4_7jtyc"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
+[ext_resource type="FontFile" uid="uid://cop0sgm2lc3g2" path="res://fonts/Diamond Girl.ttf" id="6_e5r8q"]
 [ext_resource type="AudioStream" uid="uid://cwdqytxigw8c4" path="res://music/Vicious.ogg" id="7_u2mu6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
-font_size = 8
-font_color = Color(1, 1, 1, 0.486275)
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
@@ -32,7 +29,7 @@ texture = ExtResource("4_7jtyc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 20
 
 [node name="GameLogo" parent="UI/CenterContainer/VBoxContainer" instance=ExtResource("4_fnufg")]
 layout_mode = 2
@@ -58,17 +55,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "leave_game"
 
-[node name="Credits" type="MarginContainer" parent="UI/CenterContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/margin_top = 10
-
-[node name="Label" type="Label" parent="UI/CenterContainer/VBoxContainer/Credits"]
+[node name="Label" type="Label" parent="UI/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_e5r8q")
+theme_override_font_sizes/font_size = 31
 text = "Hannes Börner, Madleen Heck & Mads-Henri Ungethüm"
-label_settings = SubResource("LabelSettings_2ikbh")
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="FadeOverlay" parent="UI" instance=ExtResource("3_kf1us")]
 unique_name_in_owner = true
