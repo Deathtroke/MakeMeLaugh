@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dt00g5rgqhe2v"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://g01w11lxv12c"]
 
 [ext_resource type="Texture2D" uid="uid://dj4h47q6henle" path="res://Art/Icons/Icons_Attack_v01.png" id="1_n2472"]
 [ext_resource type="Script" path="res://Characters/Player/cards/AoE_Atk_1.cs" id="2_hdv8b"]

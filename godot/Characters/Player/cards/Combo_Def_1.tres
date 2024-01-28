@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dpovenh4ms5l"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b3vc5mt08q4jq"]
 
 [ext_resource type="Texture2D" uid="uid://ujwo1h1a6qkv" path="res://Art/Icons/Icons_Block_v01.png" id="1_nrl2n"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Combo_Def_1.cs" id="2_qp05i"]
