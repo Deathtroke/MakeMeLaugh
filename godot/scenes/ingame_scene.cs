@@ -79,7 +79,6 @@ public partial class ingame_scene : Node2D
 
 	public void on_enemy_change()
 	{
-		GD.Print("xxxx" + enemyHandler.GetChildCount());
 		if (enemyHandler.GetChildCount() == 0)
 		{
 			level += 1;
