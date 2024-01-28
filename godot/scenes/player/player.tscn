@@ -1,23 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfdc0pla45nw"]
+[gd_scene load_steps=9 format=3 uid="uid://cfdc0pla45nw"]
 
 [ext_resource type="Script" path="res://scenes/player/player.cs" id="1_4bmot"]
-[ext_resource type="Texture2D" uid="uid://crx1olbfbx2uk" path="res://Art/Enemy - Kopie.png" id="1_bhm2q"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_02wxm"]
 [ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="2_vg4we"]
+[ext_resource type="Texture2D" uid="uid://cy8t0moeugjb3" path="res://Art/wipAssets/Riven_Proud_01.png" id="3_nf1fi"]
+[ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_xcwx1"]
+[ext_resource type="Texture2D" uid="uid://c07r2s6to15up" path="res://Art/wipAssets/Riven_Idle_01.png" id="5_6x7px"]
+[ext_resource type="Texture2D" uid="uid://dsvyt6i2lbarx" path="res://Art/wipAssets/Riven_Attack_01.png" id="6_ga2bb"]
+[ext_resource type="Texture2D" uid="uid://yfhpty54o0rr" path="res://Art/wipAssets/Riven_Hurt#_01.png" id="7_a35aw"]
 
-[node name="Player" type="Node2D" groups=["player"]]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("Art") groups=["player"]]
 script = ExtResource("1_4bmot")
+Art = NodePath("CreatureSprite")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(-12, 545)
 scale = Vector2(1, 1.4375)
 texture = ExtResource("2_02wxm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bhm2q")
+[node name="CreatureSprite" type="Sprite2D" parent="." groups=["spritechanger"]]
+position = Vector2(112, 80)
+scale = Vector2(0.389352, 0.389352)
+texture = ExtResource("3_nf1fi")
+script = ExtResource("4_xcwx1")
+_idle = ExtResource("5_6x7px")
+_attack = ExtResource("6_ga2bb")
+_dead = ExtResource("7_a35aw")
 
 [node name="StatsUI" parent="." instance=ExtResource("2_vg4we")]
 offset_left = -263.0
-offset_top = -269.0
+offset_top = -245.0
 offset_right = 263.0
-offset_bottom = -193.0
+offset_bottom = -169.0

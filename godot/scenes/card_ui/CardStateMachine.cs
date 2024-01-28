@@ -91,6 +91,8 @@ public partial class CardStateMachine : Node
 			playerHandler.OnCardReleased(_last_card);
 			Speech bubble = GetTree().GetFirstNodeInGroup("speechbubble") as Speech;
 			bubble.display();
+			SpriteChanger spriteChanger = GetTree().GetFirstNodeInGroup("spritechanger") as SpriteChanger;
+			spriteChanger.show_attack();
 		}
 		
 		CardState new_state = states[to];
