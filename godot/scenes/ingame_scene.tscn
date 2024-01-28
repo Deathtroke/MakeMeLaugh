@@ -18,9 +18,9 @@
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
 [ext_resource type="StyleBox" uid="uid://cfp220lhfyrht" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="15_83gvs"]
-[ext_resource type="StyleBox" uid="uid://dk5oh62hxjlvd" path="res://ui/newDefault_style_box_flat.tres" id="16_446w3"]
-[ext_resource type="StyleBox" uid="uid://bm6qtj55ymm2m" path="res://ui/newDefault_style_box_flat_hover.tres" id="18_f40ds"]
-[ext_resource type="StyleBox" uid="uid://cm067wmx8b14j" path="res://ui/newDefault_style_box_flat_hover_pressed.tres" id="19_am4au"]
+[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat.tres" id="16_446w3"]
+[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat_hover.tres" id="18_f40ds"]
+[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat_hover_pressed.tres" id="19_am4au"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)

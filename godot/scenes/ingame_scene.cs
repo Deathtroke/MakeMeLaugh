@@ -10,6 +10,8 @@ public partial class ingame_scene : Node2D
 	private EnemyHandler enemyHandler;
 	private player _player;
 
+	public int level;
+
 	[Export] public CharacterStats Char_stats;
 	private void _ready()
 	{
@@ -18,6 +20,10 @@ public partial class ingame_scene : Node2D
 		_battle_ui = GetNode<battle_ui>("BattleUI");
 		_player_handler = GetNode<PlayerHandler>("PlayerHandler");
 		enemyHandler = GetNode<EnemyHandler>("EnemyHandler");
+
+		enemyHandler.ChildOrderChanged += on_enemy_change;
+		level = 0;
+		
 		_player = GetNode<player>("Player");
 		_battle_ui = GetNode<battle_ui>("BattleUI");
  		
@@ -62,9 +68,53 @@ public partial class ingame_scene : Node2D
 	
 	private void start_battle(CharacterStats stats)
 	{
-		
+		new_level();
 		_player_handler.start_battle(stats);
 		enemyHandler.reset_enemy_actions();
+	}
+
+	public void on_enemy_change()
+	{
+		GD.Print("xxxx" + enemyHandler.GetChildCount());
+		if (enemyHandler.GetChildCount() == 0)
+		{
+			level += 1;
+			new_level();
+			
+			CharacterStats _new_stats = Char_stats.create_instance();
+			_battle_ui.Character_stats = _new_stats;
+			_player._stats = _new_stats;
+		
+			_player_handler.discard_cards();
+			
+			start_battle(_new_stats);
+		}
+	}
+
+	public void new_level()
+	{
+		Sprite2D background = GetNode<Sprite2D>("Background");
+
+		switch (level)
+		{
+			case 0:
+				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Keller_v01.png");
+				break;
+			case 1:
+				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Wald_v01.png");
+				break;
+			case 2:
+				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Wald_v01.png");
+				break;
+			case 3:
+				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Drachenhort_v01.png");
+				break;
+			case 4:
+				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Drachenhort_v01.png");
+				break;
+			default:
+				break;
+		}
 	}
 	
 }

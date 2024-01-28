@@ -70,7 +70,7 @@ public partial class PlayerHandler : Node
 		DiscardFinished?.Invoke();
 	}
 
-	private void discard_cards()
+	public void discard_cards()
 	{
 		foreach (var card_ui in hand.GetChildren())
 		{

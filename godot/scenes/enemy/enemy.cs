@@ -19,7 +19,20 @@ public partial class enemy : Area2D
 		_stats_ui = GetNode<stats_ui>("StatsUI");
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
 		_arrow = GetNode<Sprite2D>("Arrow");
+		t = DateTime.Now;
 	}
+
+	private DateTime t;
+
+	public override void _Process(double delta)
+	{
+		if (DateTime.Now >= t)
+		{
+			t = DateTime.Now.Add(TimeSpan.FromSeconds(0.5));
+			update_enemy();
+		}
+	}
+	
 	private EnemyStats _stats;
 	[Export] public EnemyStats Stats
 	{
@@ -68,6 +81,7 @@ public partial class enemy : Area2D
 		{
 			await Task.Delay(200);
 		}
+		
 		_sprite2D.Texture = _stats.Art;
 		_arrow.Position = Vector2.Right * (_sprite2D.GetRect().Size.X / 2 + ARROW_OFFSET);
 		setup_ai();
@@ -78,7 +92,7 @@ public partial class enemy : Area2D
 	{
 		_stats._block = 0;
 
-		GD.Print("do: " + curren_action);
+		GD.Print("do: " + curren_action.Name);
 		
 		if (curren_action == null)
 		{
@@ -88,12 +102,17 @@ public partial class enemy : Area2D
 		curren_action.perform_action();
 	}    
 	
-	private void take_damage(int amount)
+	public void take_damage(int amount)
 	{
 		if (_stats.Health <= 0) return;
 		
 		_stats.take_damage(amount);
-		if (_stats.Health <= 0) QueueFree();
+
+		if (_stats.Health <= 0)
+		{
+			QueueFree();
+			
+		}
 	}
 
 	public void update_action()

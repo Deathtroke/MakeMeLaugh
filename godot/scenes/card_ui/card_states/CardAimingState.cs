@@ -46,9 +46,13 @@ public partial class CardAimingState : CardState
 				closest_enemy = enemy;
 				min_distance = dist;
 			}
+			else
+			{
+				c_ui.targets.Remove(enemy);
+			}
 		}
 
-		if (min_distance < 250)
+		if (min_distance < 200)
 		{
 			if (closest_enemy is enemy en)
 			{
