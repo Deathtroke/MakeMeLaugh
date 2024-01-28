@@ -11,10 +11,8 @@ public partial class EnemyHandler : Node2D
 
 	public void reset_enemy_actions()
 	{
-		enemy e;
-		foreach (var child in GetChildren())
+	foreach (enemy e in GetChildren())
 		{
-			e = child as enemy;
 			e.curren_action = null;
 			e.Stats.On_stats_changed();
 		}
