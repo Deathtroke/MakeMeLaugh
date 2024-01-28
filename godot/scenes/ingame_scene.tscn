@@ -168,6 +168,7 @@ position = Vector2(1242, 485)
 Stats = ExtResource("17_yifo5")
 
 [node name="EnemyHandler5" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_bi5y1")
 
 [node name="Desciple" parent="EnemyHandler5" instance=ExtResource("11_6fa0o")]
