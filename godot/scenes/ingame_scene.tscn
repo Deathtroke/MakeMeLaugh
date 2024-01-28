@@ -143,13 +143,13 @@ Stats = ExtResource("6_50a3p")
 visible = false
 script = ExtResource("4_bi5y1")
 
+[node name="Boarling" parent="EnemyHandler2" instance=ExtResource("8_64mgo")]
+position = Vector2(1074, 545)
+Stats = ExtResource("8_6vbwq")
+
 [node name="Boar" parent="EnemyHandler2" instance=ExtResource("7_6wjdb")]
 position = Vector2(1572, 489)
 Stats = ExtResource("9_6t7l6")
-
-[node name="Boarling" parent="EnemyHandler2" instance=ExtResource("8_64mgo")]
-position = Vector2(1172, 543)
-Stats = ExtResource("8_6vbwq")
 
 [node name="EnemyHandler3" type="Node2D" parent="."]
 visible = false
