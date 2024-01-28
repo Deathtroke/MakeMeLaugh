@@ -20,7 +20,7 @@ scale = Vector2(0.381643, 0.548611)
 texture = ExtResource("2_u8u54")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(280, -527)
+position = Vector2(280, -532)
 rotation = 1.57137
 scale = Vector2(0.381643, 0.548611)
 texture = ExtResource("2_u8u54")

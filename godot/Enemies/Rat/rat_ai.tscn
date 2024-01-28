@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Enemies/Rat/Rat_Attack2.cs" id="3_sb3d3"]
 [ext_resource type="Script" path="res://Enemies/Rat/Rat_Block.cs" id="4_t3gj7"]
 
-[node name="RatEnemyAI" type="Node"]
+[node name="RatEnemyAI2" type="Node"]
 script = ExtResource("1_b8gva")
 
 [node name="Attack" type="Node" parent="."]

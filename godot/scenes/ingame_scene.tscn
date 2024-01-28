@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=37 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.cs" id="1_nm24d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -26,13 +26,64 @@
 [ext_resource type="PackedScene" uid="uid://4npaxhs7uv8g" path="res://scenes/enemy/god.tscn" id="12_kwedc"]
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
 [ext_resource type="StyleBox" uid="uid://b4m5uw051k1rs" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
-[ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="15_83gvs"]
-[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat.tres" id="16_446w3"]
-[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat_hover.tres" id="18_f40ds"]
-[ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat_hover_pressed.tres" id="19_am4au"]
+[ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="22_knft7"]
+[ext_resource type="Script" path="res://scenes/Speech.cs" id="25_2fcf4"]
+[ext_resource type="Texture2D" uid="uid://gop2npstcloq" path="res://Art/Icons/Icons_Sprechblase_v01.png" id="26_i6mgs"]
+[ext_resource type="FontFile" uid="uid://d0tn62m34i56c" path="res://fonts/Are You Freakin' Serious.ttf" id="27_xesox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqpet"]
+bg_color = Color(0.47451, 0.541176, 0.407843, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an87q"]
+bg_color = Color(0.47451, 0.541176, 0.407843, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.682353, 0.74902, 0.615686, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrnyx"]
+bg_color = Color(0.607843, 0.678431, 0.541176, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.686275, 0.752941, 0.619608, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_665to"]
+bg_color = Color(0.282353, 0.329412, 0.235294, 1)
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.2, 0.239216, 0.160784, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehua1"]
+bg_color = Color(0.47451, 0.541176, 0.407843, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.682353, 0.74902, 0.615686, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_nm24d")
@@ -44,6 +95,26 @@ texture = ExtResource("3_526ob")
 centered = false
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+
+[node name="Speech" type="Node2D" parent="." groups=["speechbubble"]]
+visible = false
+script = ExtResource("25_2fcf4")
+_text_array = Array[String](["Ich bin ein Witz!", "Ich nicht :(", "Mehr witz", "noch mehr", "lol!", "Deine mom"])
+
+[node name="Blase" type="Sprite2D" parent="Speech"]
+position = Vector2(653, 250)
+scale = Vector2(0.519444, 0.519444)
+texture = ExtResource("26_i6mgs")
+
+[node name="Joke" type="RichTextLabel" parent="Speech" groups=["joketext"]]
+offset_left = 686.0
+offset_top = 162.0
+offset_right = 1003.0
+offset_bottom = 318.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("27_xesox")
+theme_override_font_sizes/normal_font_size = 51
+text = "Test Text!"
 
 [node name="CardRelease" type="Area2D" parent="."]
 collision_layer = 2
@@ -59,31 +130,31 @@ visible = false
 script = ExtResource("4_bi5y1")
 
 [node name="Rat" parent="EnemyHandler1" instance=ExtResource("5_ye3yi")]
-position = Vector2(1490, 495)
+position = Vector2(1559, 556)
 Stats = ExtResource("6_50a3p")
 
 [node name="Rat2" parent="EnemyHandler1" instance=ExtResource("5_ye3yi")]
-position = Vector2(1255, 206)
+position = Vector2(1229, 283)
 Stats = ExtResource("6_50a3p")
 
 [node name="EnemyHandler2" type="Node2D" parent="."]
 visible = false
 script = ExtResource("4_bi5y1")
 
-[node name="Boarlings" parent="EnemyHandler2" instance=ExtResource("8_64mgo")]
-position = Vector2(1222, 508)
-Stats = ExtResource("8_6vbwq")
-
 [node name="Boar" parent="EnemyHandler2" instance=ExtResource("7_6wjdb")]
-position = Vector2(1576, 368)
+position = Vector2(1572, 489)
 Stats = ExtResource("9_6t7l6")
+
+[node name="Boarling" parent="EnemyHandler2" instance=ExtResource("8_64mgo")]
+position = Vector2(1172, 543)
+Stats = ExtResource("8_6vbwq")
 
 [node name="EnemyHandler3" type="Node2D" parent="."]
 visible = false
 script = ExtResource("4_bi5y1")
 
 [node name="Unicorn" parent="EnemyHandler3" instance=ExtResource("9_kno7i")]
-position = Vector2(1639, 364)
+position = Vector2(1379, 418)
 Stats = ExtResource("12_5g8v1")
 
 [node name="EnemyHandler4" type="Node2D" parent="."]
@@ -91,19 +162,19 @@ visible = false
 script = ExtResource("4_bi5y1")
 
 [node name="Dragon" parent="EnemyHandler4" instance=ExtResource("10_2bqku")]
-position = Vector2(1277, 1377)
+position = Vector2(1242, 485)
 Stats = ExtResource("6_50a3p")
 
 [node name="EnemyHandler5" type="Node2D" parent="."]
 visible = false
 script = ExtResource("4_bi5y1")
 
-[node name="Deciple" parent="EnemyHandler5" instance=ExtResource("11_6fa0o")]
-position = Vector2(854, 601)
+[node name="Desciple" parent="EnemyHandler5" instance=ExtResource("11_6fa0o")]
+position = Vector2(764, 542)
 Stats = ExtResource("6_50a3p")
 
 [node name="God" parent="EnemyHandler5" instance=ExtResource("12_kwedc")]
-position = Vector2(1259, 394)
+position = Vector2(1225, 436)
 Stats = ExtResource("6_50a3p")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("6_h6lxg")]
@@ -144,7 +215,8 @@ offset_top = -163.0
 offset_right = 155.0
 offset_bottom = -32.0
 scale = Vector2(1, 1)
-theme_override_styles/panel = ExtResource("16_446w3")
+theme_type_variation = &"Ap"
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqpet")
 char_stats = ExtResource("12_vigc1")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
@@ -160,11 +232,13 @@ offset_right = -24.0
 offset_bottom = -41.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = ExtResource("15_83gvs")
-theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = ExtResource("16_446w3")
-theme_override_styles/hover = ExtResource("18_f40ds")
-theme_override_styles/pressed = ExtResource("19_am4au")
+theme = ExtResource("22_knft7")
+theme_type_variation = &"EndTurn"
+theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxFlat_an87q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrnyx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_665to")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ehua1")
 text = "End Turn"
 
 [node name="UI" type="CanvasLayer" parent="."]
