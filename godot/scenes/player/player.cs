@@ -14,6 +14,19 @@ public partial class player : Node2D
 	{
 		stats_ui = GetNode<stats_ui>("StatsUI");
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
+		t = DateTime.Now;
+	}
+
+	private DateTime t;
+	public override void _Process(double delta)
+	{
+		if (DateTime.Now >= t)
+		{
+			GD.Print("s");
+			t = DateTime.Now.Add(TimeSpan.FromSeconds(0.5));
+			GD.Print(t);
+			update_player();
+		}
 	}
 
 	public CharacterStats _stats;
@@ -50,6 +63,7 @@ public partial class player : Node2D
 	
 	private void update_stats(object sender, EventArgs e)
 	{
+		GD.Print("Change2");
 		stats_ui.update_stats(_stats);
 	}
 	
