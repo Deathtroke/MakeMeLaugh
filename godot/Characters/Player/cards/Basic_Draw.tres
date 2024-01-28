@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cv3jg2j6ynolk"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bbfegphhbs3lj"]
 
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_1ix00"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Basic_Draw.cs" id="2_832er"]
@@ -7,7 +7,7 @@
 script = ExtResource("2_832er")
 Effect = 2
 Target = 0
-Ap_cost = 1
+Ap_cost = 0
 id = "New Ideas"
 icon = ExtResource("1_1ix00")
 description = "This Card costs no Ap. Draw two Cards."

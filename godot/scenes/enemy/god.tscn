@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3rjonj4smjpm"]
+[gd_scene load_steps=7 format=3 uid="uid://4npaxhs7uv8g"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_abq2p"]
 [ext_resource type="Texture2D" uid="uid://dysxdlhwyg42u" path="res://Art/wipAssets/pngimg.com - rope_PNG18118.png" id="2_u8u54"]
@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(984, 566)
 
-[node name="Enemy" type="Area2D" groups=["enemy", "enemys"]]
+[node name="Enemy" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_abq2p")
 

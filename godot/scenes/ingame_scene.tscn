@@ -1,28 +1,31 @@
-[gd_scene load_steps=29 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=32 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.cs" id="1_nm24d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Texture2D" uid="uid://c24lg1xop7er5" path="res://Art/Backgrounds/Keller_v01.png" id="3_526ob"]
 [ext_resource type="Script" path="res://scenes/EnemyHandler.cs" id="4_bi5y1"]
-[ext_resource type="PackedScene" uid="uid://3npr0ba7upc4" path="res://scenes/enemy/rat.tscn" id="5_ye3yi"]
+[ext_resource type="PackedScene" uid="uid://dp1xb1hjnbmbq" path="res://scenes/enemy/rat.tscn" id="5_ye3yi"]
 [ext_resource type="Resource" uid="uid://c6cm3nto2pu6s" path="res://Enemies/Rat/rat_enemy.tres" id="6_50a3p"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
-[ext_resource type="PackedScene" uid="uid://cra5v8nxms6l7" path="res://scenes/enemy/boar.tscn" id="7_6wjdb"]
-[ext_resource type="PackedScene" uid="uid://diyyxyjr7h48x" path="res://scenes/enemy/boarling.tscn" id="8_64mgo"]
+[ext_resource type="PackedScene" uid="uid://bgdqsaq4ho2id" path="res://scenes/enemy/boar.tscn" id="7_6wjdb"]
+[ext_resource type="Resource" uid="uid://3b3v0yyh05v1" path="res://Enemies/Boar/boarling_enemy.tres" id="8_6vbwq"]
+[ext_resource type="PackedScene" uid="uid://bvnm0g75ps3oe" path="res://scenes/enemy/boarling.tscn" id="8_64mgo"]
 [ext_resource type="Script" path="res://scenes/player/PlayerHandler.cs" id="8_n6jxw"]
-[ext_resource type="PackedScene" uid="uid://c7vf4ptx4pxy2" path="res://scenes/enemy/unicorn.tscn" id="9_kno7i"]
-[ext_resource type="PackedScene" uid="uid://di44ld4eq3bhx" path="res://scenes/enemy/dragon.tscn" id="10_2bqku"]
+[ext_resource type="Resource" uid="uid://dhqjkvbmvlgw3" path="res://Enemies/Boar/boar_enemy.tres" id="9_6t7l6"]
+[ext_resource type="PackedScene" uid="uid://dpqlhgnorq17d" path="res://scenes/enemy/unicorn.tscn" id="9_kno7i"]
+[ext_resource type="PackedScene" uid="uid://blqalc5dy2cpi" path="res://scenes/enemy/dragon.tscn" id="10_2bqku"]
 [ext_resource type="Script" path="res://scenes/battle_ui.cs" id="10_js3df"]
 [ext_resource type="PackedScene" uid="uid://dofh2fo2j0ugs" path="res://scenes/card_ui/ap_ui.tscn" id="10_va0fd"]
-[ext_resource type="StyleBox" uid="uid://c220ly4etb50" path="res://scenes/card_ui/card_default.tres" id="11_1yrtb"]
+[ext_resource type="StyleBox" uid="uid://b1i37v1i014qh" path="res://scenes/card_ui/card_default.tres" id="11_1yrtb"]
 [ext_resource type="Script" path="res://scenes/Hand.cs" id="11_5qo5d"]
-[ext_resource type="PackedScene" uid="uid://ba6ygobh7pfug" path="res://scenes/enemy/desciple.tscn" id="11_6fa0o"]
+[ext_resource type="PackedScene" uid="uid://cqcwnexwlgxix" path="res://scenes/enemy/desciple.tscn" id="11_6fa0o"]
 [ext_resource type="PackedScene" uid="uid://cfdc0pla45nw" path="res://scenes/player/player.tscn" id="11_qr5ib"]
-[ext_resource type="StyleBox" uid="uid://bswbddeqbqqm6" path="res://scenes/card_ui/card_hover.tres" id="12_75hk3"]
-[ext_resource type="PackedScene" uid="uid://c3rjonj4smjpm" path="res://scenes/enemy/god.tscn" id="12_kwedc"]
+[ext_resource type="Resource" uid="uid://dnjhig0y707bh" path="res://Enemies/Unicorn/Unicorn.tres" id="12_5g8v1"]
+[ext_resource type="StyleBox" uid="uid://debnulso2gr7b" path="res://scenes/card_ui/card_hover.tres" id="12_75hk3"]
+[ext_resource type="PackedScene" uid="uid://4npaxhs7uv8g" path="res://scenes/enemy/god.tscn" id="12_kwedc"]
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
-[ext_resource type="StyleBox" uid="uid://cfp220lhfyrht" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
+[ext_resource type="StyleBox" uid="uid://b4m5uw051k1rs" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="15_83gvs"]
 [ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat.tres" id="16_446w3"]
 [ext_resource type="StyleBox" path="res://ui/newDefault_style_box_flat_hover.tres" id="18_f40ds"]
@@ -51,30 +54,57 @@ position = Vector2(961, 371)
 shape = SubResource("RectangleShape2D_um5rq")
 metadata/_edit_lock_ = true
 
-[node name="EnemyHandler" type="Node2D" parent="."]
+[node name="EnemyHandler1" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_bi5y1")
 
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("5_ye3yi")]
-position = Vector2(1496, 873)
+[node name="Rat" parent="EnemyHandler1" instance=ExtResource("5_ye3yi")]
+position = Vector2(1490, 495)
 Stats = ExtResource("6_50a3p")
 
-[node name="Enemy2" parent="EnemyHandler" instance=ExtResource("7_6wjdb")]
-position = Vector2(1099, 721)
+[node name="Rat2" parent="EnemyHandler1" instance=ExtResource("5_ye3yi")]
+position = Vector2(1255, 206)
+Stats = ExtResource("6_50a3p")
 
-[node name="Enemy3" parent="EnemyHandler" instance=ExtResource("8_64mgo")]
-position = Vector2(835, 873)
+[node name="EnemyHandler2" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_bi5y1")
 
-[node name="Enemy4" parent="EnemyHandler" instance=ExtResource("9_kno7i")]
+[node name="Boarlings" parent="EnemyHandler2" instance=ExtResource("8_64mgo")]
+position = Vector2(1222, 508)
+Stats = ExtResource("8_6vbwq")
+
+[node name="Boar" parent="EnemyHandler2" instance=ExtResource("7_6wjdb")]
+position = Vector2(1576, 368)
+Stats = ExtResource("9_6t7l6")
+
+[node name="EnemyHandler3" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_bi5y1")
+
+[node name="Unicorn" parent="EnemyHandler3" instance=ExtResource("9_kno7i")]
 position = Vector2(1639, 364)
+Stats = ExtResource("12_5g8v1")
 
-[node name="Enemy5" parent="EnemyHandler" instance=ExtResource("10_2bqku")]
+[node name="EnemyHandler4" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_bi5y1")
+
+[node name="Dragon" parent="EnemyHandler4" instance=ExtResource("10_2bqku")]
 position = Vector2(1277, 1377)
+Stats = ExtResource("6_50a3p")
 
-[node name="Enemy6" parent="EnemyHandler" instance=ExtResource("11_6fa0o")]
-position = Vector2(723, 447)
+[node name="EnemyHandler5" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_bi5y1")
 
-[node name="Enemy7" parent="EnemyHandler" instance=ExtResource("12_kwedc")]
-position = Vector2(1209, 490)
+[node name="Deciple" parent="EnemyHandler5" instance=ExtResource("11_6fa0o")]
+position = Vector2(854, 601)
+Stats = ExtResource("6_50a3p")
+
+[node name="God" parent="EnemyHandler5" instance=ExtResource("12_kwedc")]
+position = Vector2(1259, 394)
+Stats = ExtResource("6_50a3p")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("6_h6lxg")]
 

@@ -19,9 +19,7 @@ public partial class ingame_scene : Node2D
 		pause_overlay = GetNode<CenterContainer>("UI/PauseOverlay");
 		_battle_ui = GetNode<battle_ui>("BattleUI");
 		_player_handler = GetNode<PlayerHandler>("PlayerHandler");
-		enemyHandler = GetNode<EnemyHandler>("EnemyHandler");
 
-		enemyHandler.ChildOrderChanged += on_enemy_change;
 		level = 0;
 		
 		_player = GetNode<player>("Player");
@@ -99,22 +97,36 @@ public partial class ingame_scene : Node2D
 		{
 			case 0:
 				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Keller_v01.png");
+				enemyHandler = GetNode<EnemyHandler>("EnemyHandler1");
 				break;
 			case 1:
 				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Wald_v01.png");
+				enemyHandler = GetNode<EnemyHandler>("EnemyHandler2");
 				break;
 			case 2:
 				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Wald_v01.png");
+				enemyHandler = GetNode<EnemyHandler>("EnemyHandler3");
 				break;
 			case 3:
 				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Drachenhort_v01.png");
+				enemyHandler = GetNode<EnemyHandler>("EnemyHandler4");
 				break;
 			case 4:
 				background.Texture = GD.Load<Texture2D>("res://Art/Backgrounds/Drachenhort_v01.png");
+				enemyHandler = GetNode<EnemyHandler>("EnemyHandler5");
 				break;
 			default:
 				break;
 		}
+
+		enemyHandler.Visible = true;
+		enemyHandler.ChildOrderChanged += on_enemy_change;
+		foreach (var enemy_node in enemyHandler.GetChildren())
+		{
+			enemy_node.AddToGroup("enemy");
+			enemy_node.AddToGroup("enemys");
+		}
+		
 	}
 	
 }

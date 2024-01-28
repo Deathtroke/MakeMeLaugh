@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bervfqr3u5thm"]
+
+[ext_resource type="Script" path="res://scenes/enemy/EnemyAI.cs" id="1_6ee7h"]
+[ext_resource type="Script" path="res://Enemies/Boar/Boarling_Attack1.cs" id="2_q4yvr"]
+[ext_resource type="Script" path="res://Enemies/Boar/Boarling_Heal.cs" id="4_fie3w"]
+[ext_resource type="Script" path="res://Enemies/Boar/Boar_Block.cs" id="4_gltc3"]
+
+[node name="BoarlingEnemyAI" type="Node"]
+script = ExtResource("1_6ee7h")
+
+[node name="Attack" type="Node" parent="."]
+script = ExtResource("2_q4yvr")
+chance_weigth = 60.0
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("4_gltc3")
+block = 0
+chance_weigth = 30.0
+
+[node name="Heal" type="Node" parent="."]
+script = ExtResource("4_fie3w")
+type = 1
+chance_weigth = 10.0
