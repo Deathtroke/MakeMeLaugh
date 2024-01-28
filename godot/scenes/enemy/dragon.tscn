@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://di44ld4eq3bhx"]
+[gd_scene load_steps=10 format=3 uid="uid://blqalc5dy2cpi"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_xubej"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_0yqcl"]
@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
 size = Vector2(984, 566)
 
-[node name="Enemy" type="Area2D" node_paths=PackedStringArray("Art")]
+[node name="Enemy2" type="Area2D" node_paths=PackedStringArray("Art")]
 collision_layer = 4
 script = ExtResource("1_xubej")
 Art = NodePath("Sprite2D")

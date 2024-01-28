@@ -59,7 +59,9 @@ public partial class player : Node2D
 		{
 			 await Task.Delay(200);
 		}
-		_sprite2D.Texture = _stats.Art;
+		GD.Print("stats" + _stats.Art);
+		GD.Print("sprite" + _sprite2D.Texture);
+		//s_sprite2D.Texture = _stats.Art;
 		update_stats(null, null);
 	}
 	

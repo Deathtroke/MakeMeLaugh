@@ -11,14 +11,14 @@
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("Art") groups=["player"]]
 script = ExtResource("1_4bmot")
-Art = NodePath("CreatureSprite")
+Art = NodePath("Sprite2D")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(-12, 545)
 scale = Vector2(1, 1.4375)
 texture = ExtResource("2_02wxm")
 
-[node name="CreatureSprite" type="Sprite2D" parent="." groups=["spritechanger"]]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["spritechanger"]]
 position = Vector2(112, 80)
 scale = Vector2(0.389352, 0.389352)
 texture = ExtResource("3_nf1fi")
