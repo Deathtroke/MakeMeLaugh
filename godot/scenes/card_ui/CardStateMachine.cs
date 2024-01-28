@@ -89,6 +89,8 @@ public partial class CardStateMachine : Node
 		{
 			PlayerHandler playerHandler = GetTree().GetFirstNodeInGroup("playerhandler") as PlayerHandler;
 			playerHandler.OnCardReleased(_last_card);
+			Speech bubble = GetTree().GetFirstNodeInGroup("speechbubble") as Speech;
+			bubble.display();
 		}
 		
 		CardState new_state = states[to];
