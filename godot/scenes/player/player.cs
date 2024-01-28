@@ -20,6 +20,7 @@ public partial class player : Node2D
 	}
 
 	private DateTime t;
+
 	public override void _Process(double delta)
 	{
 		if (DateTime.Now >= t)
@@ -29,6 +30,7 @@ public partial class player : Node2D
 			GD.Print(t);
 			update_player();
 		}
+	}
 
 	public CharacterStats _stats;
 	[Export] public CharacterStats Stats

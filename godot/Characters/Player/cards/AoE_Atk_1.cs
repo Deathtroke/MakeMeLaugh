@@ -21,6 +21,7 @@ public partial class AoE_Atk_1 : Card
 		instance.Ap_cost = this.Ap_cost;
 		instance.icon = this.icon.Duplicate(true) as Texture2D; // Assuming Texture2D has a Duplicate method
 		
+		instance.description = this.description;
 		
 		return instance;
 	}

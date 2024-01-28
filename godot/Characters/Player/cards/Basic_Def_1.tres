@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_21pyk")
-id = "Def 1"
 Effect = 1
 Target = 0
 Ap_cost = 1
+id = "Hard Boiled"
 icon = ExtResource("1_6nb8w")
+description = "Block 5 Damage"

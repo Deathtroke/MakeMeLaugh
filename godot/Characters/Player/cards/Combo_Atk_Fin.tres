@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_xdtfu")
-id = "Combo Atk Fin"
 Effect = 0
 Target = 1
 Ap_cost = 1
+id = "Last but not least!"
 icon = ExtResource("1_2q6u6")
+description = "Deal 4 Damage"

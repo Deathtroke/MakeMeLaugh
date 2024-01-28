@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_6u6di")
-id = "Atk 1"
 Effect = 0
 Target = 1
 Ap_cost = 1
+id = "Joke about their Optiks"
 icon = ExtResource("1_gyb1a")
+description = "Deal 5 damage"

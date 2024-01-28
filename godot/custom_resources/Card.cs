@@ -11,12 +11,15 @@ public partial class Card : Resource
 	
 	
 	
-	[Export] public String id;
+	[ExportGroup("Stats")]
 	[Export] public EffectType Effect;
 	[Export] public TargetType Target;
 	[Export] public int Ap_cost = 1;
 
+	[ExportGroup("Info")]
+	[Export] public String id;
 	[Export] public Texture2D icon;
+	[Export] public String description;
 	
 	public bool is_single_target()
 	{
@@ -62,6 +65,7 @@ public partial class Card : Resource
 		var instance = new Card();
 		
 		instance.id = this.id;
+		instance.description = this.description;
 		instance.Effect = this.Effect;
 		instance.Target = this.Target;
 		instance.Ap_cost = this.Ap_cost;

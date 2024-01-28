@@ -17,7 +17,6 @@ public partial class CardDragState : CardState
 		}
 		
 
-		c_ui.state.Text = "drag";
 		c_ui.panel.Set("theme_override_styles/panel", c_ui.drag_style);
 		drag_time_passed = false;
 

@@ -9,7 +9,8 @@ public partial class CardUI : Control
 	[Signal]
 	public delegate void ReparentEventHandler(CardUI ui);
 
-	public Label state;
+	public Label title;
+	public RichTextLabel description;
 	public TextureRect icon;
 	public Panel panel;
 	private CardStateMachine stateMachine;
@@ -29,11 +30,14 @@ public partial class CardUI : Control
 
 	public override void _Ready()
 	{
-		state = GetNode<Label>("Label");
 		drop_point = GetNode<Area2D>("DropPoint");
 		icon = GetNode<TextureRect>("Icon");
 		panel = GetNode<Panel>("Panel");
-
+		title = GetNode<Label>("Title");
+		description = GetNode<RichTextLabel>("Description");
+		
+		title.Text = card.id;
+		description.Text = card.description;
 		icon.Texture = card.icon;
 		
 		stateMachine = GetNode<CardStateMachine>("CardState");

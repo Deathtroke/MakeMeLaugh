@@ -10,7 +10,6 @@ public partial class CardClickedState : CardState
 		{
 			Reparent(hand);
 		}
-		c_ui.state.Text = "clicked";
 		
 	}
 

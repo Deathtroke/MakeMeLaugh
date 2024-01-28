@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_h7oy3")
-id = "Heavy Atk"
 Effect = 0
 Target = 1
 Ap_cost = 2
+id = "Right in the feels"
 icon = ExtResource("1_5qu4x")
+description = "This Card Costs two Ap. Deal 8 Damage"

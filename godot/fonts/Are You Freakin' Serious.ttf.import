@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://d0tn62m34i56c"
+path="res://.godot/imported/Are You Freakin' Serious.ttf-3b5dd5d6912d65eb60d2a7d560b33173.fontdata"
+
+[deps]
+
+source_file="res://fonts/Are You Freakin' Serious.ttf"
+dest_files=["res://.godot/imported/Are You Freakin' Serious.ttf-3b5dd5d6912d65eb60d2a7d560b33173.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
