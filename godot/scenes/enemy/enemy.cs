@@ -90,9 +90,13 @@ public partial class enemy : Area2D
 
 	public void do_turn()
 	{
-		_stats._block = 0;
+		GD.Print("start e turn do");
 
-		GD.Print("do: " + curren_action.Name);
+		//_stats._block = 0;
+
+		GD.Print("has action: " + (curren_action != null));
+		
+		GD.Print("do: " + curren_action.type);
 		
 		if (curren_action == null)
 		{

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class ingame_scene : Node2D
 {
@@ -26,7 +27,7 @@ public partial class ingame_scene : Node2D
 		_battle_ui = GetNode<battle_ui>("BattleUI");
  		
 		_player_handler.DiscardFinished += OnDiscardFinished;
-		_battle_ui.EndTurn += OnEndTurn;
+		_battle_ui.EndTurn += EndTurnButton;
 
 		fade_overlay.Visible = true;
 
@@ -37,12 +38,17 @@ public partial class ingame_scene : Node2D
 		start_battle(_new_stats);
 	}
 
-	private void OnEndTurn()
+	private void EndTurnButton()
+	{
+		OnEndTurn();
+	}
+	
+	private async Task OnEndTurn()
 	{
 		GD.Print("Turn ending");
 		_player_handler._end_turn();
 		GD.Print("Turn ended.");
-		enemyHandler.stat_turn();
+		await enemyHandler.stat_turn();
 		enemyHandler.reset_enemy_actions();
 		
 		_player_handler.start_turn();

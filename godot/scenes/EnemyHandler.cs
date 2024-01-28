@@ -18,8 +18,10 @@ public partial class EnemyHandler : Node2D
 		}
 	}
 
-	public async void stat_turn()
+	public async Task stat_turn()
 	{
+		GD.Print("start e turns");
+		
 		if (GetChildCount() == 0)
 		{
 			return;
@@ -31,7 +33,7 @@ public partial class EnemyHandler : Node2D
 			GD.Print("e turn" + e.Name);
 			e.do_turn();
 
-			await Task.Delay(200);
+			await Task.Delay(500);
 		}
 	}
 }
