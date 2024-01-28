@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpqlhgnorq17d"]
+[gd_scene load_steps=11 format=3 uid="uid://dpqlhgnorq17d"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_fel8u"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_eudkt"]
 [ext_resource type="Texture2D" uid="uid://dhftl4ehugu3y" path="res://Art/wipAssets/Unicorn_Idle_01.png" id="3_862cm"]
+[ext_resource type="Texture2D" uid="uid://dsdp1k20sfiyi" path="res://Art/Backgrounds/PaperBG_04.png" id="3_jlii6"]
 [ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_ckals"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_qldo2"]
 [ext_resource type="Texture2D" uid="uid://blql7n3kfquco" path="res://Art/wipAssets/Unicorn_Aggro_01.png" id="5_fkpd5"]
@@ -21,6 +22,11 @@ Art = NodePath("Sprite2D")
 position = Vector2(35, 493)
 scale = Vector2(1, 1.4375)
 texture = ExtResource("2_eudkt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-56.5262, 62.0313)
+scale = Vector2(0.523825, 0.668576)
+texture = ExtResource("3_jlii6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-96, 112)

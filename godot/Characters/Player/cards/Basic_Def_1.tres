@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bnceivhunnwr4"]
 
-[ext_resource type="Texture2D" uid="uid://cg6452ve1eepf" path="res://Art/def_icon.png" id="1_6nb8w"]
+[ext_resource type="Texture2D" uid="uid://ujwo1h1a6qkv" path="res://Art/Icons/Icons_Block_v01.png" id="1_qdegq"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Basic_Def_1.cs" id="2_21pyk"]
 
 [resource]
@@ -9,5 +9,5 @@ Effect = 1
 Target = 0
 Ap_cost = 1
 id = "Hard Boiled"
-icon = ExtResource("1_6nb8w")
+icon = ExtResource("1_qdegq")
 description = "Block 5 Damage"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://blqalc5dy2cpi"]
+[gd_scene load_steps=11 format=3 uid="uid://blqalc5dy2cpi"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_xubej"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_0yqcl"]
+[ext_resource type="Texture2D" uid="uid://xtb02bwbijc0" path="res://Art/Backgrounds/PaperBG_01.png" id="3_pjakw"]
 [ext_resource type="Texture2D" uid="uid://dn3uj7ppk10bf" path="res://Art/wipAssets/Dragon_Idle_01.png" id="3_sfpd2"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_fkasm"]
 [ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_lc1id"]
@@ -21,6 +22,11 @@ Art = NodePath("Sprite2D")
 position = Vector2(35, 493)
 scale = Vector2(1, 1.4375)
 texture = ExtResource("2_0yqcl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(42, -67)
+scale = Vector2(0.664583, 0.840741)
+texture = ExtResource("3_pjakw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(58, -21)

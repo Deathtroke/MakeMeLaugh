@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgdqsaq4ho2id"]
+[gd_scene load_steps=11 format=3 uid="uid://bgdqsaq4ho2id"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_3m3ya"]
 [ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_a4wa7"]
+[ext_resource type="Texture2D" uid="uid://c637qvgou4ci3" path="res://Art/Backgrounds/PaperBG_02.png" id="3_kwsqg"]
 [ext_resource type="Texture2D" uid="uid://cfa82mswfy46i" path="res://Art/wipAssets/Wildschwein_Idle_01.png" id="3_uu3r7"]
 [ext_resource type="Script" path="res://scenes/player/SpriteChanger.cs" id="4_df1dk"]
 [ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_q1xli"]
@@ -22,6 +23,11 @@ position = Vector2(35, 493)
 scale = Vector2(1, 1.4375)
 texture = ExtResource("2_a4wa7")
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(132.438, -8.46875)
+scale = Vector2(0.350586, 0.521354)
+texture = ExtResource("3_kwsqg")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-126, 50)
 scale = Vector2(0.392336, 0.398128)
@@ -41,7 +47,7 @@ position = Vector2(41, 50)
 shape = SubResource("RectangleShape2D_xgj4j")
 
 [node name="StatsUI" parent="." instance=ExtResource("5_6wnsr")]
-offset_left = -88.0
-offset_top = -249.0
-offset_right = 196.0
-offset_bottom = -173.0
+offset_left = -51.0
+offset_top = -238.0
+offset_right = 233.0
+offset_bottom = -162.0

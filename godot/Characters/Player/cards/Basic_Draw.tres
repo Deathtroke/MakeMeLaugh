@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bbfegphhbs3lj"]
 
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_1ix00"]
+[ext_resource type="Texture2D" uid="uid://bmv1inn3aanv0" path="res://Art/Icons/Icons_Kartenziehen_v01.png" id="1_u1tlq"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Basic_Draw.cs" id="2_832er"]
 
 [resource]
@@ -9,5 +9,5 @@ Effect = 2
 Target = 0
 Ap_cost = 0
 id = "New Ideas"
-icon = ExtResource("1_1ix00")
+icon = ExtResource("1_u1tlq")
 description = "This Card costs no Ap. Draw two Cards."

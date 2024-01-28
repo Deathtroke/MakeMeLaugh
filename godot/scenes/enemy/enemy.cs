@@ -13,6 +13,8 @@ public partial class enemy : Area2D
 
 	public Enemy_Action curren_action;
 	[Export] public SpriteChanger Art;
+	private Vector2 _defaultPosition, _hoverPosition;
+	private bool hovering = false;
 	
 	public override void _Ready()
 	{
@@ -20,6 +22,9 @@ public partial class enemy : Area2D
 		_sprite2D = GetNode<Sprite2D>("Sprite2D");
 		_arrow = GetNode<Sprite2D>("Arrow");
 		t = DateTime.Now;
+		
+		_defaultPosition = Position;
+		_hoverPosition = Position + Vector2.Up * 30 + Vector2.Right * -5;
 	}
 
 	private DateTime t;
@@ -134,5 +139,21 @@ public partial class enemy : Area2D
 			GD.Print(curren_action);
 			return;
 		}
+	}
+	public void hover()
+	{
+		GD.Print("I start hovering!");
+		if (!hovering)
+		{
+			Position = _hoverPosition;
+			hovering = true;
+		}
+	}
+
+	public void hoverEnd()
+	{
+		
+		Position = _defaultPosition;
+		hovering = false;
 	}
 }

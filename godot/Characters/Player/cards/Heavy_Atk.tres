@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7x3gha2ov340"]
 
-[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="1_5qu4x"]
+[ext_resource type="Texture2D" uid="uid://ujwo1h1a6qkv" path="res://Art/Icons/Icons_Block_v01.png" id="1_tmaue"]
 [ext_resource type="Script" path="res://Characters/Player/cards/Heavy_Atk.cs" id="2_h7oy3"]
 
 [resource]
@@ -9,5 +9,5 @@ Effect = 0
 Target = 1
 Ap_cost = 2
 id = "Right in the feels"
-icon = ExtResource("1_5qu4x")
+icon = ExtResource("1_tmaue")
 description = "This Card Costs two Ap. Deal 8 Damage"

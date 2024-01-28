@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardIdleState.cs" id="4_ecrhc"]
 [ext_resource type="StyleBox" uid="uid://debnulso2gr7b" path="res://scenes/card_ui/card_hover.tres" id="4_jshua"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardClickedState.cs" id="5_py7a4"]
-[ext_resource type="Texture2D" uid="uid://cg6452ve1eepf" path="res://Art/def_icon.png" id="6_a5g88"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardDragState.cs" id="6_rovis"]
+[ext_resource type="Texture2D" uid="uid://dj4h47q6henle" path="res://Art/Icons/Icons_Attack_v01.png" id="6_vmpx8"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardReleaseState.cs" id="7_7u0bn"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardAimingState.cs" id="7_yks7l"]
 
@@ -93,7 +93,8 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("6_a5g88")
+texture = ExtResource("6_vmpx8")
+expand_mode = 1
 
 [node name="DropPoint" type="Area2D" parent="."]
 collision_mask = 2
