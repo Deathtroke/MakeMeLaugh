@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=39 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.cs" id="1_nm24d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://4npaxhs7uv8g" path="res://scenes/enemy/god.tscn" id="12_kwedc"]
 [ext_resource type="Resource" uid="uid://btbsbwjb01k1e" path="res://Characters/Player/Player.tres" id="12_vigc1"]
 [ext_resource type="StyleBox" uid="uid://b4m5uw051k1rs" path="res://scenes/card_ui/card_drag.tres" id="13_aef2o"]
+[ext_resource type="Resource" uid="uid://gehnr45m5ple" path="res://Enemies/Dragon/Dragon.tres" id="17_yifo5"]
 [ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="22_knft7"]
 [ext_resource type="Script" path="res://scenes/Speech.cs" id="25_2fcf4"]
 [ext_resource type="Texture2D" uid="uid://gop2npstcloq" path="res://Art/Icons/Icons_Sprechblase_v01.png" id="26_i6mgs"]
@@ -164,7 +165,7 @@ script = ExtResource("4_bi5y1")
 
 [node name="Dragon" parent="EnemyHandler4" instance=ExtResource("10_2bqku")]
 position = Vector2(1242, 485)
-Stats = ExtResource("6_50a3p")
+Stats = ExtResource("17_yifo5")
 
 [node name="EnemyHandler5" type="Node2D" parent="."]
 visible = false
