@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://wap2t8qcdgo3"]
+
+[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="1_2q6u6"]
+[ext_resource type="Script" path="res://Characters/Player/cards/Combo_Atk_Fin.cs" id="2_xdtfu"]
+
+[resource]
+script = ExtResource("2_xdtfu")
+id = "Combo Atk Fin"
+Effect = 0
+Target = 1
+Ap_cost = 1
+icon = ExtResource("1_2q6u6")

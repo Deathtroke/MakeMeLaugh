@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7x3gha2ov340"]
+
+[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="1_5qu4x"]
+[ext_resource type="Script" path="res://Characters/Player/cards/Heavy_Atk.cs" id="2_h7oy3"]
+
+[resource]
+script = ExtResource("2_h7oy3")
+id = "Heavy Atk"
+Effect = 0
+Target = 1
+Ap_cost = 2
+icon = ExtResource("1_5qu4x")

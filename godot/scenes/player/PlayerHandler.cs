@@ -32,7 +32,7 @@ public partial class PlayerHandler : Node
 		draw_cards(_characterStats.Draw_per_turn);
 	}
 
-	private void draw_cards(int amount)
+	public void draw_cards(int amount)
 	{
 		for(int i = 0; i<amount; i++)
 		{
