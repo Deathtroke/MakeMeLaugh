@@ -30,7 +30,7 @@
 [ext_resource type="Script" path="res://scenes/Speech.cs" id="25_2fcf4"]
 [ext_resource type="Texture2D" uid="uid://gop2npstcloq" path="res://Art/Icons/Icons_Sprechblase_v01.png" id="26_i6mgs"]
 [ext_resource type="FontFile" uid="uid://d0tn62m34i56c" path="res://fonts/Are You Freakin' Serious.ttf" id="27_xesox"]
-[ext_resource type="AudioStream" uid="uid://w6sra2mxalmr" path="res://music/Vicious.mp3" id="29_mix67"]
+[ext_resource type="AudioStream" uid="uid://cwdqytxigw8c4" path="res://music/Vicious.ogg" id="29_ts3ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)
@@ -98,8 +98,9 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Speech" type="Node2D" parent="." groups=["speechbubble"]]
+visible = false
 script = ExtResource("25_2fcf4")
-_text_array = Array[String](["You're the reason baby gnomes cry!", "I've seen more threatening geckos!", "You're lucky to be born beautiful, unlike me, who was born to be a liar!", "I could say you're as ugly as an ogre, but that would be an insult to ogres!", "You look like a scab on a troll's wart!", "You look like your face was on fire, and someone tried to put it out with a pick axe!", "If I were you, I'd go and get my money back for that remove curse spell!", "If you were any more inbred you'd be a sandwich!", "is there no more room in the abyss for you?", "A wet cat is tougher than you!", "OMG. Why don't you give me your weapon so I can hit myself with it, because that'd be more effective than you trying it!", "Well, now I know what the opposite of awesome is!", "You swing like a halfling!", "You're a disappointment to your ancestors!", "The god of futile fights appreciates your devotion", "Trying to make the party laugh is supposed to be my job, not yours", "Ugh. I never thought I'd miss the smell of dwarf! Congratulations. You've gone nose deaf.", "What depraved DM thought up YOU?!", "Charisma was OBVIOUSLY your dump stat!", "Someday, you'll go far and I hope you stay there!", "Believe in yourself because no one else does!", "Gentleman, we're in luck. Normally a man must pay admission for such entertainment!", "You're going to make an excellent belt!", "You're not a complete idiot...Some parts are obviously missing!", "If a mindflayer ever attacks us you're safe!", "I'd teach you some manners, but I doubt you are capable of learning them!", "You're as dumb as an ogre and half as charming!", "Sorry, I don't remember ordering a drink, serving boy. You should go back into the kitchen!", "Well you found your life's purpose. A warning to others!", "I'd insult your mother, but you were insult enough!"])
+_text_array = Array[String](["Ich bin ein Witz!", "Ich nicht :(", "Mehr witz", "noch mehr", "lol!", "Deine mom"])
 
 [node name="Blase" type="Sprite2D" parent="Speech"]
 position = Vector2(653, 250)
@@ -113,7 +114,7 @@ offset_right = 1003.0
 offset_bottom = 318.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("27_xesox")
-theme_override_font_sizes/normal_font_size = 31
+theme_override_font_sizes/normal_font_size = 51
 text = "Test Text!"
 
 [node name="CardRelease" type="Area2D" parent="."]
@@ -242,7 +243,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ehua1")
 text = "End Turn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("29_mix67")
+stream = ExtResource("29_ts3ye")
 autoplay = true
 bus = &"Music"
 
