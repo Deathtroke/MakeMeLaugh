@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=7 format=3 uid="uid://v4w4hsj1mkn5"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=9 format=3 uid="uid://v4w4hsj1mkn5"]
 
 [ext_resource type="Resource" uid="uid://byoyl1yf80noq" path="res://Characters/Player/cards/Basic_Atk_1.tres" id="1_0e8ry"]
 [ext_resource type="Script" path="res://custom_resources/CardPile.cs" id="1_sqwwt"]
@@ -6,7 +6,9 @@
 [ext_resource type="Resource" uid="uid://cv3jg2j6ynolk" path="res://Characters/Player/cards/Basic_Draw.tres" id="3_bays2"]
 [ext_resource type="Resource" uid="uid://diisl2cmindhq" path="res://Characters/Player/cards/Combo_Atk_1.tres" id="4_1y4b3"]
 [ext_resource type="Resource" uid="uid://g01w11lxv12c" path="res://Characters/Player/cards/AoE_Atk_1.tres" id="5_1ehsy"]
+[ext_resource type="Resource" uid="uid://b3vc5mt08q4jq" path="res://Characters/Player/cards/Combo_Def_1.tres" id="6_0411i"]
+[ext_resource type="Resource" uid="uid://wap2t8qcdgo3" path="res://Characters/Player/cards/Combo_Atk_Fin.tres" id="7_x28dc"]
 
 [resource]
 script = ExtResource("1_sqwwt")
-Cards = Array[Resource]([ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("3_bays2"), ExtResource("3_bays2"), ExtResource("3_bays2"), ExtResource("3_bays2"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("5_1ehsy"), ExtResource("5_1ehsy"), ExtResource("5_1ehsy")])
+Cards = Array[Resource]([ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("1_0e8ry"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("2_athst"), ExtResource("3_bays2"), ExtResource("3_bays2"), ExtResource("3_bays2"), ExtResource("3_bays2"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("4_1y4b3"), ExtResource("5_1ehsy"), ExtResource("5_1ehsy"), ExtResource("5_1ehsy"), ExtResource("6_0411i"), ExtResource("6_0411i"), ExtResource("6_0411i"), ExtResource("6_0411i"), ExtResource("6_0411i"), ExtResource("7_x28dc"), ExtResource("7_x28dc"), ExtResource("7_x28dc")])

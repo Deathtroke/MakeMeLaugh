@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b3vc5mt08q4jq"]
+
+[ext_resource type="Texture2D" uid="uid://cg6452ve1eepf" path="res://Art/def_icon.png" id="1_uvvpc"]
+[ext_resource type="Script" path="res://Characters/Player/cards/Combo_Def_1.cs" id="2_qp05i"]
+
+[resource]
+script = ExtResource("2_qp05i")
+id = "Combo Def 1"
+Effect = 1
+Target = 0
+Ap_cost = 0
+icon = ExtResource("1_uvvpc")

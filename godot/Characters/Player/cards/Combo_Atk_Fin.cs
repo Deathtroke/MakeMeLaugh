@@ -2,18 +2,18 @@ using Godot;
 using System;
 using Godot.Collections;
 
-public partial class AoE_Atk_1 : Card
+public partial class Combo_Atk_Fin : Card
 {
 	public override void apply_effects(Array<Node> targets)
 	{
 		var damage_effect = new Damage_Effect();
-		damage_effect.amount = 2;
+		damage_effect.amount = 4;
 		damage_effect.execute(targets);
 	}
 	
 	public override Card Duplicate()
 	{
-		var instance = new AoE_Atk_1();
+		var instance = new Combo_Atk_Fin();
 		
 		instance.id = this.id;
 		instance.Effect = this.Effect;

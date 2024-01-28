@@ -46,7 +46,11 @@ metadata/_edit_lock_ = true
 script = ExtResource("4_bi5y1")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("5_ye3yi")]
-position = Vector2(1465, 397)
+position = Vector2(1563, 528)
+Stats = ExtResource("6_50a3p")
+
+[node name="Enemy2" parent="EnemyHandler" instance=ExtResource("5_ye3yi")]
+position = Vector2(1262, 265)
 Stats = ExtResource("6_50a3p")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("6_h6lxg")]
