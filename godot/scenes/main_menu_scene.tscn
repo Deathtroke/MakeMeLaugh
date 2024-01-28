@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=11 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
 [ext_resource type="PackedScene" uid="uid://g4qhvbvdm62w" path="res://scenes/game_settings_scene.tscn" id="3_dgs4d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
-[ext_resource type="Texture2D" uid="uid://b501vbryrruke" path="res://Art/Backgrounds/Lichtebene_v01.png" id="4_t1ycr"]
+[ext_resource type="Texture2D" uid="uid://ckfyna1xr7nhr" path="res://Art/Backgrounds/Lichtebene_v01.png" id="4_t1ycr"]
+[ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="5_yx6qm"]
+[ext_resource type="Texture2D" uid="uid://dgawu0p2q1xvj" path="res://Art/wipAssets/Riven_Victory_01.png" id="6_3p1qi"]
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="6_7jjqo"]
 [ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
 
@@ -26,6 +28,20 @@ grow_vertical = 2
 [node name="Sprite2D" type="Sprite2D" parent="UI/CenterContainer"]
 position = Vector2(960, 540)
 texture = ExtResource("4_t1ycr")
+
+[node name="Node2D" type="Node2D" parent="UI/CenterContainer"]
+position = Vector2(318, 30)
+rotation = 0.466003
+
+[node name="Sprite2D3" type="Sprite2D" parent="UI/CenterContainer/Node2D"]
+position = Vector2(263, 1100)
+texture = ExtResource("5_yx6qm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UI/CenterContainer/Node2D"]
+z_as_relative = false
+position = Vector2(418, 777)
+scale = Vector2(0.481713, 0.481713)
+texture = ExtResource("6_3p1qi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
 layout_mode = 2
