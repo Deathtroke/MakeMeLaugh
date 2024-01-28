@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1xb1hjnbmbq" path="res://scenes/enemy/rat.tscn" id="5_ye3yi"]
 [ext_resource type="Resource" uid="uid://c6cm3nto2pu6s" path="res://Enemies/Rat/rat_enemy.tres" id="6_50a3p"]
 [ext_resource type="PackedScene" uid="uid://cholt7mgdtne1" path="res://scenes/card_target_selector.tscn" id="6_h6lxg"]
+[ext_resource type="FontFile" uid="uid://cop0sgm2lc3g2" path="res://fonts/Diamond Girl.ttf" id="6_lvise"]
 [ext_resource type="PackedScene" uid="uid://bgdqsaq4ho2id" path="res://scenes/enemy/boar.tscn" id="7_6wjdb"]
 [ext_resource type="Resource" uid="uid://3b3v0yyh05v1" path="res://Enemies/Boar/boarling_enemy.tres" id="8_6vbwq"]
 [ext_resource type="PackedScene" uid="uid://bvnm0g75ps3oe" path="res://scenes/enemy/boarling.tscn" id="8_64mgo"]
@@ -30,7 +31,6 @@
 [ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="22_knft7"]
 [ext_resource type="Script" path="res://scenes/Speech.cs" id="25_2fcf4"]
 [ext_resource type="Texture2D" uid="uid://gop2npstcloq" path="res://Art/Icons/Icons_Sprechblase_v01.png" id="26_i6mgs"]
-[ext_resource type="FontFile" uid="uid://d0tn62m34i56c" path="res://fonts/Are You Freakin' Serious.ttf" id="27_xesox"]
 [ext_resource type="AudioStream" uid="uid://cwdqytxigw8c4" path="res://music/Vicious.ogg" id="29_ts3ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
@@ -114,8 +114,8 @@ offset_top = 162.0
 offset_right = 1003.0
 offset_bottom = 318.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("27_xesox")
-theme_override_font_sizes/normal_font_size = 51
+theme_override_fonts/normal_font = ExtResource("6_lvise")
+theme_override_font_sizes/normal_font_size = 30
 text = "Test Text!"
 
 [node name="CardRelease" type="Area2D" parent="."]
