@@ -168,15 +168,14 @@ position = Vector2(1242, 485)
 Stats = ExtResource("17_yifo5")
 
 [node name="EnemyHandler5" type="Node2D" parent="."]
-visible = false
 script = ExtResource("4_bi5y1")
 
 [node name="Desciple" parent="EnemyHandler5" instance=ExtResource("11_6fa0o")]
-position = Vector2(764, 542)
+position = Vector2(869, 497)
 Stats = ExtResource("6_50a3p")
 
 [node name="God" parent="EnemyHandler5" instance=ExtResource("12_kwedc")]
-position = Vector2(1225, 436)
+position = Vector2(1357, 427)
 Stats = ExtResource("6_50a3p")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("6_h6lxg")]
