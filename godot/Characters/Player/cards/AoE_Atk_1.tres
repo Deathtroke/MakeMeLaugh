@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_hdv8b")
-id = "AoE 1"
 Effect = 0
 Target = 2
 Ap_cost = 1
+id = "Insult their Family"
 icon = ExtResource("1_j2gom")
+description = "Deal 2 Damage to every enemy"

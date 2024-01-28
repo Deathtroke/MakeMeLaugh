@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_qp05i")
-id = "Combo Def 1"
 Effect = 1
 Target = 0
 Ap_cost = 0
+id = "Prepared for the worst"
 icon = ExtResource("1_uvvpc")
+description = "This Card costs no Ap. Block 2 damage"

@@ -20,8 +20,8 @@ public partial class Basic_Draw : Card
         instance.Target = this.Target;
         instance.Ap_cost = this.Ap_cost;
         instance.icon = this.icon.Duplicate(true) as Texture2D; // Assuming Texture2D has a Duplicate method
-		
-		
+
+        instance.description = this.description;		
         return instance;
     }
 }

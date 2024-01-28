@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://cr6vb1msoqp3j"]
 
 [ext_resource type="StyleBox" path="res://scenes/card_ui/card_default.tres" id="1_hb13n"]
-[ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://fonts/Montserrat-Medium.ttf" id="2_eo71u"]
+[ext_resource type="FontFile" uid="uid://d0tn62m34i56c" path="res://fonts/Are You Freakin' Serious.ttf" id="2_664p3"]
 
 [resource]
-default_font = ExtResource("2_eo71u")
+default_font = ExtResource("2_664p3")
 default_font_size = 32
 Button/styles/disabled = null
 Button/styles/focus = null

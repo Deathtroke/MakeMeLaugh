@@ -18,7 +18,6 @@ public partial class CardAimingState : CardState
 		}
 		
 
-		c_ui.state.Text = "drag";
 		
 		drag_time_passed = false;
 

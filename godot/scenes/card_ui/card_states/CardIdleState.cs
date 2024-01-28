@@ -7,7 +7,6 @@ public partial class CardIdleState : CardState
 {
 	public override void Enter()
 	{
-		c_ui.state.Text = "idle";
 		c_ui.PivotOffset = Vector2.Zero;
 		c_ui.panel.Set("theme_override_styles/panel", c_ui.default_style);
 	}

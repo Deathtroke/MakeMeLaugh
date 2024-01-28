@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_832er")
-id = "Draw"
 Effect = 2
 Target = 0
 Ap_cost = 1
+id = "New Ideas"
 icon = ExtResource("1_1ix00")
+description = "This Card costs no Ap. Draw two Cards."
