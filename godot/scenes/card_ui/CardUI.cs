@@ -9,7 +9,7 @@ public partial class CardUI : Control
 	[Signal]
 	public delegate void ReparentEventHandler(CardUI ui);
 
-	public Label title;
+	public RichTextLabel title;
 	public RichTextLabel description;
 	public TextureRect icon;
 	public Panel panel;
@@ -19,6 +19,8 @@ public partial class CardUI : Control
 	public Array<Node> targets = new Array<Node>();
 	private Tween tween;
 	public Control parent;
+	private Vector2 _defaultPosition, _hoverPosition;
+	private bool _defaultPositionSet = false;
 
 	[Export] public StyleBox default_style;
 	[Export] public StyleBox hover_style;
@@ -33,10 +35,10 @@ public partial class CardUI : Control
 		drop_point = GetNode<Area2D>("DropPoint");
 		icon = GetNode<TextureRect>("Icon");
 		panel = GetNode<Panel>("Panel");
-		title = GetNode<Label>("Title");
+		title = GetNode<RichTextLabel>("Title");
 		description = GetNode<RichTextLabel>("Description");
 		
-		title.Text = card.id;
+		title.ParseBbcode("[center]" + card.id + "[/center]");;
 		description.Text = card.description;
 		icon.Texture = card.icon;
 		
@@ -52,10 +54,8 @@ public partial class CardUI : Control
 		hovered = false;
 
 		parent = GetParent<BoxContainer>();
-
 		Char_stats.Ap = 2;
 	}
-
 	public override void _Input(InputEvent e)
 	{
 		stateMachine.on_input(e);
@@ -78,10 +78,11 @@ public partial class CardUI : Control
 		{
 			return;
 		}
+		setDefaultPosition();
 		hovered = true;
 		stateMachine.on_mouse_enter();
 		panel.Set("theme_override_styles/panel", hover_style);
-
+		Position = new Vector2(Position.X, Position.Y - 25);
 	}
 
 	void on_mouse_exit()
@@ -89,6 +90,8 @@ public partial class CardUI : Control
 		hovered = false;
 		stateMachine.on_mouse_exit();
 		panel.Set("theme_override_styles/panel", default_style);
+		Position = _defaultPosition;
+		
 	}
 
 	public void play()
@@ -97,5 +100,14 @@ public partial class CardUI : Control
 		targets.Add(hand);
 		card.play(targets, Char_stats);
 		QueueFree();
+	}
+	
+	private void setDefaultPosition()
+	{
+		if (!_defaultPositionSet)
+		{
+			_defaultPosition = Position;
+			_defaultPositionSet = true;
+		}
 	}
 }

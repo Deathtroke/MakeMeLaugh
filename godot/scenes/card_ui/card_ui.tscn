@@ -1,17 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://csfkucl57dige"]
+[gd_scene load_steps=15 format=3 uid="uid://csfkucl57dige"]
 
 [ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="1_ymarf"]
 [ext_resource type="Script" path="res://scenes/card_ui/CardUI.cs" id="2_0qs6i"]
-[ext_resource type="StyleBox" uid="uid://b1i37v1i014qh" path="res://scenes/card_ui/card_default.tres" id="3_gf7nt"]
-[ext_resource type="StyleBox" uid="uid://b4m5uw051k1rs" path="res://scenes/card_ui/card_drag.tres" id="3_olhmk"]
+[ext_resource type="StyleBox" uid="uid://c220ly4etb50" path="res://scenes/card_ui/card_default.tres" id="3_gf7nt"]
+[ext_resource type="StyleBox" uid="uid://cfp220lhfyrht" path="res://scenes/card_ui/card_drag.tres" id="3_olhmk"]
 [ext_resource type="Script" path="res://scenes/card_ui/CardStateMachine.cs" id="3_vpjaa"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardIdleState.cs" id="4_ecrhc"]
-[ext_resource type="StyleBox" uid="uid://debnulso2gr7b" path="res://scenes/card_ui/card_hover.tres" id="4_jshua"]
+[ext_resource type="StyleBox" uid="uid://bswbddeqbqqm6" path="res://scenes/card_ui/card_hover.tres" id="4_jshua"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardClickedState.cs" id="5_py7a4"]
 [ext_resource type="Texture2D" uid="uid://cg6452ve1eepf" path="res://Art/def_icon.png" id="6_a5g88"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardDragState.cs" id="6_rovis"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardReleaseState.cs" id="7_7u0bn"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/CardAimingState.cs" id="7_yks7l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6fyn"]
+bg_color = Color(0.278431, 0.133333, 0.34902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.222333, 0.087, 0.29, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 15
+shadow_offset = Vector2(6.095, 8.465)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3o3w"]
 size = Vector2(241, 300)
@@ -21,7 +35,8 @@ custom_minimum_size = Vector2(240, 300)
 layout_mode = 3
 anchor_right = 0.125
 anchor_bottom = 0.278
-offset_bottom = -0.240021
+offset_top = -88.0
+offset_bottom = -88.24
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ymarf")
@@ -35,24 +50,32 @@ layout_mode = 0
 offset_right = 241.0
 offset_bottom = 300.0
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("3_gf7nt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_k6fyn")
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 8.00002
-offset_bottom = 48.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_top = 13.0
+offset_right = 108.0
+offset_bottom = 61.0
 grow_horizontal = 2
-text = "Placeholder"
-horizontal_alignment = 1
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "I am a long-ass placeholder Text"
+scroll_active = false
 
 [node name="Description" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 164.0
-offset_right = 231.0
-offset_bottom = 289.0
+offset_left = 17.0
+offset_top = 202.0
+offset_right = 223.0
+offset_bottom = 283.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
 text = "I am a placeholder text. Wheee"
 scroll_active = false
 
@@ -64,9 +87,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -49.0
-offset_top = -97.0
+offset_top = -77.0
 offset_right = 51.0
-offset_bottom = 10.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
