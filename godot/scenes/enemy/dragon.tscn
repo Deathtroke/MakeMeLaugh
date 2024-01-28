@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://di44ld4eq3bhx"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_xubej"]
+[ext_resource type="Texture2D" uid="uid://dbnljg4mdtxkp" path="res://Art/wipAssets/stick.png" id="2_0yqcl"]
+[ext_resource type="Texture2D" uid="uid://dn3uj7ppk10bf" path="res://Art/wipAssets/Dragon_Idle_01.png" id="3_sfpd2"]
+[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_fkasm"]
+[ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="5_1v15f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
+size = Vector2(984, 566)
+
+[node name="Enemy" type="Area2D" groups=["enemy", "enemys"]]
+collision_layer = 4
+script = ExtResource("1_xubej")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(35, 493)
+scale = Vector2(1, 1.4375)
+texture = ExtResource("2_0yqcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(58, -21)
+scale = Vector2(0.536514, 0.544434)
+texture = ExtResource("3_sfpd2")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(646, -4)
+texture = ExtResource("4_fkasm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(92, -14)
+shape = SubResource("RectangleShape2D_xgj4j")
+
+[node name="StatsUI" parent="." instance=ExtResource("5_1v15f")]
+offset_left = -78.0
+offset_top = -387.0
+offset_right = 206.0
+offset_bottom = -311.0

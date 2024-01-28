@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3rjonj4smjpm"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.cs" id="1_abq2p"]
+[ext_resource type="Texture2D" uid="uid://dysxdlhwyg42u" path="res://Art/wipAssets/pngimg.com - rope_PNG18118.png" id="2_u8u54"]
+[ext_resource type="Texture2D" uid="uid://c68nxum3pu22o" path="res://Art/wipAssets/God_Idle_01.png" id="3_3tp6r"]
+[ext_resource type="Texture2D" uid="uid://df10y5bwx280l" path="res://Art/atk_icon.png" id="4_taban"]
+[ext_resource type="PackedScene" uid="uid://cmio7dat7m816" path="res://scenes/ui/stats_ui.tscn" id="5_5v73h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgj4j"]
+size = Vector2(984, 566)
+
+[node name="Enemy" type="Area2D" groups=["enemy", "enemys"]]
+collision_layer = 4
+script = ExtResource("1_abq2p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-168, -527)
+rotation = 1.57137
+scale = Vector2(0.381643, 0.548611)
+texture = ExtResource("2_u8u54")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(280, -527)
+rotation = 1.57137
+scale = Vector2(0.381643, 0.548611)
+texture = ExtResource("2_u8u54")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(58, -21)
+scale = Vector2(0.536514, 0.544434)
+texture = ExtResource("3_3tp6r")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(646, -4)
+texture = ExtResource("4_taban")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(92, -14)
+shape = SubResource("RectangleShape2D_xgj4j")
+
+[node name="StatsUI" parent="." instance=ExtResource("5_5v73h")]
+offset_left = -78.0
+offset_top = -387.0
+offset_right = 206.0
+offset_bottom = -311.0
