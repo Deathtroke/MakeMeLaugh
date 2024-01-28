@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3ugnhpxr43yy"]
+
+[ext_resource type="Script" path="res://scenes/enemy/EnemyAI.cs" id="1_1bi52"]
+[ext_resource type="Script" path="res://Enemies/Dragon/Dragon_Attack1.cs" id="2_migsh"]
+[ext_resource type="Script" path="res://Enemies/Dragon/Dragon_Attack2.cs" id="3_o0umq"]
+[ext_resource type="Script" path="res://Enemies/Dragon/Dragon_Block.cs" id="4_parvu"]
+[ext_resource type="Script" path="res://Enemies/Dragon/Dragon_Mega.cs" id="5_s355d"]
+
+[node name="DragonEnemyAI" type="Node"]
+script = ExtResource("1_1bi52")
+
+[node name="Attack" type="Node" parent="."]
+script = ExtResource("2_migsh")
+Damage = 8
+type = 1
+chance_weigth = 30.0
+
+[node name="Attack2" type="Node" parent="."]
+script = ExtResource("3_o0umq")
+damage = 12
+type = 1
+chance_weigth = 25.0
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("4_parvu")
+block = 10
+type = 1
+chance_weigth = 25.0
+
+[node name="Ulti" type="Node" parent="."]
+script = ExtResource("5_s355d")
+block = 17
+type = 1
+chance_weigth = 10.0
