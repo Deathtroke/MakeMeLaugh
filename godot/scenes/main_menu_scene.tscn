@@ -4,13 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
 [ext_resource type="PackedScene" uid="uid://g4qhvbvdm62w" path="res://scenes/game_settings_scene.tscn" id="3_dgs4d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
-[ext_resource type="Texture2D" uid="uid://xnf5fe87xxmq" path="res://Art/Backgrounds/Drachenhort_v01.png" id="4_7jtyc"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
+[ext_resource type="Texture2D" uid="uid://b501vbryrruke" path="res://Art/Backgrounds/Lichtebene_v01.png" id="4_t1ycr"]
+[ext_resource type="Theme" uid="uid://cr6vb1msoqp3j" path="res://fonts/main_theme.tres" id="6_7jjqo"]
 [ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
-font_size = 8
-font_color = Color(1, 1, 1, 0.486275)
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
@@ -28,7 +25,7 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/CenterContainer"]
 position = Vector2(960, 540)
-texture = ExtResource("4_7jtyc")
+texture = ExtResource("4_t1ycr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
 layout_mode = 2
@@ -59,16 +56,19 @@ size_flags_horizontal = 4
 text = "leave_game"
 
 [node name="Credits" type="MarginContainer" parent="UI/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 245
 
-[node name="Label" type="Label" parent="UI/CenterContainer/VBoxContainer/Credits"]
+[node name="Label2" type="Label" parent="UI/CenterContainer/VBoxContainer/Credits"]
 layout_mode = 2
+theme = ExtResource("6_7jjqo")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 26
 text = "Hannes Börner, Madleen Heck & Mads-Henri Ungethüm"
-label_settings = SubResource("LabelSettings_2ikbh")
-horizontal_alignment = 1
 
 [node name="FadeOverlay" parent="UI" instance=ExtResource("3_kf1us")]
 unique_name_in_owner = true
