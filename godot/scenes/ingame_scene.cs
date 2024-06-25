@@ -43,7 +43,7 @@ public partial class ingame_scene : Node2D
 		OnEndTurn();
 	}
 	
-	private async Task OnEndTurn()
+	public async Task OnEndTurn()
 	{
 		GD.Print("Turn ending");
 		_player_handler._end_turn();

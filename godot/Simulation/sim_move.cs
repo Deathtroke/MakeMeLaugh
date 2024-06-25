@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 public partial class sim_move : Node
 {
@@ -27,6 +28,24 @@ public partial class sim_move : Node
 	{
 	}
 
+	async public void Simulate()
+	{
+		while(true)
+		{
+			if (CheckIfViablePlay())
+			{
+				PlayCard(ChooseCard(SimMode.ballanced));
+				await Task.Delay(1000);
+			}
+			else
+			{
+				ingame_scene gamescene = GetNode<ingame_scene>("ingame_scene");
+				await gamescene.OnEndTurn();
+			}
+			
+		}
+	}
+	
 	public Card ChooseCard(SimMode simMode)
 	{
 		Hand hand = Player._playerHandler.hand;
@@ -136,8 +155,27 @@ public partial class sim_move : Node
 					}
 				}
 				
-				card.play(new Godot.Collections.Array<Godot.Node> {target}, Player.Stats);
+				card.play(card.get_tagets(new Godot.Collections.Array<Godot.Node> {target}), Player.Stats);
 			}
 		}
+		else
+		{
+			card.play(card.get_tagets(new Godot.Collections.Array<Godot.Node>{}), Player.Stats);
+		}
+	}
+
+	public bool CheckIfViablePlay()
+	{
+		Hand hand = Player._playerHandler.hand;
+		foreach (var cardNode in hand.GetChildren())
+		{
+			if (cardNode is CardUI cardUI)
+			{
+				if (cardUI.card.Ap_cost <= Player._stats.Ap)
+					return true;
+			}
+		}
+
+		return false;
 	}
 }
