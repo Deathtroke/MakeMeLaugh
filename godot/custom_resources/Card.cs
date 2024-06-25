@@ -15,6 +15,7 @@ public partial class Card : Resource
 	[Export] public EffectType Effect;
 	[Export] public TargetType Target;
 	[Export] public int Ap_cost = 1;
+	[Export] public int Effect_Amount;
 
 	[ExportGroup("Info")]
 	[Export] public String id;

@@ -15,6 +15,9 @@ public partial class Enemy_Action : Node
 
 	public enemy _enemy;
 	public Node target;
+    
+    public int block;
+    public int damage;
 	
 	public virtual bool is_performable()
 	{

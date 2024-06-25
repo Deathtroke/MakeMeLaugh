@@ -4,10 +4,12 @@ using Godot.Collections;
 
 public partial class Heavy_Atk : Card
 {
+	int Effect_Amount = 8;
+
 	public override void apply_effects(Array<Node> targets)
 	{
 		var damage_effect = new Damage_Effect();
-		damage_effect.amount = 8;
+		damage_effect.amount = Effect_Amount;
 		damage_effect.execute(targets);
 	}
 	

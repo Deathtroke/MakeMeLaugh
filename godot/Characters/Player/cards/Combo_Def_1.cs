@@ -4,10 +4,12 @@ using Godot.Collections;
 
 public partial class Combo_Def_1 : Card
 {
+    int Effect_Amount = 2;
+
     public override void apply_effects(Array<Node> targets)
     {
         var damage_effect = new Block_Effect();
-        damage_effect.amount = 2;
+        damage_effect.amount = Effect_Amount;
         damage_effect.execute(targets);
     }
     
