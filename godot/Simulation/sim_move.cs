@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,14 +14,16 @@ public partial class sim_move : Node
 		ballanced
 	}
 
-	private player Player;
-    private EnemyHandler enemyHandler;
+	public player Player;
+	public EnemyHandler enemyHandler;
+	public ingame_scene Gamescene;
+	public battle_ui BattleUi;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Player = GetNode<player>("player");
-        enemyHandler = GetNode<EnemyHandler>("EnemyHandler");
+		enemyHandler = GetNode<EnemyHandler>("EnemyHandler");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,29 +33,34 @@ public partial class sim_move : Node
 
 	async public void Simulate()
 	{
+		
 		while(true)
 		{
 			if (CheckIfViablePlay())
 			{
-				PlayCard(ChooseCard(SimMode.ballanced));
+				var card = ChooseCard(SimMode.ballanced);
+				if (card != null)
+				{
+					PlayCard(card);
+				}
 				await Task.Delay(1000);
 			}
 			else
 			{
-				ingame_scene gamescene = GetNode<ingame_scene>("ingame_scene");
-				await gamescene.OnEndTurn();
+				await Gamescene.OnEndTurn();
 			}
 			
 		}
 	}
 	
-	public Card ChooseCard(SimMode simMode)
+	public CardUI ChooseCard(SimMode simMode)
 	{
 		Hand hand = Player._playerHandler.hand;
-		List<Card> possibleChoices = getPossibleChoices(simMode);
+		List<CardUI> possibleChoices = getPossibleChoices(simMode);
 
 		if (!possibleChoices.Any())
 		{
+			GD.Print("s");
 			if (hand.GetChildren().Any())
 			{
 				possibleChoices = getPossibleChoices(SimMode.ballanced);
@@ -63,27 +71,28 @@ public partial class sim_move : Node
 			}
 		}
 
-		Card pick = possibleChoices.First();
+		CardUI pick = possibleChoices.First();
 		
 		if (simMode == SimMode.ballanced)
 		{
 			int expectedDamage = 0;
 			foreach (enemy e in enemyHandler.GetChildren())
-            {
-	            if (e.curren_action.damage != null)
-	            {
-		            expectedDamage += e.curren_action.damage;
-	            }
+			{
+				if (e.curren_action.damage != null)
+				{
+					expectedDamage += e.curren_action.damage;
+				}
 
-	            if (expectedDamage >= Player.Stats.Block)
-	            {
-		            return ChooseCard(SimMode.defensive);
-	            }
-	            else
-	            {
-		            return ChooseCard(SimMode.offensive);
-	            }
-            }
+			}
+
+			if (expectedDamage >= Player.Stats.Block)
+			{
+				return ChooseCard(SimMode.defensive);
+			}
+			else
+			{
+				return ChooseCard(SimMode.offensive);
+			}
 		}
 		else
 		{
@@ -91,9 +100,15 @@ public partial class sim_move : Node
 			
 			foreach (var card in possibleChoices)
 			{
-				if (bestEffect < card.Effect_Amount)
+				var effect = card.card.Effect_Amount;
+
+				if (card.card.Ap_cost == 0)
 				{
-					bestEffect = card.Effect_Amount;
+					effect += 10; // prioritize 0 cost cards
+				}
+				if (bestEffect < effect)
+				{
+					bestEffect = effect;
 					pick = card;
 				}
 			}
@@ -102,45 +117,46 @@ public partial class sim_move : Node
 		return pick;
 	}
 
-	public List<Card> getPossibleChoices(SimMode simMode)
+	public List<CardUI> getPossibleChoices(SimMode simMode)
 	{
 		Hand hand = Player._playerHandler.hand;
-		List<Card> possibleChoices = new List<Card>();
+		List<CardUI> possibleChoices = new List<CardUI>();
 		foreach(var cardNode in hand.GetChildren())
 		{
 			if (cardNode is CardUI cardUI)
 			{
 				Card card = cardUI.card;
-				if (card.Ap_cost < Player._stats.Ap) continue;
-				
+				if (card.Ap_cost > Player._stats.Ap) continue;
 				
 				switch (simMode)
 				{
 					case SimMode.offensive:
 						if (card.Effect == Card.EffectType.Atk)
 						{
-							possibleChoices.Add(card);	
+							possibleChoices.Add(cardUI);	
 						}
 						break;
 					case SimMode.defensive:
 						if (card.Effect == Card.EffectType.Def)
 						{
-							possibleChoices.Add(card);	
+							possibleChoices.Add(cardUI);	
 						}
 						break;
 					case SimMode.ballanced:
-						possibleChoices.Add(card);	
+						possibleChoices.Add(cardUI);	
 						break;
 				}
 			}
 		}
-
+		
+		GD.Print(possibleChoices.Count);
 		return possibleChoices;
 	}
 
-	public void PlayCard(Card card)
+	public void PlayCard(CardUI card)
 	{
-		if (card.Effect == Card.EffectType.Atk)
+		card.Char_stats = Player._stats;
+		if (card.card.Effect == Card.EffectType.Atk)
 		{
 			if (enemyHandler.GetChildren().Any())
 			{
@@ -155,13 +171,17 @@ public partial class sim_move : Node
 					}
 				}
 				
-				card.play(card.get_tagets(new Godot.Collections.Array<Godot.Node> {target}), Player.Stats);
+				card.targets.Add(target);
+				card.play();
 			}
 		}
 		else
 		{
-			card.play(card.get_tagets(new Godot.Collections.Array<Godot.Node>{}), Player.Stats);
+			card.play();
 		}
+		GD.Print("ap" + Player._stats.Ap);
+		Player._stats._discard.addcard(card.card);
+		BattleUi._ap_ui.ap_Label.Text = Player._stats.Ap + "/" + Player._stats.Max_ap;
 	}
 
 	public bool CheckIfViablePlay()

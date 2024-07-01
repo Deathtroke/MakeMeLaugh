@@ -3,7 +3,7 @@ using System;
 
 public partial class ap_ui : Panel
 {
-	Label ap_Label;
+	public Label ap_Label;
 
 	[Export] public CharacterStats char_stats;
 	// Called when the node enters the scene tree for the first time.

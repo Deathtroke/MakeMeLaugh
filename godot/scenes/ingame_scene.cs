@@ -10,6 +10,7 @@ public partial class ingame_scene : Node2D
 	private PlayerHandler _player_handler;
 	private EnemyHandler enemyHandler;
 	private player _player;
+	private sim_move Simulator;
 
 	public int level;
 
@@ -28,12 +29,19 @@ public partial class ingame_scene : Node2D
  		
 		_player_handler.DiscardFinished += OnDiscardFinished;
 		_battle_ui.EndTurn += EndTurnButton;
+		_battle_ui.SimStart += SimButton;
 
 		fade_overlay.Visible = true;
 
 		CharacterStats _new_stats = Char_stats.create_instance();
 		_battle_ui.Character_stats = _new_stats;
 		_player._stats = _new_stats;
+
+		Simulator = new sim_move();
+		Simulator.Player = _player;
+		Simulator.enemyHandler = enemyHandler;
+		Simulator.BattleUi = _battle_ui;
+		Simulator.Gamescene = this;
 		
 		start_battle(_new_stats);
 	}
@@ -41,6 +49,11 @@ public partial class ingame_scene : Node2D
 	private void EndTurnButton()
 	{
 		OnEndTurn();
+	}
+	
+	private void SimButton()
+	{
+		Simulator.Simulate();
 	}
 	
 	public async Task OnEndTurn()
@@ -123,6 +136,9 @@ public partial class ingame_scene : Node2D
 			default:
 				break;
 		}
+		
+		Simulator.enemyHandler = enemyHandler;
+
 
 		enemyHandler.Visible = true;
 		enemyHandler.ChildOrderChanged += on_enemy_change;

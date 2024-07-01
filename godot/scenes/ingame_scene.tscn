@@ -36,13 +36,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5rq"]
 size = Vector2(1922, 742)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqpet"]
-bg_color = Color(0.47451, 0.541176, 0.407843, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an87q"]
 bg_color = Color(0.47451, 0.541176, 0.407843, 1)
 border_width_left = 10
@@ -82,6 +75,13 @@ border_width_left = 10
 border_width_top = 10
 border_color = Color(0.682353, 0.74902, 0.615686, 1)
 border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqpet"]
+bg_color = Color(0.47451, 0.541176, 0.407843, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -192,6 +192,27 @@ hand = NodePath("../BattleUI/Hand")
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("10_js3df")
 Character_stats = ExtResource("12_vigc1")
+
+[node name="Simulation" type="Button" parent="BattleUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1900.0
+offset_top = -1059.0
+offset_right = -1520.0
+offset_bottom = -934.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("22_knft7")
+theme_type_variation = &"EndTurn"
+theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxFlat_an87q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrnyx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_665to")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ehua1")
+text = "start simulation"
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI" groups=["hand"]]
 anchors_preset = 7
