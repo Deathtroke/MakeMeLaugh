@@ -8,8 +8,6 @@ public partial class Boar_Block : Enemy_Action
 
 	public override void perform_action()
 	{
-		GD.Print(_enemy);
-
 		if (_enemy == null)
 		{
 			return;

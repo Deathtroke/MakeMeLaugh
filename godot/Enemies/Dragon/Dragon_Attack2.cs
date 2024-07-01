@@ -8,8 +8,6 @@ public partial class Dragon_Attack2 : Enemy_Action
 
 	public override void perform_action()
 	{
-		GD.Print(target);
-
 		if (target == null)
 		{
 			return;

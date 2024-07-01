@@ -8,7 +8,6 @@ public partial class Boarling_Attack1 : Enemy_Action
 
 	public override void perform_action()
 	{
-		GD.Print(target);
 		if (target == null)
 		{
 			return;

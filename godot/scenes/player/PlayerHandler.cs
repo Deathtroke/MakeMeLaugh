@@ -15,8 +15,7 @@ public partial class PlayerHandler : Node
 		_characterStats._discard.addcard(lastCard);
 	}
 	public void start_battle(CharacterStats character)
-	{
-		GD.Print(character._deck.Cards);
+	{ 
 		_characterStats = character;
 		character._draw_pile = character._deck.Duplicate();
 		character._draw_pile.shuffle();

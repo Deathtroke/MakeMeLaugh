@@ -136,7 +136,6 @@ public partial class enemy : Area2D
 		if (curren_action == null)
 		{
 			curren_action = enemy_ai.get_action();
-			GD.Print(curren_action);
 			return;
 		}
 	}
