@@ -11,13 +11,14 @@ public partial class sim_move : Node
 	{
 		offensive,
 		defensive,
-		ballanced
+		any
 	}
 
 	public player Player;
 	public EnemyHandler enemyHandler;
 	public ingame_scene Gamescene;
 	public battle_ui BattleUi;
+	public bool isSimulating = false;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -34,22 +35,26 @@ public partial class sim_move : Node
 	async public void Simulate()
 	{
 		
-		while(true)
+		while(isSimulating)
 		{
-			if (CheckIfViablePlay())
+			await SimulateStep();
+		}
+	}
+	
+	async public Task SimulateStep()
+	{
+		if (CheckIfViablePlay())
+		{
+			var card = ChooseCard(SimMode.defensive);
+			if (card != null)
 			{
-				var card = ChooseCard(SimMode.ballanced);
-				if (card != null)
-				{
-					PlayCard(card);
-				}
-				await Task.Delay(1000);
+				PlayCard(card);
 			}
-			else
-			{
-				await Gamescene.OnEndTurn();
-			}
-			
+			await Task.Delay(1000);
+		}
+		else
+		{
+			await Gamescene.OnEndTurn();
 		}
 	}
 	
@@ -60,10 +65,16 @@ public partial class sim_move : Node
 
 		if (!possibleChoices.Any())
 		{
-			GD.Print("s");
-			if (hand.GetChildren().Any())
+			if (CheckIfViablePlay())
 			{
-				possibleChoices = getPossibleChoices(SimMode.ballanced);
+				if (simMode == SimMode.defensive)
+				{
+					return ChooseCard(SimMode.offensive);
+				}
+				else
+				{
+					return ChooseCard(SimMode.any);
+				}
 			}
 			else
 			{
@@ -72,47 +83,69 @@ public partial class sim_move : Node
 		}
 
 		CardUI pick = possibleChoices.First();
-		
-		if (simMode == SimMode.ballanced)
+
+		//check if more block is needed otherwise switch to offensive
+		if (simMode == SimMode.defensive)
 		{
 			int expectedDamage = 0;
-			foreach (enemy e in enemyHandler.GetChildren())
+			foreach (Node e in enemyHandler.GetChildren())
 			{
-				if (e.curren_action.damage != null)
+				if (e.Name.ToString().Contains("Boarling"))
 				{
-					expectedDamage += e.curren_action.damage;
+					expectedDamage += 2;
 				}
-
+				else if (e.Name.ToString().Contains("Boar"))
+				{
+					expectedDamage += 6;
+				}
+				else if (e.Name.ToString().Contains("Unicorn"))
+				{
+					expectedDamage += 8;
+				}
+				else if (e.Name.ToString().Contains("Rat"))
+				{
+					expectedDamage += 4;
+				}
+				else if (e.Name.ToString().Contains("Dragon"))
+				{
+					expectedDamage += 30;
+				}
 			}
 
-			if (expectedDamage >= Player.Stats.Block)
-			{
-				return ChooseCard(SimMode.defensive);
-			}
-			else
+			if (expectedDamage <= Player.Stats.Block)
 			{
 				return ChooseCard(SimMode.offensive);
 			}
-		}
-		else
-		{
-			int bestEffect = 0;
-			
-			foreach (var card in possibleChoices)
-			{
-				var effect = card.card.Effect_Amount;
 
-				if (card.card.Ap_cost == 0)
-				{
-					effect += 10; // prioritize 0 cost cards
-				}
-				if (bestEffect < effect)
-				{
-					bestEffect = effect;
-					pick = card;
-				}
+		}
+
+		int bestEffect = 0;
+		
+		foreach (var card in possibleChoices)
+		{
+			var effectPerAP = 0;
+
+			if (card.card.Ap_cost != 0)
+			{
+				effectPerAP = card.card.Effect_Amount / card.card.Ap_cost;
+			}
+			else
+			{
+				effectPerAP = card.card.Effect_Amount * 10;
+			}
+
+			if (card.card.Target == Card.TargetType.AOE)
+			{
+				effectPerAP *= enemyHandler.GetChildren().Count;
+			}
+			
+			if (bestEffect < effectPerAP)
+			{
+				bestEffect = effectPerAP;
+				pick = card;
 			}
 		}
+
 		
 		return pick;
 	}
@@ -142,7 +175,7 @@ public partial class sim_move : Node
 							possibleChoices.Add(cardUI);	
 						}
 						break;
-					case SimMode.ballanced:
+					case SimMode.any:
 						possibleChoices.Add(cardUI);	
 						break;
 				}

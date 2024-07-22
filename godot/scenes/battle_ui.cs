@@ -7,12 +7,17 @@ public partial class battle_ui : CanvasLayer
 	public ap_ui _ap_ui;
 	private Button _end_turn_button;
 	private Button _start_sim_button;
+	private Button _start_sim_button_setp;
+	public bool isSimulating = false;
 	public delegate void EndTurnHandler();
 	public event EndTurnHandler EndTurn;
 
 	public delegate void SimButtonHandler();
 
 	public event SimButtonHandler SimStart;
+	
+	public delegate void SimStepButtonHandler();
+	public event SimStepButtonHandler SimStepStart;
 	private void _ready()
 	{
 		_hand = GetNode<Hand>("Hand");
@@ -21,6 +26,8 @@ public partial class battle_ui : CanvasLayer
 		_end_turn_button.Pressed += OnEndTurnButtonPressed;
 		_start_sim_button = GetNode<Button>("Simulation");
 		_start_sim_button.Pressed += OnSimButtonPressed;
+		_start_sim_button_setp = GetNode<Button>("SimulationStep");
+		_start_sim_button_setp.Pressed += OnSimStepButtonPressed;
 	}
 
 	private void OnEndTurnButtonPressed()
@@ -30,7 +37,22 @@ public partial class battle_ui : CanvasLayer
 	
 	private void OnSimButtonPressed()
 	{
+		isSimulating = !isSimulating;
+		if (isSimulating)
+		{
+			_start_sim_button.Text = "stop simulation"; 
+		}
+		else
+		{
+			_start_sim_button.Text = "start simulation";
+		}
+
 		SimStart?.Invoke();
+	}
+	
+	private void OnSimStepButtonPressed()
+	{
+		SimStepStart?.Invoke();
 	}
 
 	[Export] public CharacterStats Character_stats;

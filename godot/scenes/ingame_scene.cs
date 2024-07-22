@@ -30,6 +30,7 @@ public partial class ingame_scene : Node2D
 		_player_handler.DiscardFinished += OnDiscardFinished;
 		_battle_ui.EndTurn += EndTurnButton;
 		_battle_ui.SimStart += SimButton;
+		_battle_ui.SimStepStart += SimStepButton;
 
 		fade_overlay.Visible = true;
 
@@ -53,7 +54,13 @@ public partial class ingame_scene : Node2D
 	
 	private void SimButton()
 	{
+		Simulator.isSimulating = _battle_ui.isSimulating;
 		Simulator.Simulate();
+	}
+	
+	private void SimStepButton()
+	{
+		Simulator.SimulateStep();
 	}
 	
 	public async Task OnEndTurn()

@@ -8,6 +8,7 @@ script = ExtResource("2_hdv8b")
 Effect = 0
 Target = 2
 Ap_cost = 1
+Effect_Amount = 0
 id = "Insult their Family"
 icon = ExtResource("1_j7mfq")
 description = "Deal 2 Damage to every enemy"

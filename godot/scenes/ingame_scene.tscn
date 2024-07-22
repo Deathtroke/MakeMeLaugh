@@ -193,16 +193,37 @@ hand = NodePath("../BattleUI/Hand")
 script = ExtResource("10_js3df")
 Character_stats = ExtResource("12_vigc1")
 
+[node name="SimulationStep" type="Button" parent="BattleUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1481.0
+offset_top = -1040.0
+offset_right = -1060.0
+offset_bottom = -915.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("22_knft7")
+theme_type_variation = &"EndTurn"
+theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxFlat_an87q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrnyx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_665to")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ehua1")
+text = "simulate one step"
+
 [node name="Simulation" type="Button" parent="BattleUI"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1900.0
-offset_top = -1059.0
-offset_right = -1520.0
-offset_bottom = -934.0
+offset_left = -1874.0
+offset_top = -1041.0
+offset_right = -1494.0
+offset_bottom = -916.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("22_knft7")

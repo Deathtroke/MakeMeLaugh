@@ -8,6 +8,7 @@ script = ExtResource("2_7e72e")
 Effect = 0
 Target = 1
 Ap_cost = 0
+Effect_Amount = 0
 id = "A list of issues"
 icon = ExtResource("1_h62rg")
 description = "This Card costs no Ap. Deal 2 Damage."
